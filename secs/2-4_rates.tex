@@ -1,0 +1,59 @@
+\subsection{Reaction Rates}
+\itbf{Assumptions:}
+\begin{enumerate}
+\item The reaction rates are only functions of gas-phase concentrations of $NO$,
+$NH_3$, the adsorbed Ammonia and the available adsorption sites $\lr(\Theta)$.
+
+\item The concentration rates are converted into molar-rate so that the
+mass balance in control volume approach (CSTR) can be performed.
+
+\item A lower order Tayler approximation is assumed to model the temperature
+effects in rate constant.
+
+\item As the volume of the reaction chamber is constant. The concentration
+    $\lrb{.}$ is replaced with the number of moles $\lrf{.}$ without changing
+        the structure of the equations for convenience. Only the values of the
+        rate constants change accommodating the change in units and the
+        volume/area when required.
+\end{enumerate}
+
+\begin{enumerate}
+\item Standard SCR Reaction (\ref{eqn::std_scr}):
+$ NH_3 ^{(ads)} +  NO + (1/4) O_2 \longrightarrow  N_2 + (3/2) H_2O$
+\begin{align}
+    r_1 &= k_1 [NO_x^{in}] \mol{NH_3^{ads}}\\
+    k_1 &= A_1 e^{\frac{-E_1}{RT}} \approx \bar k_1 + p_1 \bar k_1 \delta T \qquad \lrb{p_1 = \frac{E_1}{R T_0^2}}
+\end{align}
+
+\item Ammonia Oxidation (\ref{eqn::amox}):
+    $ NH_3 + (3/4) O_2 \longrightarrow (1/2) N_2 + (3/2) H_2O$
+\begin{align}
+    r_2 &= k_2 \mol{NH_3^{in}}\\
+    k_2 &= A_2 e^{\frac{-E_2}{RT}} \approx \bar k_2 + p_2 \bar k_2 \delta T \qquad \lrb{p_2 = \frac{E_2}{R T_0^2}}
+\end{align}
+
+\item Ammonia Adsorption/Desorption (\ref{eqn::ads}):
+$NH_3 + \theta_{free} \rightleftharpoons  NH_3^{(ads)}$
+\begin{enumerate}
+\item Forward:
+\begin{align}
+    r_{3F} &= k_{3F} \con{NH_3^{in}} \lr{\Theta - \mol{NH_3^{ads}}}\\
+    k_{3F} &= A_{3F} e^{\frac{-E_{3F}}{RT}} \approx \bar k_{3F} + p_{3F} \bar k_{3F} \delta T \qquad \lrb{p_{3F} = \frac{E_{3F}}{R T_0^2}}
+\end{align}
+
+\item Reverse:
+\begin{align}
+    r_{3R} &= k_{3R} \mol{NH_3^{ads}}\\
+    k_{3R} &= A_{3R} e^{\frac{-E_{3R}}{RT}} \approx \bar k_{3R} + p_{3R} \bar k_{3R} \delta T \qquad \lrb{p_{3R} = \frac{E_{3R}}{R T_0^2}}
+\end{align}
+\end{enumerate}
+\end{enumerate}
+
+Where,
+\begin{align*}
+    \Theta &- \text{Ammonia storage capacity} (moles)\\
+    E_i &- \text{Activation Energy of $i^{th}$ reaction}\\
+    A_i &- \text{Pre-exponential factor}\\
+    R &- \text{Universal gas constant}\\
+    T &- \text{Temperature}\\
+\end{align*}
