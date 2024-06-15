@@ -32,7 +32,8 @@ Thus, the rate of ammonia adsorption on the catalyst surface can be modeled as:
     r_{ads} &= k_{ads} \con{NH_3}^{in} \lr{\Gamma - \con{NH_3}^{ads}}\\
     r_{des} &= k_{des} \con{NH_3}^{ads}\\
     r_{scr} &= k_{scr} \con{NH_3}^{ads} \con{NO_x}^{in}\\
-    r_{oxi} &= k_{oxi} \con{NH_3}^{ads}
+    r_{oxi} &= k_{oxi} \con{NH_3}^{ads}\\
+    \dot{\con{NH_3}}^{ads} &= \Gamma \underbrace{k_{ads} \con{NH_3}^{in}}_{\gamma_{ads}} - \con{NH_3}^{ads} \underbrace{\lr{k_{ads} \con{NH_3}^{in} + k_{des} + k_{scr} \con{NO_x}^{in} + k_{oxi}}}_{\gamma_{des}}
 \end{align}
 
 \itbf{Note:} $\Gamma$ and $\con{NH_3}^{ads}$ are surface concentrations (in
@@ -90,3 +91,75 @@ Writing above equation interns of surface concentrations:
 \begin{align}
     \con{NH_3}^{ads}(k + 1) = \con{NH_3}^{ads} (k + n\tau) &= \con{NH_3}^{ads} (k) + \underbrace{\sum_{i=0}^{n-1} \int_{0}^{\tau} \dot{\con{NH_3}}^{ads} (k + i\tau)}_{\Omega(k)}   dt
 \end{align}
+
+$\Omega(k)$ is the total change in the surface concentration of adsorbed ammonia
+within one sample time.
+
+% ==============================================================================
+\subsection{Calculating the surface concentration change within one sample time $\Omega(k)$}
+
+The volumetric concentrations of the gaseous reactants are assumed to be
+constant within the sample time, while the surface concentrations change at the
+end of every residence time.
+
+\begin{align*}
+    \dot{\con{NH_3}}^{ads} (k + i\tau) &= r_{ads} (k + i \tau) - r_{des} (k + i \tau) - r_{scr} (k + i \tau) - r_{oxi} (k + i \tau)\\
+    %===
+    r_{ads} (k + i \tau) &= k_{ads} \con{NH_3}^{in}(k) \lr{\Gamma - \con{NH_3}^{ads} (k + i \tau)}\\
+    r_{des} (k + i \tau) &= k_{des} \con{NH_3}^{ads}(k + i \tau)\\
+    r_{scr} (k + i \tau) &= k_{scr} \con{NH_3}^{ads}(k + i \tau) \con{NO_x}^{in}(k)\\
+    r_{oxi} (k + i \tau) &= k_{oxi} \con{NH_3}^{ads}(k + i \tau)\\
+    \gamma_{ads} (k) &= \Gamma k_{ads} \con{NH_3}^{in}(k)\\
+    \gamma_{des} (k) &= \lr{k_{ads} \con{NH_3}^{in}(k) + k_{des} + k_{scr} \con{NO_x}^{in}(k) + k_{oxi}}\\
+    %===
+    \dot{\con{NH_3}}^{ads} (k + i\tau) &= \gamma_{ads} (k) - \con{NH_3}^{ads} (k + i \tau) \gamma_{des} (k)
+\end{align*}
+
+Calculating the expression for $\Omega(k)$:
+\begin{align*}
+    \Omega(k) &= \sum_{i=0}^{n-1} \int_{0}^{\tau} \dot{\con{NH_3}}^{ads} (k + i\tau) dt\\
+    &= \sum_{i=0}^{n-1} \dot{\con{NH_3}}^{ads} (k + i\tau) \tau \qquad \lrb{\because \text{The rate is assumed to be constant within the residence time}}\\
+    &= \sum_{i=0}^{n-1} \lr{\gamma_{ads} (k) - \con{NH_3}^{ads} (k + i \tau) \gamma_{des} (k)} \tau\\
+    &= \tau n \Gamma \gamma_{ads} (k) - \tau \gamma_{des} (k) \underbrace{\sum_{i=0}^{n-1} \con{NH_3}^{ads} (k + i \tau) }_{n \sigma(k)} \\
+    &= n \tau \lr{\Gamma \gamma_{ads} (k) - \sigma(k) \gamma_{des} (k)}
+\end{align*}
+
+The term $\sigma(k)$ is unknown and unobservable. It is the average surface
+concentration at the end of every residence time within the sample time.
+
+% ==============================================================================
+\itbf{Note:} $\sigma(k)$ can be approximated as the surface concentration at the beginning of the sample time.
+
+The average surface concentration $\sigma(k)$ in the sample time is approximated
+as the surface concentration at the beginning of the sample time. This
+approximation will introduce an error in the model whose effects will be
+analyzed in sequential sections.
+
+Thus,
+\begin{align}
+    \Omega(k) &\approx n \tau \lr{\Gamma \gamma_{ads} (k) - \con{NH_3}^{ads}(k) \gamma_{des} (k)}
+\end{align}
+
+Thus, we have approximate ammonia adsorption/desorption process dynamics model as:
+
+\begin{align*}
+    \con{NH_3}^{ads}(k + 1) &= \con{NH_3}^{ads} (k) + n \tau \lr{\Gamma \gamma_{ads} (k) - \con{NH_3}^{ads}(k) \gamma_{des} (k)}\\
+    &= n \tau \Gamma \gamma_{ads} (k) + \con{NH_3}^{ads} (k) \lr{1 - n \tau \gamma_{des} (k)}\\
+    &= n \tau \Gamma k_{ads} \con{NH_3}^{in}(k)  + \con{NH_3}^{ads} (k) \lr{1 - n \tau \lr{k_{ads} \con{NH_3}^{in}(k) + k_{des} + k_{scr} \con{NO_x}^{in}(k) + k_{oxi}}}
+\end{align*}
+
+
+\begin{align}
+    \con{NH_3}^{ads}(k + 1) &= n \tau \Gamma k_{ads} \con{NH_3}^{in}(k)  + \con{NH_3}^{ads} (k) \lr{1 - n \tau \lr{k_{ads} \con{NH_3}^{in}(k) + k_{des} + k_{scr} \con{NO_x}^{in}(k) + k_{oxi}}}
+\end{align}
+
+Examining the individual terms:
+\begin{align*}
+    \con{NH_3}^{ads}(k + 1) =& \con{NH_3}^{ads}(k)\\
+        &+ n\tau k_{ads} \con{NH_3}^{in} \lr{\Gamma - \con{NH_3}^{ads}(k)} \\
+        &- n \tau \lr{k_{oxi} + k_{des}} \con{NH_3}^{ads} (k)\\
+        &- n \tau k_{scr} \con{NO_x}^{in}(k) \con{NH_3}^{ads}(k)
+\end{align*}
+
+The above equation is nothing but multiplying the rate equation with the
+sampling interval to get the measurement update.
