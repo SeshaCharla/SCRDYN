@@ -1,2 +1,44 @@
 \newpage
 \section{Urea Dosing Process Dynamics}
+The urea dosing dynamics involve the following reactions:
+
+\begin{align*}
+    NH_2 - CO - NH_2 (liquid) &\longrightarrow NH_2 - CO - NH_2^* + x H_2 O
+                & &[\text{AdBlue evaporation}] \\
+    NH_2 - CO - NH_2^*  &\longrightarrow  HNCO + NH_3
+                & &[\text{Urea decomposition}] \\
+    HNCO + H_2O &\longrightarrow NH_3 + CO_2
+                & &[\text{Isocynic acid hydrolysis}] \\
+\end{align*}
+
+The above reactions can be aggregated into:
+\begin{align*}
+    NH_2 - CO - NH_2 (liquid) &\longrightarrow 2 NH_3 + CO_2 + x H_2 O
+\end{align*}
+
+The rate of ammonia production is twice the rate of decomposition of the urea in
+the solution (AdBlue). Thus,
+\begin{align*}
+    \frac{d \con{NH_3}^{in}}{dt} &= 2 r_{u}\\
+    r_{u} &= k_{u} \con{NH_2 - CO - NH_2} \qquad (constant)
+\end{align*}
+
+As the concentration of urea in the solution is constant, the above rate becomes
+a constant. Thus, the total moles of ammonia produced at the inlet within a
+residence time would be:
+\begin{align*}
+    \mol{NH_3}^{in} (k) &= \tau \times \underbrace{2 r_{u}}_{\text{Rate of decomposition}} \times \underbrace{\tau u_{inj} (k)}_{\text{Volume injected}}
+\end{align*}
+
+Where, $u_{inj}$ urea-solution injection rate in $ml/s$.
+
+Thus, we have the inlet concentration of ammonia as:
+\begin{align*}
+    \con{NH_3}^{in} (k) &= \frac{\mol{NH_3}^{in} (k)}{V}
+                          = \frac{2 r_u}{V} \times \tau^2 \times u_{inj} (k)
+\end{align*}
+
+Substituting, $\tau = \frac{V}{f_v}$, we get:
+\begin{align}
+    \con{NH_3}^{in} (k) &= 2r_u V \times \frac{u_{inj}(k)}{f_v^2}
+\end{align}
