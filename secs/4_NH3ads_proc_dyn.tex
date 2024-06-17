@@ -127,39 +127,22 @@ Calculating the expression for $\Omega(k)$:
 The term $\sigma(k)$ is unknown and unobservable. It is the average surface
 concentration at the end of every residence time within the sample time.
 
+Moreover, we can get the expression for average rate of change of the surface
+concentrations within the sample time as:
+\begin{align*}
+    \dot{\con{NH_3}}^{ads} (k) &= \frac{\Omega(k)}{\tau n} = \Gamma \gamma_{ads} (k) - \sigma(k) \gamma_{des} (k)\\
+    &= \Gamma k_{ads} \con{NH_3}^{in}(k) - \sigma(k) \lr{k_{ads} \con{NH_3}^{in}(k) + k_{des} + k_{scr} \con{NO_x}^{in}(k) + k_{oxi}}
+\end{align*}
+
 % ==============================================================================
-\itbf{Note:} $\sigma(k)$ can be approximated as the surface concentration at the beginning of the sample time.
 
-The average surface concentration $\sigma(k)$ in the sample time is approximated
-as the surface concentration at the beginning of the sample time. This
-approximation will introduce an error in the model whose effects will be
-analyzed in sequential sections.
-
-Thus,
-\begin{align}
-    \Omega(k) &\approx n \tau \lr{\Gamma \gamma_{ads} (k) - \con{NH_3}^{ads}(k) \gamma_{des} (k)}
-\end{align}
-
-Thus, we have approximate ammonia adsorption/desorption process dynamics model as:
+\subsection{Ammonia adsorption/desorption process dynamics model}
+Substituting the expression for $\Omega(k)$ in the equation for
+$\con{NH_3}^{ads}(k + 1)$:
 
 \begin{align*}
-    \con{NH_3}^{ads}(k + 1) &= \con{NH_3}^{ads} (k) + n \tau \lr{\Gamma \gamma_{ads} (k) - \con{NH_3}^{ads}(k) \gamma_{des} (k)}\\
-    &= n \tau \Gamma \gamma_{ads} (k) + \con{NH_3}^{ads} (k) \lr{1 - n \tau \gamma_{des} (k)}\\
-    &= n \tau \Gamma k_{ads} \con{NH_3}^{in}(k)  + \con{NH_3}^{ads} (k) \lr{1 - n \tau \lr{k_{ads} \con{NH_3}^{in}(k) + k_{des} + k_{scr} \con{NO_x}^{in}(k) + k_{oxi}}}
+    \con{NH_3}^{ads}(k + 1) &= \con{NH_3}^{ads} (k) + n \tau \lr{\Gamma \gamma_{ads} (k) - \sigma(k) \gamma_{des} (k)}\\
+    &= \con{NH_3}^{ads}(k) + n \tau \Gamma k_{ads} \con{NH_3}^{in}(k) - n \tau \sigma(k) \lr{k_{ads} \con{NH_3}^{in}(k) + k_{des} + k_{scr} \con{NO_x}^{in}(k) + k_{oxi}}
 \end{align*}
 
-
-\begin{align}
-    \con{NH_3}^{ads}(k + 1) &= n \tau \Gamma k_{ads} \con{NH_3}^{in}(k)  + \con{NH_3}^{ads} (k) \lr{1 - n \tau \lr{k_{ads} \con{NH_3}^{in}(k) + k_{des} + k_{scr} \con{NO_x}^{in}(k) + k_{oxi}}}
-\end{align}
-
-Examining the individual terms:
-\begin{align*}
-    \con{NH_3}^{ads}(k + 1) =& \con{NH_3}^{ads}(k)\\
-        &+ n\tau k_{ads} \con{NH_3}^{in} \lr{\Gamma - \con{NH_3}^{ads}(k)} \\
-        &- n \tau \lr{k_{oxi} + k_{des}} \con{NH_3}^{ads} (k)\\
-        &- n \tau k_{scr} \con{NO_x}^{in}(k) \con{NH_3}^{ads}(k)
-\end{align*}
-
-The above equation is nothing but multiplying the rate equation with the
-sampling interval to get the measurement update.
+% \input{secs/4_subs/sig_approx.tex}
