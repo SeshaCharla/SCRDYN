@@ -18,23 +18,23 @@ with the gaseous $NO_x$ (Eiley-Rideal Mechanism) releasing $N_2$ and $H_2O$ or
 decomposes to form $N_2$ and $H_2O$ (Surface Decomposition). In either
 case, the process frees up the adsorption sites for the next cycle of gasueous ammonia.
 
-\begin{align}
+\begin{align*}
     4 NH_3 ^{ads} + 4 NO + O_2 &\xrightarrow[]{k_{scr}} 4 N_2 + 6 H_2O \\
     4 NH_3^{ads} + 3 O_2 &\xrightarrow[]{k_{oxi}} 2 N_2 + 6 H_2O \\
     NH_3 + \Theta_{free} &\xrightleftharpoons[k_{des}]{k_{ads}} NH_3^{ads}
-\end{align}
+\end{align*}
 
 
 Thus, the rate of ammonia adsorption on the catalyst surface can be modeled as:
 
-\begin{align}
+\begin{align*}
     \frac{d \con{NH_3}^{ads}}{dt} &= r_{ads} - r_{des} - r_{scr} - r_{oxi}\\
     r_{ads} &= k_{ads} \con{NH_3}^{in} \lr{\Gamma - \con{NH_3}^{ads}}\\
     r_{des} &= k_{des} \con{NH_3}^{ads}\\
     r_{scr} &= k_{scr} \con{NH_3}^{ads} \con{NO_x}^{in}\\
     r_{oxi} &= k_{oxi} \con{NH_3}^{ads}\\
     \dot{\con{NH_3}}^{ads} &= \Gamma \underbrace{k_{ads} \con{NH_3}^{in}}_{\gamma_{ads}} - \con{NH_3}^{ads} \underbrace{\lr{k_{ads} \con{NH_3}^{in} + k_{des} + k_{scr} \con{NO_x}^{in} + k_{oxi}}}_{\gamma_{des}}
-\end{align}
+\end{align*}
 
 \itbf{Note:} $\Gamma$ and $\con{NH_3}^{ads}$ are surface concentrations (in
 $moles/cm^2$) while the rest are volumetric concentrations (in $moles/cm^3$).
@@ -83,14 +83,14 @@ can be written as:
     \mol{NH_3}^{ads} (k + n\tau) &= \mol{NH_3}^{ads} (k + (n-1)\tau) + A_{scr} \int_{0}^{\tau} \dot{\con{NH_3}}^{ads} (k + (n-1)\tau) dt
 \end{align*}
 
-\begin{align}
+\begin{align*}
     \mol{NH_3}^{ads}(k + 1) = \mol{NH_3}^{ads} (k + n\tau) &= \mol{NH_3}^{ads} (k) + A_{scr} \sum_{i=0}^{n-1} \int_{0}^{\tau} \dot{\con{NH_3}}^{ads} (k + i\tau) dt
-\end{align}
+\end{align*}
 
 Writing above equation interns of surface concentrations:
-\begin{align}
+\begin{align*}
     \con{NH_3}^{ads}(k + 1) = \con{NH_3}^{ads} (k + n\tau) &= \con{NH_3}^{ads} (k) + \underbrace{\sum_{i=0}^{n-1} \int_{0}^{\tau} \dot{\con{NH_3}}^{ads} (k + i\tau)}_{\Omega(k)}   dt
-\end{align}
+\end{align*}
 
 $\Omega(k)$ is the total change in the surface concentration of adsorbed ammonia
 within one sample time.
