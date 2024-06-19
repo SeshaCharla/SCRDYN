@@ -1,3 +1,4 @@
+\newpage
 \section{SCR/ASC Reactions}
 The following lists all the reactions that take placed inside the SCR-ASC chamber.
 
@@ -54,3 +55,33 @@ three reactions are considered:
             \label{eqn::ads}
         \end{align}
 \end{enumerate}
+
+
+\subsection{Temperature model for rate constants}
+The rate constants $(k)$ of the reactions are temperature dependent and follow
+Arrhenius equation:
+\begin{align*}
+    k = A \exp\left(-\frac{E}{RT}\right)
+\end{align*}
+
+where $A$ is the pre-exponential factor, $E$ is the activation energy, $R$ is
+the universal gas constant. The small perturbation form of the above equation is
+given by:
+
+\begin{align*}
+    \delta k &= A e^{-\frac{E}{RT}} \underbrace{\lr{\frac{E}{RT^2}}}_p \delta T = k p \delta T
+\end{align*}
+
+Thus,
+\begin{align*}
+    k(T) \approx k(T_0) + \delta k(T - T_0) = k(T_0) + k(T_0) p(T_0) \lr{T - T_0}
+\end{align*}
+
+Hence, within a certain range of temperature's the rate constant can be assumned
+to be varying linearly with temperature. Thus, the rate constant can be:
+\begin{align*}
+    k(T) &= mT + c \quad T \in [T_0 - \Delta T_{max}, T_0 + \Delta T_{max}]
+\end{align*}
+
+Based on the available data, $T_0$ is chosen as $250 \lx{^o}{C}$ and $\Delta
+T_{max}$ such that it spans all the available data.

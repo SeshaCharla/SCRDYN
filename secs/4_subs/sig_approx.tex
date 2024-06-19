@@ -1,5 +1,4 @@
-\subsection{Approximation of $\sigma(k)$}
-\subsubsection{Approximation of $\sigma(k)$ as $NH_3^{ads}(k)$ (Zero-order hold)}
+\subsection{Approximation of $\sigma(k)$ as $NH_3^{ads}(k)$ (Zero-order hold)}
 \itbf{Note:} $\sigma(k)$ can be approximated as the surface concentration at the beginning of the sample time.
 
 The average surface concentration $\sigma(k)$ in the sample time is approximated
@@ -36,17 +35,15 @@ Examining the individual terms:
 The above equation is nothing but multiplying the rate equation with the
 sampling interval to get the measurement update.
 
-% ==============================================================================
-
-\subsubsection{Causal first-order hold approximation for $\sigma(k)$}
-
-The term $\sigma$ is the average surface concentration of the adsorbed ammonia
-within the sample time. It can be approximated as the average of the surface of
-the previous sample duration. This is a causal approximation of the average
-surface concentration:
+Similarly, if we flip the approximation, that is if,
+\begin{align*}
+    \con{NH_3}^{ads}(k) &\approx \sigma(k)
+\end{align*}
+then,
 
 \begin{align*}
-    \sigma(k) &= \frac{1}{n} \sum_{i=0}^{n-1} \con{NH_3}^{ads} (k + i \tau)
-                \approx \frac{1}{n+1} \sum_{i=0}^{n-1} \con{NH_3}^{ads} (k - i \tau)\\
-              &\approx \frac{1}{2} \lr{\con{NH_3}^{ads} (k) + \con{NH_3}^{ads} (k - n \tau)}\\
+    \sigma(k + 1) =& \sigma(k)\\
+        &+ n\tau k_{ads} \con{NH_3}^{in} \lr{\Gamma - \sigma(k)} \\
+        &- n \tau \lr{k_{oxi} + k_{des}} \sigma(k)\\
+        &- n \tau k_{scr} \con{NO_x}^{in}(k) \sigma(k)
 \end{align*}
