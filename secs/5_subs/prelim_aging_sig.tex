@@ -1,0 +1,62 @@
+\subsection{Preliminary aging signature}
+The $NO_x$ process dynamics can be rewritten as:
+\begin{align*}
+    \frac{\con{NO_x}^{in}(k) - \con{NO_x}^{out}(k + 1)}{\con{NO_x}^{in}(k)} &=
+    k_{s2v} k_{scr} \sigma(k) \tau\\
+    &= \frac{A_{scr}}{V} \times k_{scr} \times \sigma(k) \lr{\frac{V \rho}{F}}\\
+    %===
+    \implies F \lr{\frac{\con{NO_x}^{in}(k) - \con{NO_x}^{out}(k + 1)}{\con{NO_x}^{in}(k)}} &= \lr{\rho A_{scr} k_{scr}} \sigma(k) \\
+    %===
+\end{align*}
+
+Using the linear assumption for temperature dependence of the rate constant, and
+ideal gas-law for density, let:
+\begin{align*}
+    k_{scr} &= m_{scr} T + c_{scr}\\
+    \rho &= \frac{\mu}{T}
+\end{align*}
+T is in Kelvin.
+\begin{align*}
+    \implies \underbrace{\lr{\mu A_{scr} m_{scr}}\sigma}_{\alpha_1(k)}  T+ \underbrace{\lr{\mu A_{scr} c_{scr}} \sigma}_{\alpha_0(k)} &= \underbrace{T F \lr{\frac{\con{NO_x}^{in}(k) - \con{NO_x}^{out}(k + 1)}{\con{NO_x}^{in}(k)}}}_{\beta(k)}
+\end{align*}
+
+Thus, $\alpha_1(k)$ and $\alpha_0(k)$ are monotonic first order
+polynomials in $\sigma$. Assuming, the average surface concentration of ammonia
+on the catalyst is higher for degreened catalyst than for aged catalyst, we can
+use $\alpha_1, \alpha_0$ to define a preliminary aging signature for the
+catalyst. This can be used to monitor the aging of the catalyst in real-time.
+
+
+The variables, $\alpha_1(k)$ and $\alpha_0(k)$ change with time. The only way to
+estimate these variables is to estimate a moving-averaged version of it.
+
+
+% ==============================================================================
+We have the above equation for $n$ (Averaging window) samples:
+
+\begin{align*}
+    \alpha_1(k) T(k) + \alpha_0(k) &= \beta(k)\\
+    \alpha_1(k-1)T(k-1) + \alpha_0(k-1) &= \beta(k-1)\\
+    \vdots &\\
+    \alpha_1(k-(n-1))T(k-(n-1)) + \alpha_0(k-(n-1)) &= \beta(k-(n-1))\\
+\end{align*}
+
+Let,
+\begin{align*}
+    \bar \alpha_1(k) &= \frac{1}{n} \sum_{i=0}^{n-1} \alpha_1(k-i)\\
+    \bar \alpha_0(k) &= \frac{1}{n} \sum_{i=0}^{n-1} \alpha_0(k-i)\\
+\end{align*}
+
+Thus, we have the following equation:
+\begin{align*}
+    \bm{\bar \alpha_1(k)\\
+        \bar \alpha_0(k)} &=
+        \bm{T(k) & 1\\
+            T(k-1) & 1\\
+            \vdots & \vdots\\
+            T(k-(n-1)) & 1}^{-1}
+        \bm{\beta(k)\\
+            \beta(k-1)\\
+            \vdots\\
+            \beta(k-(n-1))}
+\end{align*}
