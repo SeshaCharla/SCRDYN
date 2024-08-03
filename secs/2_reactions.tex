@@ -84,4 +84,13 @@ to be varying linearly with temperature. Thus, the rate constant can be:
 \end{align*}
 
 Based on the available data, $T_0$ is chosen as $250 \lx{^o}{C}$ and $\Delta
-T_{max}$ such that it spans all the available data.
+T_{max}$ such that it spans all the available data. From linear model fitting,
+the validity of the linear model was found to be limited to $\pm 50 \lx{^o}{C}$.
+
+Alternately, we can have a quadratic approximation model for the rate constant:
+\begin{align}
+    k(T) &= q T^2 + m T + c \quad T \in [T_0 - \Delta T_{max}, T_0 + \Delta T_{max}]
+\end{align}
+
+The subsequent derivation will use the quadratic model for the rate constant and
+this can be reduced to linear model by putting $q = 0$.
