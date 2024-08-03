@@ -1,0 +1,76 @@
+\newpage
+\section{Data Preparation}
+The available test and truck data for testing the model structure needs to be
+got into common units. The following table lists the units used for each
+of the physical property.
+\begin{align*}
+    \text{Property}\quad       & \text{Unit} \\
+    \text{concentration}: \quad & mol/cm^{3} = mol/ml \\
+    \text{temperature}:\quad    & \lx{^o}{C} \\
+    \text{time}:\quad           & s \\
+    \text{mass}:\quad           & g \\
+    \text{lenght}:\quad         & cm \\
+\end{align*}
+
+The data available and corresponding units are listed in the following table.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{l l l }
+\hline \hline
+Model Variable & Road Data Variable &Units\\
+\hline \hline
+$t$   & tod & $s$
+\\
+$T$   & pSCRBedTemp & $\lx{^o}{C}$
+\\
+$F$   & pExhMF & $g/s$
+\\
+$u_2$ & pUreaDosing & $ml/sec$
+\\
+$y_1 $ & pNOxOutppm & $ppm$
+\\
+$u_1$ & pNOxInppm & $ppm$
+\\
+\hline
+\end{tabular}
+\caption{Road data variables}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{l l l c}
+   \hline \hline
+   Variable Name              & Units     & Description & Variable from Model \\ \hline \hline
+   LOG\_TM	                  & sec & Time
+                                          & $t$\\
+   EXHAUST\_FLOW	            & kg/min    & Exhaust Flow Rate
+                                          & $F$\\
+   V\_AIM\_TRC\_DPF\_OUT	   & $\lx{^o}{C}$ & DPF Out Gas Temperature
+                                             & $T_{in}$\\
+   V\_AIM\_TRC\_SCR\_OUT	   & $\lx{^o}{C}$ & SCR/ASC Out Gas Temperature
+                                          & $T_{out}$\\
+   V\_UIM\_FLM\_ESTUREAINJRATE& ml/s      & DEF (Urea Sol.) Dosing Rate
+                                          & $u_2$\\
+   ENG\_CW\_NOX\_FTIR\_COR\_U2& ppm       & Engine-Out NOx
+                                          & $u_1$\\
+   EXH\_CW\_NOX\_COR\_U1	   & ppm       & Tailpipe NOx
+                                          & $x_1$\\
+   EXH\_CW\_AMMONIA\_MEA	   & ppm       & Tailpipe NH3
+                                          & $x_2$\\
+EONOX\_COMP\_VALUE	         & ppm       & Engine-out NOx (corss-sensitive)
+                                          & $u_1$\\
+V\_SCM\_PPM\_SCR\_OUT\_NOX	   & ppm       & SCR-out NOx (cross-sensitive)
+                                          & $y_1$\\
+   \hline \hline
+\end{tabular}
+\caption{Test Cell Data Variables}
+\end{table}
+
+
+% ==============================================================================
+
+\input{secs/9_subs/density.tex}
+\input{secs/9_subs/ppm.tex}
+\input{secs/9_subs/vol_flow.tex}
