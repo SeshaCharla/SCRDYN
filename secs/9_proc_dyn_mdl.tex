@@ -1,7 +1,6 @@
 \newpage
 \section{SCR-ASC Process Dynamics with Urea Dosing \label{sec::proc_dyn}}
-From previous derivations, we have the complete process dynamics of SCR-ASC
-dynamics with urea dosing as:
+From previous derivations, we have the complete process dynamics of SCR-ASC dynamics with urea dosing as:
 
 \begin{enumerate}
     \item Urea dosing dynamics:
@@ -28,11 +27,10 @@ dynamics with urea dosing as:
     \end{align*}
 \end{enumerate}
 
-The above four equations are the complete process dynamics of SCR-ASC dynamics
-with urea dosing. The above equations are nonlinear and coupled with implicit
-dependence on temperature and flow rate. In this section the above equations are
-rewritten in a parametric form with standard state-space representation. For
-convenience and clarity '(k)' is dropped from the variables.
+The above four equations are the complete process dynamics of SCR-ASC dynamics with urea dosing. The above equations are
+nonlinear and coupled with implicit dependence on temperature and flow rate. In this section the above equations are
+rewritten in a parametric form with standard state-space representation. For convenience and clarity '(k)' is dropped
+from the variables.
 
 \subsection{State-Space Representation}
 The following states and inputs are defined for the system:
@@ -41,17 +39,12 @@ The following states and inputs are defined for the system:
     x_1 &= \con{NO_x}^{out} & u_1 &= \con{NO_x}^{in} \\
     x_2 &= \con{NH_3}^{out} & u_2 &= u_{inj} \\
     x_3 &= \sigma & u_3 &= T\\
-        &         & u_4 &= f_v
+        &         & u_4 &= F
 \end{align*}
 
 Thus, the state-space representation of each of the processes are as follows:
 
-\subsubsection{Urea Dosing Dynamics}
-\begin{align*}
-    \con{NH_3}^{in} &= \underbrace{2r_u V}_{b_u} \times \frac{u_{inj}}{f_v^2} \\
-                    &= b_u \frac{u_2 }{u_4^2 }
-\end{align*}
-
-\input{secs/8_subs/nox_proc.tex}
-\input{secs/8_subs/nh3_gas.tex}
-\input{secs/8_subs/nh3_ads.tex}
+\input{secs/9_subs/urea_dosing.tex}
+\input{secs/9_subs/nox_proc.tex}
+\input{secs/9_subs/nh3_gas.tex}
+\input{secs/9_subs/nh3_ads.tex}

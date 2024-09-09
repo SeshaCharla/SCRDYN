@@ -17,15 +17,14 @@
         $f_v$ &$-$& Volume flow rate of the exhaust gasses $(ml/s)$\\
         $F$ &$-$& Mass flow rate of the exhaust gasses $(g/s)$\\
         $\rho$ &$-$& Density of the exhaust gasses $(g/cm^3)$\\
-        $\Omega(k)$ &$-$& Total change in the surface concentration of
-        adsorbed ammonia in the sample [k] to [k+1]\\
-        $\sigma(k)$ &$-$& Average surface concentration of adsorbed ammonia in the
-        sample [k] to [k+1]\\
+        $\Omega(k)$ &$-$& Total change in the surface concentration of adsorbed ammonia in the sample [k] to [k+1]\\
+        $\sigma(k)$ &$-$& Average surface concentration of adsorbed ammonia in the sample [k] to [k+1]\\
     \end{tabular}
 \end{table}
 
 Lumped parameters used in the equations of section~\ref{sec::proc_dyn}:
 \begin{align*}
-    b_u &= 2r_u V\\
-    k_{s2v} &= \frac{A_{scr}}{V}\\
+    \theta_{11} &= A_{scr} \mu q_{scr} \\
+    \theta_{12} &= A_{scr} \mu m_{scr} \\
+     \theta_{13} &= A_{scr} \mu c_{scr}
 \end{align*}
