@@ -4,5 +4,37 @@ We have:
 \begin{align*}
     \con{NH_3}^{out} (k + 1) &= \con{NH_3}^{in}(k) \lr{1 - \tau k_{s2v}k_{ads} \lr{\Gamma - \sigma(k)}} + \tau k_{s2v} k_{des} \sigma(k)\\
     %===
-    \implies x_2(k+1) &= b_u u_2 \lr{1 - \frac{A_{scr}}{f_v} \lr{m_{ads}T + c_{ads}} \lr{\Gamma - x_3}} + \frac{A_{scr}}{f_v} \lr{m_{ads}T + c_{ads}} x_3\\
+    \implies x_2(k+1) &= b_u \lr{\frac{u_2}{(u_3u_4)^2}} \lr{ 1 - \lr{\frac{A_{scr} \mu}{FT}}  \lr{q_{ads}T^2 + m_{ads} T + c_{ads}} \lr{\Gamma - x_3}}\\
+                                 &\qquad + \lr{\frac{A_{scr} \mu}{FT}} \lr{q_{des} T^2 + m_{des} T + c_{des}} x_3\\
+    %===
+    &= b_u \lr{\frac{u_2}{(u_3u_4)^2}}
+                    \lr{ 1 - \lrf{\lr{A_{scr} \mu q_{ads}} \lr{\frac{T}{F}} + \lr{A_{scr} \mu m_{ads}} \lr{\frac{1}{F}} + \lr{A_{scr} \mu c_{ads}}  \lr{\frac{1}{FT}}}
+                    \lr{\Gamma - x_3}}\\
+                                 &\qquad + \lr{A_{scr} \mu q_{des}} \lr{\frac{T x_3}{F}} + \lr{A_{scr} \mu m_{des}} \lr{\frac{x_3}{F}} + \lr{A_{scr} \mu c_{des}} \lr{\frac{x_3}{FT}}\\
+    %===
+    &= \underbrace{b_u}_{\theta{20}} \lr{\frac{u_2}{(u_3u_4)^2}}
+    + \underbrace{\lr{A_{scr} \mu q_{des}}}_{\theta_{21}}  \lr{\frac{u_3 x_3}{u_4}}
+    + \underbrace{\lr{A_{scr} \mu m_{des}}}_{\theta{22}}   \lr{\frac{x_3}{u_4}}
+    + \underbrace{\lr{A_{scr} \mu c_{des}}}_{\theta{23}}  \lr{\frac{x_3}{u_3 u_4}}\\
+    %===
+    &\qquad - \lr{\Gamma - x_3}  \lrf{\underbrace{\lr{A_{scr} \mu q_{ads}b_u}}_{\theta_{24}} \lr{\frac{u_2}{u_3 u_4^3}}
+                                                         + \underbrace{\lr{A_{scr} \mu m_{ads}b_u}}_{\theta_{25}} \lr{\frac{u_2}{u_3^2 u_4^3}}
+                                                         + \underbrace{\lr{A_{scr} \mu c_{ads} b_u}}_{\theta_{26}}  \lr{\frac{u_2}{\lr{u_3 u_4}^3}}}
 \end{align*}
+\begin{multline}
+    \therefore x_2(k+1)
+    %===
+    = \theta_{20} \lr{\frac{u_2}{(u_3u_4)^2}}
+    + \theta_{21}  \lr{\frac{u_3 x_3}{u_4}}
+    + \theta_{22}   \lr{\frac{x_3}{u_4}}
+    + \theta_{23}  \lr{\frac{x_3}{u_3 u_4}}\\
+    %===
+    + \theta_{24} \lr{\frac{u_2}{u_3 u_4^3}} x_3
+    + \theta_{25} \lr{\frac{u_2}{u_3^2 u_4^3}} x_3
+    + \theta_{26}  \lr{\frac{u_2}{\lr{u_3 u_4}^3}} x_3\\
+    %===
+    - \underbrace{\Gamma \theta_{24}}_{\theta_{28}} \lr{\frac{u_2}{u_3 u_4^3}}
+    - \underbrace{\Gamma \theta_{25}}_{\theta_{28}} \lr{\frac{u_2}{u_3^2 u_4^3}}
+    - \underbrace{\Gamma \theta_{26}}_{\theta_{29}}  \lr{\frac{u_2}{\lr{u_3 u_4}^3}}
+    %===
+\end{multline}
