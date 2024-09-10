@@ -1,0 +1,33 @@
+\subsection{$NH_3$ adsorption/desorption process dynamics}
+We have,
+\begin{align*}
+        \sigma(k + 1) &= \sigma(k)
+        + n\tau k_{ads} \con{NH_3}^{in} \lr{\Gamma - \sigma(k)}
+        - n \tau \lr{k_{oxi} + k_{des}} \sigma(k)
+        - n \tau k_{scr} \con{NO_x}^{in}(k) \sigma(k) \\
+        %===
+        \implies x_3(k+1) &= x_3
+                + n\tau k_{ads} \lr{b_u \lr{\frac{u_2}{(u_3 u_4)^2}}} \lr{\Gamma - x_3}
+                - n \tau \lr{k_{oxi} + k_{des}} x_3
+                - n \tau k_{scr} u_1 x_3
+\end{align*}
+Let,
+\begin{align*}
+        k_{oxi} + k_{des} &= k_{od} = (q_{oxi} + q_{des})T^2 + (m_{oxi} + m_{des}) T + (c_{oxi} + c_{des}) = q_{od} T^2 + m_{od} T + c_{od}
+\end{align*}
+\begin{align*}
+        x_3(k+1) &= x_3
+                + n \lr{\frac{V \mu}{FT}} \lr{q_{ads} T^2 + m_{ads} T + c_{ads}} \lr{b_u \lr{\frac{u_2}{u_3^2 u_4^2}}} \lr{\Gamma - x_3} \\
+                & \qquad - n \lr{\frac{V \mu}{FT}} \lr{q_{od} T^2 + m_{od} T + c_{od}} x_3 \\
+                & \qquad - n \lr{\frac{V \mu}{FT}} \lr{q_{scr} T^2 + m_{scr} T + c_{scr}} u_1 x_3\\
+                %===
+                &= x_3 - \underbrace{\lr{n V \mu q_{od}}}_{\theta_{31}} \lr{\frac{x_3 u_3}{u_4}}
+                             - \underbrace{\lr{n V \mu m_{od}}}_{\theta_{32}} \lr{\frac{x_3}{u_4}}
+                             - \underbrace{\lr{n V \mu c_{od}}}_{\theta_{33}} \lr{\frac{x_3}{u_3 u_4}} \\
+                & \qquad - \lr{n V \mu q_{scr}} \lr{\frac{x_3 u_1 u_3}{u_4}}
+                             - \lr{n V \mu m_{scr}} \lr{\frac{x_3 u_1}{u_4}}
+                             - \lr{n V \mu c_{scr}} \lr{\frac{x_3 u_1}{u_3 u_4}} \\
+                & \qquad +\lrf{ \lr{n V \mu b_u q_{ads}} \lr{\frac{u_2}{u_3 u_4^3}}
+                                          + \lr{n V \mu b_u m_{ads}} \lr{\frac{u_2}{u_3^2 u_4^3}}
+                                          + \lr{n V \mu b_u c_{ads}} \lr{\frac{u_2}{u_3^3 u_4^3}} } \lr{\Gamma - x_3}
+\end{align*}
