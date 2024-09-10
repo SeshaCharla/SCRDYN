@@ -22,12 +22,26 @@ Let,
                 & \qquad - n \lr{\frac{V \mu}{FT}} \lr{q_{scr} T^2 + m_{scr} T + c_{scr}} u_1 x_3\\
                 %===
                 &= x_3 - \underbrace{\lr{n V \mu q_{od}}}_{\theta_{31}} \lr{\frac{x_3 u_3}{u_4}}
-                             - \underbrace{\lr{n V \mu m_{od}}}_{\theta_{32}} \lr{\frac{x_3}{u_4}}
-                             - \underbrace{\lr{n V \mu c_{od}}}_{\theta_{33}} \lr{\frac{x_3}{u_3 u_4}} \\
-                & \qquad - \lr{n V \mu q_{scr}} \lr{\frac{x_3 u_1 u_3}{u_4}}
-                             - \lr{n V \mu m_{scr}} \lr{\frac{x_3 u_1}{u_4}}
-                             - \lr{n V \mu c_{scr}} \lr{\frac{x_3 u_1}{u_3 u_4}} \\
-                & \qquad +\lrf{ \lr{n V \mu b_u q_{ads}} \lr{\frac{u_2}{u_3 u_4^3}}
-                                          + \lr{n V \mu b_u m_{ads}} \lr{\frac{u_2}{u_3^2 u_4^3}}
-                                          + \lr{n V \mu b_u c_{ads}} \lr{\frac{u_2}{u_3^3 u_4^3}} } \lr{\Gamma - x_3}
+                       - \underbrace{\lr{n V \mu m_{od}}}_{\theta_{32}} \lr{\frac{x_3}{u_4}}
+                       - \underbrace{\lr{n V \mu c_{od}}}_{\theta_{33}} \lr{\frac{x_3}{u_3 u_4}} \\
+                & \qquad - \underbrace{\lr{n V \mu q_{scr}}}_{\theta_{34}} \lr{\frac{x_3 u_1 u_3}{u_4}}
+                         - \underbrace{\lr{n V \mu m_{scr}}}_{ \theta_{35}}\lr{\frac{x_3 u_1}{u_4}}
+                         - \underbrace{\lr{n V \mu c_{scr}}}_{\theta_{36}} \lr{\frac{x_3 u_1}{u_3 u_4}} \\
+                & \qquad +\lrf{ \underbrace{\lr{n V \mu b_u q_{ads}} }_{\theta_{37}}\lr{\frac{u_2}{u_3 u_4^3}}
+                              + \underbrace{\lr{n V \mu b_u m_{ads}} }_{\theta_{38}}\lr{\frac{u_2}{u_3^2 u_4^3}}
+                              + \underbrace{\lr{n V \mu b_u c_{ads}} }_{\theta_{39}}\lr{\frac{u_2}{u_3^3 u_4^3}} } \lr{\Gamma - x_3}
 \end{align*}
+\begin{multline}
+        x_3(k+1) = x_3 - {\theta_{31}} \lr{\frac{x_3 u_3}{u_4}}
+                                     - {\theta_{32}} \lr{\frac{x_3}{u_4}}
+                                     - {\theta_{33}} \lr{\frac{x_3}{u_3 u_4}} \\
+                - {\theta_{34}} \lr{\frac{x_3 u_1 u_3}{u_4}}
+                -{\theta_{35}}\lr{\frac{x_3 u_1}{u_4}}
+                - {\theta_{36}} \lr{\frac{x_3 u_1}{u_3 u_4}} \\
+                - {\theta_{37}}\lr{\frac{u_2}{u_3 u_4^3}} x_3
+                - {\theta_{38}}\lr{\frac{u_2}{u_3^2 u_4^3}} x_3
+                - {\theta_{39}}\lr{\frac{u_2}{u_3^3 u_4^3}} x_3 \\
+                + \underbrace{\Gamma \theta_{37}}_{\theta_{3a}} \lr{\frac{u_2}{u_3 u_4^3}}
+                + \underbrace{\Gamma \theta_{38}}_{\theta_{3b}} \lr{\frac{u_2}{u_3^2 u_4^3}}
+                + \underbrace{\Gamma \theta_{39}}_{\theta_{3c}} \lr{\frac{u_2}{u_3^3 u_4^3}}
+\end{multline}

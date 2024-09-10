@@ -19,16 +19,23 @@
         $\rho$ &$-$& Density of the exhaust gasses $(g/cm^3)$\\
         $\Omega(k)$ &$-$& Total change in the surface concentration of adsorbed ammonia in the sample [k] to [k+1]\\
         $\sigma(k)$ &$-$& Average surface concentration of adsorbed ammonia in the sample [k] to [k+1]\\
+        $\mu$ &$-$& Average molecular weight of the exhaust gasses (Including humidity)\\
     \end{tabular}
 \end{table}
 
 Lumped parameters used in the equations of section~\ref{sec::proc_dyn}:
-\begin{align*}
-    \theta_{11} &= A_{scr} \mu q_{scr} \\
-    \theta_{12} &= A_{scr} \mu m_{scr} \\
-     \theta_{13} &= A_{scr} \mu c_{scr} \\
-     \theta_{20} &= b_u = 2 r_u V \mu \\
-     \theta_{21} &= A_{scr} \mu q_{des}\\
+
+\begin{minipage}{0.32\textwidth}
+    \begin{align*}
+        \theta_{11} &= A_{scr} \mu q_{scr} \\
+        \theta_{12} &= A_{scr} \mu m_{scr} \\
+        \theta_{13} &= A_{scr} \mu c_{scr}
+    \end{align*}
+\end{minipage}
+\begin{minipage}{0.32 \textwidth}
+    \begin{align*}
+    \theta_{20} &= b_u = 2 r_u V \mu \\
+    \theta_{21} &= A_{scr} \mu q_{des}\\
     \theta_{22} &= A_{scr} \mu m_{des}\\
     \theta_{23} &= A_{scr} \mu c_{des}\\
     \theta_{24} &= A_{scr} \mu q_{ads}b_u\\
@@ -36,5 +43,22 @@ Lumped parameters used in the equations of section~\ref{sec::proc_dyn}:
     \theta_{26} &= A_{scr} \mu c_{ads} b_u\\
     \theta_{27} &= \Gamma \theta_{24}\\
     \theta_{28} &= \Gamma \theta_{25}\\
-    \theta_{29} &= \Gamma \theta_{26}\\
-\end{align*}
+    \theta_{29} &= \Gamma \theta_{26}
+    \end{align*}
+\end{minipage}
+\begin{minipage}{0.32 \textwidth}
+    \begin{align*}
+    \theta_{31} &= n V \mu q_{od}\\
+    \theta_{32} &= n V \mu m_{od} \\
+    \theta_{33} &= n V \mu c_{od} \\
+    \theta_{34} &= n V \mu q_{scr} \\
+    \theta_{35} &= n V \mu m_{scr} \\
+    \theta_{36} &= n V \mu c_{scr} \\
+    \theta_{37} &= n V \mu b_u q_{ads} \\
+    \theta_{38} &= n V \mu b_u m_{ads} \\
+    \theta_{39} &= n V \mu b_u c_{ads}\\
+    \theta_{3a} &= \Gamma \theta_{37}\\
+    \theta_{3b} &= \Gamma \theta_{38}\\
+    \theta_{3c} &= \Gamma \theta_{39}
+    \end{align*}
+\end{minipage}
