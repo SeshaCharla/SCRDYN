@@ -14,5 +14,20 @@ We have:
 \begin{align}
     x_1(k+1)  &= u_1 - \theta_{11} \lr{\frac{u_1 u_3 x_3}{u_4}}
                                      - \theta_{12} \lr{\frac{u_1 x_3}{u_4}}
-                                     - \theta_{13} \lr{\frac{u_1 x_3}{u_3 u_4}}
+                                     - \theta_{13} \lr{\frac{u_1 x_3}{u_3 u_4}}\\
+    %===
+    \implies x_1(k + 1) &= u_1 - \pmb \phi_1^T \lr{x_3 \pmb \theta_1} \label{eq::nox_proc}
 \end{align}
+where:
+\begin{align*}
+    \pmb \phi_1 &= \bm{\frac{u_1 u_3}{u_4} & \frac{u_1}{u_4} & \frac{u_1}{u_3 u_4}}^T\\
+    \pmb \theta_1 &= \bm{\theta_{11} & \theta_{12} & \theta_{13}}^T
+\end{align*}
+%===
+Let,
+\begin{align}
+    \pmb \phi_0 &= \bm{\frac{u_3}{u_4} & \frac{1}{u_4} & \frac{1}{u_3 u_4}}^T
+\end{align}
+\begin{align*}
+    \implies \pmb \phi_1 &= u_1 \pmb \phi_0
+\end{align*}

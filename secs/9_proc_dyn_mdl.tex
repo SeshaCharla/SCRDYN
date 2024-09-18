@@ -32,7 +32,7 @@ nonlinear and coupled with implicit dependence on temperature and flow rate. In 
 rewritten in a parametric form with standard state-space representation. For convenience and clarity '(k)' is dropped
 from the variables.
 
-\subsection{State-Space Representation}
+\subsection{Linear Parameter Models}
 The following states and inputs are defined for the system:
 
 \begin{align*}
@@ -42,9 +42,34 @@ The following states and inputs are defined for the system:
         &         & u_4 &= F
 \end{align*}
 
-Thus, the state-space representation of each of the processes are as follows:
+Thus, linear-parameter representation of each of the processes are as follows:
 
 \input{secs/9_subs/urea_dosing.tex}
 \input{secs/9_subs/nox_proc.tex}
 \input{secs/9_subs/nh3_gas.tex}
 \input{secs/9_subs/nh3_ads.tex}
+% ==============================================================================
+\subsection{SCR-ASC Process Dynamics in Parametric Model Identification}
+\begin{align*}
+    x_1(k+1) &= u_1 - \pmb \phi_1^T \lr{x_3 \pmb \theta_1}\\
+    x_2(k+1) &= \pmb \phi_2^T \pmb \theta_2\\
+    x_3(k+1) &= x_3 - \pmb \phi_3^T \pmb \theta_3\\
+    \text{where:} \qquad &\\
+    \pmb \phi_1 &= u_1 \pmb \phi_0\\
+    \pmb \phi_2 &= \bm{\frac{u_2}{(u_3u_4)^2} & \vline & x_3 \lr{\frac{u_2}{(u_3 u_4)^2}} \pmb \phi_0^T & \vline & - \lr{\frac{u_2}{(u_3 u_4)^2}} \pmb \phi_0^T}^T\\
+    \pmb \phi_3 &= \bm{x_3 \pmb \phi_0^T & \vline & x_3 u_1 \pmb \phi_0 ^T & \vline & x_3 \lr{\frac{u_2}{u_3^2 u_4^2}} \pmb \phi_0 ^T & \vline & - \lr{\frac{u_2}{u_3^2 u_4^2}} \pmb \phi_0 ^T}^T\\
+    \pmb \phi_0 &= \bm{\frac{u_3}{u_4} & \frac{1}{u_4} & \frac{1}{u_3 u_4}}^T
+\end{align*}
+
+
+% ==============================================================================
+\subsubsection{Windowed Least Squares For Parameter Estimation}
+
+As gaseous $NH_3$ out measurements don't affect the $NO_x$ and $NH_3^{(ads)}$ process dynamics, only $NO_x$ and $NH_3^{(ads)}$ process dynamics become relevant for $x_3(t)$ and model parameter estimation. We have $NO_x$ and $NH_3^{(ads)}$ process dynamics as:
+
+\begin{align*}
+    x_1(k+1) &= u_1 - \pmb \phi_1^T \lr{x_3 \pmb \theta_1}\\
+    x_3(k+1) &= x_3 - \pmb \phi_3^T \pmb \theta_3
+\end{align*}
+
+\itbf{Idea:} Assuming $x_3$ varies slowly, specifically at every $l$ samples, we can estimate it lumped with the constant parameters for a given window-length $l$ and then uses these parameters estimates to find the lumped parameters of the $NO_x$ and $NH_3^{(ads)}$ process dynamics.

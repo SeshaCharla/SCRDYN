@@ -1,4 +1,4 @@
-\subsection{$NH_3$ adsorption/desorption process dynamics}
+\subsubsection{$NH_3$ adsorption/desorption process dynamics}
 We have,
 \begin{align*}
         \sigma(k + 1) &= \sigma(k)
@@ -45,3 +45,30 @@ Let,
                 + \underbrace{\Gamma \theta_{38}}_{\theta_{3b}} \lr{\frac{u_2}{u_3^2 u_4^3}}
                 + \underbrace{\Gamma \theta_{39}}_{\theta_{3c}} \lr{\frac{u_2}{u_3^3 u_4^3}}
 \end{multline}
+\begin{align}
+        \implies x_3(k+1) &= x_3 - \pmb \phi_3^T \pmb \theta_3 \label{eq::nh3_ads}
+\end{align}
+where:
+\begin{align}
+        \pmb \phi_3 &= \bm{
+                \frac{x_3 u_3}{u_4}       & \frac{x_3}{u_4}             & \frac{x_3}{u_3 u_4}         &
+                \frac{x_3 u_1 u_3}{u_4}   & \frac{x_3 u_1}{u_4}         & \frac{x_3 u_1}{u_3 u_4}     &
+                \frac{x_3 u_2}{u_3 u_4^3} & \frac{x_3 u_2}{u_3^2 u_4^3} & \frac{x_3 u_2}{u_3^3 u_4^3} &
+                -\frac{u_2}{u_3 u_4^3}    & -\frac{u_2}{u_3^2 u_4^3}    & -\frac{u_2}{u_3^3 u_4^3} }^T\\
+        \pmb \theta_3 &= \bm{\theta_{31} &
+                             \theta_{32} &
+                             \theta_{33} &
+                             \theta_{34} &
+                             \theta_{35} &
+                             \theta_{36} &
+                             \theta_{37} &
+                             \theta_{38} &
+                             \theta_{39} &
+                             \theta_{3a} &
+                             \theta_{3b} &
+                             \theta_{3c}}^T
+\end{align}
+Rewriting $\pmb \phi_3$ interms of $\pmb \phi_0$:
+\begin{align}
+        \pmb \phi_3 &= \bm{x_3 \pmb \phi_0^T & \vline & x_3 u_1 \pmb \phi_0 ^T & \vline & x_3 \lr{\frac{u_2}{u_3^2 u_4^2}} \pmb \phi_0 ^T & \vline & - \lr{\frac{u_2}{u_3^2 u_4^2}} \pmb \phi_0 ^T}^T
+\end{align}

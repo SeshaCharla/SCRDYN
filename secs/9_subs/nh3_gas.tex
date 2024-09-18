@@ -38,3 +38,9 @@ We have:
     - \underbrace{\Gamma \theta_{26}}_{\theta_{29}}  \lr{\frac{u_2}{\lr{u_3 u_4}^3}}
     %===
 \end{multline}
+We have the regression model:
+\begin{align}
+   x_3(k+1) &= \pmb \phi_2^T \pmb \theta_2 \label{eq::nh3_proc}\\
+   \pmb \theta_2 &= \bm{\theta_{20} & \theta_{21} & \hdots & \theta_{29}}^T \\
+   \pmb \phi_2 &= \bm{\frac{u_2}{(u_3u_4)^2} & \vline & x_3 \lr{\frac{u_2}{(u_3 u_4)^2}} \pmb \phi_0^T & \vline & - \lr{\frac{u_2}{(u_3 u_4)^2}} \pmb \phi_0^T}
+\end{align}
