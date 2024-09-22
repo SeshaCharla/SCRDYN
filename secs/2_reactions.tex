@@ -1,6 +1,6 @@
 \newpage
 \section{SCR/ASC Reactions}
-The following lists all the reactions that take placed inside the SCR-ASC chamber.
+The following lists all the reactions that take place inside the SCR-ASC chamber.
 
 \begin{align*}
     NH_2 - CO - NH_2 (liquid) &\longrightarrow NH_2 - CO - NH_2^* + x H_2 O
@@ -33,13 +33,11 @@ The following lists all the reactions that take placed inside the SCR-ASC chambe
                         & &[\text{NO oxidation}]
 \end{align*}
 
-Eley-Rideal reaction mechanism \cite{hsieh2011development}
-\cite{yuan2015diesel}, \cite{nova2014urea} is considered for the interpreting
-the SCR reactions where one reactant $(NO_x)$ is gaseous and the other is
-adsorbed on the catalysts surface $(NH_3)$.
+The Eley-Rideal reaction mechanism \cite{yuan2015diesel}, \cite{hsieh2011development}, \cite{nova2014urea} is considered
+for interpreting the SCR reactions, where one reactant $(NO_x)$ is gaseous, and the other is adsorbed on the catalyst
+surface $(NH_3)$.
 
-Further, in order to keep the model order reasonably low only the following
-three reactions are considered:
+Further, in order to keep the model order reasonably low, only the following three reactions are considered:
 \begin{enumerate}
     \item Standard SCR reaction:
     \begin{align}
@@ -58,39 +56,34 @@ three reactions are considered:
 
 
 \subsection{Temperature model for rate constants}
-The rate constants $(k)$ of the reactions are temperature dependent and follow
-Arrhenius equation:
+The rate constants $(k)$ of the reactions are temperature dependent and follow the Arrhenius equation:
 \begin{align*}
     k = A \exp\left(-\frac{E}{RT}\right)
 \end{align*}
-
-where $A$ is the pre-exponential factor, $E$ is the activation energy, $R$ is
-the universal gas constant. The small perturbation form of the above equation is
-given by:
-
+where $A$ is the pre-exponential factor, $E$ is the activation energy, and $R$ is the universal gas constant. The small
+perturbation form of the above equation is given by:
 \begin{align*}
     \delta k &= A e^{-\frac{E}{RT}} \underbrace{\lr{\frac{E}{RT^2}}}_p \delta T = k p \delta T
 \end{align*}
-
 Thus,
 \begin{align*}
-    k(T) \approx k(T_0) + \delta k(T - T_0) = k(T_0) + k(T_0) p(T_0) \lr{T - T_0}
+    k(T) \approx k(T_0) + \delta k(T - T_0) = k(T_0) + k(T_0) p(T_0) \underbrace{\lr{T - T_0}}_{\delta T}
 \end{align*}
 
-Hence, within a certain range of temperature's the rate constant can be assumned
-to be varying linearly with temperature. Thus, the rate constant can be:
+Hence, within a certain range of temperatures, the rate constant can be assumed to be varying linearly with temperature.
+Thus, the rate constant can be:
 \begin{align*}
     k(T) &= mT + c \quad T \in [T_0 - \Delta T_{max}, T_0 + \Delta T_{max}]
 \end{align*}
 
-Based on the available data, $T_0$ is chosen as $250 \lx{^o}{C}$ and $\Delta
-T_{max}$ such that it spans all the available data. From linear model fitting,
-the validity of the linear model was found to be limited to $\pm 50 \lx{^o}{C}$.
+Based on the available data, $T_0$ is chosen as $250 \lx{^o}{C}$ and $\Delta T_{max}$ such that it spans all the
+available data. From linear model fitting, the validity of the linear model was found to be limited to $\pm 50
+\lx{^o}{C}$.
 
 Alternately, we can have a quadratic approximation model for the rate constant:
 \begin{align}
     k(T) &= q T^2 + m T + c \quad T \in [T_0 - \Delta T_{max}, T_0 + \Delta T_{max}]
 \end{align}
 
-The subsequent derivation will use the quadratic model for the rate constant and
-this can be reduced to linear model by putting $q = 0$.
+The subsequent derivation will use the quadratic model for the rate constant and this can be reduced to linear model by
+putting $q = 0$.
