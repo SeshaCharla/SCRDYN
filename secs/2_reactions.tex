@@ -67,7 +67,7 @@ perturbation form of the above equation is given by:
 \end{align*}
 Thus,
 \begin{align*}
-    k(T) \approx k(T_0) + \delta k(T - T_0) = k(T_0) + k(T_0) p(T_0) \underbrace{\lr{T - T_0}}_{\delta T}
+    k(T) \approx k(T_0) + \delta k = k(T_0) + k(T_0) p(T_0) \underbrace{\lr{T - T_0}}_{\delta T}
 \end{align*}
 
 Hence, within a certain range of temperatures, the rate constant can be assumed to be varying linearly with temperature.
@@ -80,21 +80,30 @@ Based on the available data, $T_0$ is chosen as $250 \lx{^o}{C}$ and $\Delta T_{
 available data. From linear model fitting, the validity of the linear model was found to be limited to $\pm 50
 \lx{^o}{C}$.
 
-Alternately, we can have a quadratic approximation model for the rate constant:
+\subsubsection{Quadratic temperature model for rate constants}
+Using second-order Taylor series expansion, the rate constant can be approximated as:
+\begin{align*}
+    k(T) &\approx k(T_0) + k'(T_0) (T - T_0) + \frac{1}{2} k''(T_0) (T - T_0)^2\\
+    \text{Let,} \qquad
+    &m + 2qT_0 = k'(T_0) = \lr{\frac{AE}{RT_0^2}} e^{-\frac{E}{RT_0}} \\
+    &q = k''(T_0) = \lr{\frac{A E^2}{R^2 T_0^4} - \frac{A E}{2 R T_0^3}} e^{-\frac{E}{RT_0}} \\
+    \implies k(T) &\approx k(T_0) + \lr{m + 2qT_0} (T - T_0) + q (T - T_0)^2
+                   = q T^2 + m T + \underbrace{\lr{ -  q T_0^2 - mT_0  + k(T_0)}}_c
+\end{align*}
+Thus, we can have a quadratic approximation model for the rate constant:
 \begin{align}
-    k(T) &= q T^2 + m T + c \quad T \in [T_0 - \Delta T_{max}, T_0 + \Delta T_{max}]
+    k(T) &= q T^2 + m T + c \qquad \text{for } \: T \in [T_0 - \Delta T_{max}, T_0 + \Delta T_{max}]
 \end{align}
 
-The subsequent derivation will use the quadratic model for the rate constant and this can be reduced to linear model by
-putting $q = 0$.
+The subsequent derivation will use the quadratic model for the rate constant and this can be switched to linear model by setting $q = 0$.
 
 
 %===============================================================================
-\subsection{Consequences of introducing ASC dynamics}
+\subsection{Model reduction: Lumping ASC reaction dynamics into SCR reaction dynamics}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{./figs/scr_sys/SCR-ASC_ModelReduction_horizontal.png}
+    \includegraphics[width=0.9\textwidth]{./figs/scr_sys/SCR-ASC_ModelReduction_horizontal.png}
     \caption{Schematic of the SCR-ASC reduced model}
     \label{fig:scr-asc}
 \end{figure}
