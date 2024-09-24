@@ -107,3 +107,18 @@ The subsequent derivation will use the quadratic model for the rate constant and
     \caption{Schematic of the SCR-ASC reduced model}
     \label{fig:scr-asc}
 \end{figure}
+
+The ammonia oxidation (AMOX) reactions are similar on SCR and ASC catalysts. First, the gaseous ammonia adsorbs onto the
+catalyst system. Then, the adsorbed ammonia oxidizes into $N_2$ or $NO_x$ based on the temperature and other conditions.
+As the AMOX reactions on both the catalysts are similar, it is not possible to distinguish the origin of the products
+from the outlet measurements alone unless measurements between SCR and ASC sections are available.
+
+Thus, oxidation of adsorbed ammonia on both SCR and ASC catalysts can be  combined into a single reaction, lumping the
+rates constants and concentrations of the products into parameters and states of a single oxidation reaction. Further
+the nitrogen selectivity of that single AMOX reaction is assumed to be $100\%$. This is valid for temperatures greater
+than $225 \lx{^o}{C}$ \cite{jain2023diagnostics}, i.e., the temperature range of interest for most of the test and road
+conditions.
+
+This aggregation of reactions results in errors in the rate constant estimates, of all the SCR-ASC reactions.
+Specifically, the rate constant estimate for the $NO_x$ reduction will be lower than the actual value as only a part of
+the total adsorbed ammonia (on SCR catalyst) alone is involved in the reduction reaction.
