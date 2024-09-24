@@ -1,10 +1,15 @@
-\subsection{Parts-per-million to mol/ml}
+\subsection{Parts-per-million to mol/m$^3$}
 
 The ppm measurements of concentration is, by convention, assumed to be the
-weight of the solute in grams per million grams of solution. This can be
+weight of the solute in grams per million grams of solution (water). This can be
 converted to the concentration of the solute in mol/ml using the molecular
-weight of the solute and the density of the solution.
+weight of the solute and the density of the solution $(1 g/ml)$. We have,
 
+\begin{align*}
+    1 \, ppm &= \frac{1 \, g}{10^6 \, ml} = 1 \, mg/L = \frac{10^{-3} \, g}{10^{-3} \, m^3} = 1 \, g/m^3\\
+\end{align*}
+
+Let M be the molecular weight of the solute in g/mol. Then,
 \begin{align}
-    mol/ml &= \frac{ppm \times 1e6 \times \rho}{M_g}
+    1 \, ppm &= \frac{1}{M} \, mol/m^3
 \end{align}
