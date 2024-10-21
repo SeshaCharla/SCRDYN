@@ -7,68 +7,87 @@ We have,
         - n \tau k_{scr} \con{NO_x}^{in}(k) \sigma(k) \\
         %===
         \implies x_3(k+1) &= x_3
-                + n\tau k_{ads} \lr{b_u \lr{\frac{u_2}{(u_3 u_4)^2}}} \lr{\Gamma - x_3}
+                + n\tau k_{ads} \lr{\nu_u u_{inj} - \nu_T T - \nu_F F} \lr{\Gamma - x_3}
                 - n \tau \lr{k_{oxi} + k_{des}} x_3
                 - n \tau k_{scr} u_1 x_3
 \end{align*}
 Let,
 \begin{align*}
-        k_{oxi} + k_{des} &= k_{od} = (q_{oxi} + q_{des})T^2 + (m_{oxi} + m_{des}) T + (c_{oxi} + c_{des}) = q_{od} T^2 + m_{od} T + c_{od}
+        k_{oxi} + k_{des} &= k_{od} = (m_{oxi} + m_{des}) T + (c_{oxi} + c_{des}) = m_{od} T + c_{od}
+\end{align*}
+And, we have the product of residence time and rate constant,
+\begin{align*}
+        k_i \tau  = \lr{m_i T + c_i} \lr{\tau_0 - \tau_T T - \tau_F F}
+                  &= - \tau_T m_i T^2 - \tau_F m_i TF + \lr{m_i \tau_0 - \tau_T c_i} T - \tau_F c_i F + \tau_0 c_i
 \end{align*}
 \begin{align*}
-        x_3(k+1) &= x_3
-                + n \lr{\frac{V \mu}{FT}} \lr{q_{ads} T^2 + m_{ads} T + c_{ads}} \lr{b_u \lr{\frac{u_2}{u_3^2 u_4^2}}} \lr{\Gamma - x_3} \\
-                & \qquad - n \lr{\frac{V \mu}{FT}} \lr{q_{od} T^2 + m_{od} T + c_{od}} x_3 \\
-                & \qquad - n \lr{\frac{V \mu}{FT}} \lr{q_{scr} T^2 + m_{scr} T + c_{scr}} u_1 x_3\\
-                %===
-                &= x_3 - \underbrace{\lr{n V \mu q_{od}}}_{\theta_{31}} \lr{\frac{x_3 u_3}{u_4}}
-                       - \underbrace{\lr{n V \mu m_{od}}}_{\theta_{32}} \lr{\frac{x_3}{u_4}}
-                       - \underbrace{\lr{n V \mu c_{od}}}_{\theta_{33}} \lr{\frac{x_3}{u_3 u_4}} \\
-                & \qquad - \underbrace{\lr{n V \mu q_{scr}}}_{\theta_{34}} \lr{\frac{x_3 u_1 u_3}{u_4}}
-                         - \underbrace{\lr{n V \mu m_{scr}}}_{ \theta_{35}}\lr{\frac{x_3 u_1}{u_4}}
-                         - \underbrace{\lr{n V \mu c_{scr}}}_{\theta_{36}} \lr{\frac{x_3 u_1}{u_3 u_4}} \\
-                & \qquad +\lrf{ \underbrace{\lr{n V \mu b_u q_{ads}} }_{\theta_{37}}\lr{\frac{u_2}{u_3 u_4^3}}
-                              + \underbrace{\lr{n V \mu b_u m_{ads}} }_{\theta_{38}}\lr{\frac{u_2}{u_3^2 u_4^3}}
-                              + \underbrace{\lr{n V \mu b_u c_{ads}} }_{\theta_{39}}\lr{\frac{u_2}{u_3^3 u_4^3}} } \lr{\Gamma - x_3}
+        %===
+        k_{ads} \tau \lr{\nu_u u_{inj} - \nu_T T - \nu_F F} &= \lrb{- \tau_T m_{ads} T^2 - \tau_F m_{ads} TF + \lr{m_{ads} \tau_0 - \tau_T c_{ads}} T - \tau_F c_{ads} F + \tau_0 c_{ads}} \\
+                                & \qquad \lrb{\nu_u u_{inj} - \nu_T T - \nu_F F}\\
+        %===
+        &= \lr{\tau_T m_{ads} \nu_T} T^3  + \lr{\tau_F m_{ads} \nu_T + \tau_T m_{ads} \nu_F} T^2 F
+                + \lr{ \tau_F m_{ads} \nu_F } TF^2 \\
+                & \qquad  - \lrf{\lr{ m_{ads} \tau_0 - \tau_T c_{ads}} v_T} T^2 + \lr{\tau_F c_{ads} \nu_F} F^2 \\
+                & \qquad  + \lrf{ \tau_F c_{ads} \nu_T + \lr{ m_{ads} \tau_0 - \tau_T c_{ads} } \nu_T } TF \\
+                & \qquad  - \lr{\nu_T \tau_0 c_{ads}} T - \lr{\nu_F \tau_0 c_{ads}} F\\
+                & \qquad + \nu_u u_{inj} \lrb{- \tau_T m_{ads} T^2 - \tau_F m_{ads} TF + \lr{m_{ads} \tau_0 - \tau_T c_{ads}} T - \tau_F c_{ads} F + \tau_0 c_{ads}}
 \end{align*}
-\begin{multline}
-        x_3(k+1) = x_3 - {\theta_{31}} \lr{\frac{x_3 u_3}{u_4}}
-                                     - {\theta_{32}} \lr{\frac{x_3}{u_4}}
-                                     - {\theta_{33}} \lr{\frac{x_3}{u_3 u_4}} \\
-                - {\theta_{34}} \lr{\frac{x_3 u_1 u_3}{u_4}}
-                -{\theta_{35}}\lr{\frac{x_3 u_1}{u_4}}
-                - {\theta_{36}} \lr{\frac{x_3 u_1}{u_3 u_4}} \\
-                - {\theta_{37}}\lr{\frac{u_2}{u_3 u_4^3}} x_3
-                - {\theta_{38}}\lr{\frac{u_2}{u_3^2 u_4^3}} x_3
-                - {\theta_{39}}\lr{\frac{u_2}{u_3^3 u_4^3}} x_3 \\
-                + \underbrace{\Gamma \theta_{37}}_{\theta_{3a}} \lr{\frac{u_2}{u_3 u_4^3}}
-                + \underbrace{\Gamma \theta_{38}}_{\theta_{3b}} \lr{\frac{u_2}{u_3^2 u_4^3}}
-                + \underbrace{\Gamma \theta_{39}}_{\theta_{3c}} \lr{\frac{u_2}{u_3^3 u_4^3}}
-\end{multline}
-\begin{align}
-        \implies x_3(k+1) &= x_3 - \pmb \phi_3^T \pmb \theta_3 \label{eq::nh3_ads}
-\end{align}
-where:
-\begin{align}
-        \pmb \phi_3 &= \bm{
-                \frac{x_3 u_3}{u_4}       & \frac{x_3}{u_4}             & \frac{x_3}{u_3 u_4}         &
-                \frac{x_3 u_1 u_3}{u_4}   & \frac{x_3 u_1}{u_4}         & \frac{x_3 u_1}{u_3 u_4}     &
-                \frac{x_3 u_2}{u_3 u_4^3} & \frac{x_3 u_2}{u_3^2 u_4^3} & \frac{x_3 u_2}{u_3^3 u_4^3} &
-                -\frac{u_2}{u_3 u_4^3}    & -\frac{u_2}{u_3^2 u_4^3}    & -\frac{u_2}{u_3^3 u_4^3} }^T\\
-        \pmb \theta_3 &= \bm{\theta_{31} &
-                             \theta_{32} &
-                             \theta_{33} &
-                             \theta_{34} &
-                             \theta_{35} &
-                             \theta_{36} &
-                             \theta_{37} &
-                             \theta_{38} &
-                             \theta_{39} &
-                             \theta_{3a} &
-                             \theta_{3b} &
-                             \theta_{3c}}^T
-\end{align}
-Rewriting $\pmb \phi_3$ interms of $\pmb \phi_0$:
-\begin{align}
-        \pmb \phi_3 &= \bm{x_3 \pmb \phi_0^T & \vline & x_3 u_1 \pmb \phi_0 ^T & \vline & x_3 \lr{\frac{u_2}{u_3^2 u_4^2}} \pmb \phi_0 ^T & \vline & - \lr{\frac{u_2}{u_3^2 u_4^2}} \pmb \phi_0 ^T}^T
-\end{align}
+
+% \begin{align*}
+%         x_3(k+1) &= x_3
+%                 + n \lr{\frac{V \mu}{FT}} \lr{q_{ads} T^2 + m_{ads} T + c_{ads}} \lr{b_u \lr{\frac{u_2}{u_3^2 u_4^2}}} \lr{\Gamma - x_3} \\
+%                 & \qquad - n \lr{\frac{V \mu}{FT}} \lr{q_{od} T^2 + m_{od} T + c_{od}} x_3 \\
+%                 & \qquad - n \lr{\frac{V \mu}{FT}} \lr{q_{scr} T^2 + m_{scr} T + c_{scr}} u_1 x_3\\
+%                 %===
+%                 &= x_3 - \underbrace{\lr{n V \mu q_{od}}}_{\theta_{31}} \lr{\frac{x_3 u_3}{u_4}}
+%                        - \underbrace{\lr{n V \mu m_{od}}}_{\theta_{32}} \lr{\frac{x_3}{u_4}}
+%                        - \underbrace{\lr{n V \mu c_{od}}}_{\theta_{33}} \lr{\frac{x_3}{u_3 u_4}} \\
+%                 & \qquad - \underbrace{\lr{n V \mu q_{scr}}}_{\theta_{34}} \lr{\frac{x_3 u_1 u_3}{u_4}}
+%                          - \underbrace{\lr{n V \mu m_{scr}}}_{ \theta_{35}}\lr{\frac{x_3 u_1}{u_4}}
+%                          - \underbrace{\lr{n V \mu c_{scr}}}_{\theta_{36}} \lr{\frac{x_3 u_1}{u_3 u_4}} \\
+%                 & \qquad +\lrf{ \underbrace{\lr{n V \mu b_u q_{ads}} }_{\theta_{37}}\lr{\frac{u_2}{u_3 u_4^3}}
+%                               + \underbrace{\lr{n V \mu b_u m_{ads}} }_{\theta_{38}}\lr{\frac{u_2}{u_3^2 u_4^3}}
+%                               + \underbrace{\lr{n V \mu b_u c_{ads}} }_{\theta_{39}}\lr{\frac{u_2}{u_3^3 u_4^3}} } \lr{\Gamma - x_3}
+% \end{align*}
+% \begin{multline}
+%         x_3(k+1) = x_3 - {\theta_{31}} \lr{\frac{x_3 u_3}{u_4}}
+%                                      - {\theta_{32}} \lr{\frac{x_3}{u_4}}
+%                                      - {\theta_{33}} \lr{\frac{x_3}{u_3 u_4}} \\
+%                 - {\theta_{34}} \lr{\frac{x_3 u_1 u_3}{u_4}}
+%                 -{\theta_{35}}\lr{\frac{x_3 u_1}{u_4}}
+%                 - {\theta_{36}} \lr{\frac{x_3 u_1}{u_3 u_4}} \\
+%                 - {\theta_{37}}\lr{\frac{u_2}{u_3 u_4^3}} x_3
+%                 - {\theta_{38}}\lr{\frac{u_2}{u_3^2 u_4^3}} x_3
+%                 - {\theta_{39}}\lr{\frac{u_2}{u_3^3 u_4^3}} x_3 \\
+%                 + \underbrace{\Gamma \theta_{37}}_{\theta_{3a}} \lr{\frac{u_2}{u_3 u_4^3}}
+%                 + \underbrace{\Gamma \theta_{38}}_{\theta_{3b}} \lr{\frac{u_2}{u_3^2 u_4^3}}
+%                 + \underbrace{\Gamma \theta_{39}}_{\theta_{3c}} \lr{\frac{u_2}{u_3^3 u_4^3}}
+% \end{multline}
+% \begin{align}
+%         \implies x_3(k+1) &= x_3 - \pmb \phi_3^T \pmb \theta_3 \label{eq::nh3_ads}
+% \end{align}
+% where:
+% \begin{align}
+%         \pmb \phi_3 &= \bm{
+%                 \frac{x_3 u_3}{u_4}       & \frac{x_3}{u_4}             & \frac{x_3}{u_3 u_4}         &
+%                 \frac{x_3 u_1 u_3}{u_4}   & \frac{x_3 u_1}{u_4}         & \frac{x_3 u_1}{u_3 u_4}     &
+%                 \frac{x_3 u_2}{u_3 u_4^3} & \frac{x_3 u_2}{u_3^2 u_4^3} & \frac{x_3 u_2}{u_3^3 u_4^3} &
+%                 -\frac{u_2}{u_3 u_4^3}    & -\frac{u_2}{u_3^2 u_4^3}    & -\frac{u_2}{u_3^3 u_4^3} }^T\\
+%         \pmb \theta_3 &= \bm{\theta_{31} &
+%                              \theta_{32} &
+%                              \theta_{33} &
+%                              \theta_{34} &
+%                              \theta_{35} &
+%                              \theta_{36} &
+%                              \theta_{37} &
+%                              \theta_{38} &
+%                              \theta_{39} &
+%                              \theta_{3a} &
+%                              \theta_{3b} &
+%                              \theta_{3c}}^T
+% \end{align}
+% Rewriting $\pmb \phi_3$ interms of $\pmb \phi_0$:
+% \begin{align}
+%         \pmb \phi_3 &= \bm{x_3 \pmb \phi_0^T & \vline & x_3 u_1 \pmb \phi_0 ^T & \vline & x_3 \lr{\frac{u_2}{u_3^2 u_4^2}} \pmb \phi_0 ^T & \vline & - \lr{\frac{u_2}{u_3^2 u_4^2}} \pmb \phi_0 ^T}^T
+% \end{align}
+%

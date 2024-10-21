@@ -32,6 +32,23 @@ nonlinear and coupled with implicit dependence on temperature and flow rate. In 
 rewritten in a parametric form with standard state-space representation. For convenience and clarity '(k)' is dropped
 from the variables.
 
+
+Further, the models that have reciprocals and expoenetials of inputs are linearized about the operating points. These include:
+\begin{enumerate}
+    \item Rate constants
+        \begin{align*}
+            k_i &= m_i T + c_i
+        \end{align*}
+    \item Urea dosing dynamics (\ref{eqn::urea_inj})
+        \begin{align*}
+            \con{NH_3}^{in}(k) &= \nu_u u_{inj}(k) - \nu_T T - \nu_F F
+        \end{align*}
+    \item Residence time (\ref{eqn::res_time})
+        \begin{align*}
+            \tau &= \tau_0 - \tau_T T - \tau_F F
+        \end{align*}
+\end{enumerate}
+
 \subsection{Linear Parameter Models}
 The following states and inputs are defined for the system:
 
@@ -44,9 +61,9 @@ The following states and inputs are defined for the system:
 
 Thus, linear-parameter representation of each of the processes are as follows:
 
-\input{secs/9_subs/urea_dosing.tex}
+% \input{secs/9_subs/urea_dosing.tex}
 \input{secs/9_subs/nox_proc.tex}
-\input{secs/9_subs/nh3_gas.tex}
+% \input{secs/9_subs/nh3_gas.tex}
 \input{secs/9_subs/nh3_ads.tex}
 % ==============================================================================
 \subsection{SCR-ASC Process Dynamics in Parametric Model Identification}
