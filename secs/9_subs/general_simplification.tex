@@ -1,1 +1,47 @@
 \subsubsection{Some general simplification}
+\begin{enumerate}
+        \item Sum of two rate constants:
+        \begin{align}
+                k_{oxi} + k_{des} &= k_{od} = (m_{oxi} + m_{des}) T + (c_{oxi} + c_{des}) = m_{od} T + c_{od}
+        \end{align}
+
+        \item Product of residence time and rate constant:
+        \begin{align*}
+        k_i \tau  = \lr{m_i T + c_i} \lr{\tau_0 - \tau_T T - \tau_F F}
+                  &= - \tau_T m_i T^2 - \tau_F m_i TF + \lr{m_i \tau_0 - \tau_T c_i} T - \tau_F c_i F + \tau_0 c_i \\
+                  &= \bm{-T^2 & - TF & T & -F & 1} \bm{\tau_T m_i \\
+                                                       \tau_F m_i \\
+                                                       \lr{m_i \tau_0 - \tau_T c_i} \\
+                                                       \tau_F c_i \\
+                                                       c_i}
+        \end{align*}
+
+        Let,
+        \begin{align}
+                \pmb \phi_\tau &= \bm{T^2 & TF & -T & F & -1}^T  \label{eqn::phi_tau}\\
+                \pmb \theta_i &= \bm{\tau_T m_i &
+                                \tau_F m_i &
+                                \lr{m_i \tau_0 - \tau_T c_i} &
+                                \tau_F c_i &
+                                c_i}^T          \label{eqn::theta_i}\\
+                \therefore \: k_i \tau &= - \pmb \phi_\tau^T \pmb \theta_i   \label{eqn::tau_ki}
+        \end{align}
+
+
+        \item Product of urea-dosing dynamics with residence time and rate constant:
+        \begin{align*}
+        k_{i} \tau \lr{\nu_u u_{inj} - \nu_T T - \nu_F F} &= \lr{\pmb \phi^T_\tau \pmb \theta_i} \lr{\pmb \phi^T_{ur} \pmb \theta_{ur}} = \lr{\pmb \phi^T_\tau \pmb \theta_i} \kron \lr{\pmb \phi^T_{ur} \pmb \theta_{ur}}
+        \qquad [\text{Kronecker Product}]
+        \end{align*}
+        We have the following properties of Kronecker product:
+        \begin{align*}
+                \lr{A \kron B}^T &= A^T \kron B^T \\
+                \lr{A \kron B} \lr{C \kron D} &= \lr{AC} \kron \lr{BD}
+        \end{align*}
+        Thus,
+        \begin{align*}
+                k_{i} \tau \con{NH_3}^{in} &= \lr{\pmb \phi^T_\tau \pmb \theta_i} \kron \lr{\pmb \phi^T_{ur} \pmb \theta_{ur}}
+                = \lr{\pmb \phi_\tau \kron \pmb \phi_{ur}}^T \lr{\theta_i \kron \theta_u}
+        \end{align*}
+        Note that the elements in the Kronecker product repeat and so there needs to be further simplification to get the full rank regressor form.
+\end{enumerate}

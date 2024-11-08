@@ -11,28 +11,7 @@ We have,
                 - n \tau \lr{k_{oxi} + k_{des}} x_3
                 - n \tau k_{scr} u_1 x_3
 \end{align*}
-Let,
-\begin{align*}
-        k_{oxi} + k_{des} &= k_{od} = (m_{oxi} + m_{des}) T + (c_{oxi} + c_{des}) = m_{od} T + c_{od}
-\end{align*}
 And, we have the product of residence time and rate constant,
-\begin{align*}
-        k_i \tau  = \lr{m_i T + c_i} \lr{\tau_0 - \tau_T T - \tau_F F}
-                  &= - \tau_T m_i T^2 - \tau_F m_i TF + \lr{m_i \tau_0 - \tau_T c_i} T - \tau_F c_i F + \tau_0 c_i
-\end{align*}
-\begin{align*}
-        %===
-        k_{ads} \tau \lr{\nu_u u_{inj} - \nu_T T - \nu_F F} &= \lrb{- \tau_T m_{ads} T^2 - \tau_F m_{ads} TF + \lr{m_{ads} \tau_0 - \tau_T c_{ads}} T - \tau_F c_{ads} F + \tau_0 c_{ads}} \\
-                                & \qquad \lrb{\nu_u u_{inj} - \nu_T T - \nu_F F}\\
-        %===
-        &= \lr{\tau_T m_{ads} \nu_T} T^3  + \lr{\tau_F m_{ads} \nu_T + \tau_T m_{ads} \nu_F} T^2 F
-                + \lr{ \tau_F m_{ads} \nu_F } TF^2 \\
-                & \qquad  - \lrf{\lr{ m_{ads} \tau_0 - \tau_T c_{ads}} v_T} T^2 + \lr{\tau_F c_{ads} \nu_F} F^2 \\
-                & \qquad  + \lrf{ \tau_F c_{ads} \nu_T + \lr{ m_{ads} \tau_0 - \tau_T c_{ads} } \nu_T } TF \\
-                & \qquad  - \lr{\nu_T \tau_0 c_{ads}} T - \lr{\nu_F \tau_0 c_{ads}} F\\
-                & \qquad + \nu_u u_{inj} \lrb{- \tau_T m_{ads} T^2 - \tau_F m_{ads} TF + \lr{m_{ads} \tau_0 - \tau_T c_{ads}} T - \tau_F c_{ads} F + \tau_0 c_{ads}}
-\end{align*}
-
 % \begin{align*}
 %         x_3(k+1) &= x_3
 %                 + n \lr{\frac{V \mu}{FT}} \lr{q_{ads} T^2 + m_{ads} T + c_{ads}} \lr{b_u \lr{\frac{u_2}{u_3^2 u_4^2}}} \lr{\Gamma - x_3} \\
