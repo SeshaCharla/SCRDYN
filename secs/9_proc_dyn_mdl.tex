@@ -61,32 +61,17 @@ Thus, linear-parameter representation of each of the processes are as follows:
 \input{secs/9_subs/nox_proc.tex}
 \input{secs/9_subs/nh3_gas.tex}
 \input{secs/9_subs/nh3_ads.tex}
+\input{secs/9_subs/remarks.tex}
+\input{secs/9_subs/r_nox_mdl.tex}
+\input{secs/9_subs/r_nh3_mdl.tex}
 %%======================================================================================================================
 
-\subsection{Remarks on parameter estimation}
-Thus, we have the linear parameter form of the model:
-\begin{align*}
-    x_1(k+1) &= u_1 + \pmb \phi_1^T  \pmb \theta_1 x_3 \\
-    x_2(k+1) &= \pmb \phi_2 ^T \Psi_2 \pmb \theta_2 \\
-    x_3(k+1) &= x_3 + \pmb \phi_3^T \theta_3
-\end{align*}
 
-Since, we don't have any $x_3$ measurements, one way to get a model that fits the data is by assuming $x_3$ is varying slowly and then estimate the slowly varying parameters and then fit the adsorption dynamics to the slowly varying dynamics of the parameters to estimate the constant parameter of the adsorption dynamics. These slowly varying parameter are the product of a constant to the adsorbed ammonia. Let,
-\begin{align*}
-    \beta_i &= x_3 \theta_i
-\end{align*}
-Thus we have the slowly varying parameter dynamics:
-\begin{align*}
-    \beta_i(k+1) &= \beta_i + \pmb \phi_{3, \beta}^T \theta_{3, \beta}
-\end{align*}
-Where,
-\begin{align*}
-    \pmb \phi_{3, \beta}^T &= \bm{\pmb \phi_{\tau, ur} &
-                                -\beta_3 \pmb \phi_{\tau, ur} &
-                                -\beta_3 \pmb \phi_\tau  &
-                                -\beta_3 u_1 \pmb \phi_{\tau}} \\
-    \pmb \theta_{3, \beta} &= \bm{n \theta_i \Gamma \pmb \theta_{ads, ur} \\
-                             n \pmb \theta_{ads, ur}    \\
-                             n \pmb \theta_{od}         \\
-                             n \pmb \theta_{scr}}
-\end{align*}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%
+%% Old Stuff %%%%
+%%%%%%%%%%%%%%%%%

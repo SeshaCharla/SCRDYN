@@ -10,30 +10,71 @@ We have:
                             - k_{s2v} \pmb \phi_{\tau, ur}^T \pmb \theta_{ads, ur} \lr{\Gamma - x_3}
                             - k_{s2v} \pmb \phi_{\tau}^T \pmb \theta_{des} x_3
                         \qquad \lrb{\because \ref{eqn::urea_parm}, \ref{eqn::k_tau_urea}, \ref{eqn::tau_ki}}\\
-                       &= \bm{\pmb \phi_{ur}^T & -\pmb \phi_{\tau, ur}^T  & -\pmb \phi_\tau^T}
-                          \bm{I_3    & \pmb 0                   & \pmb 0 \\
-                              \pmb 0 & \lr{\Gamma - x_3} I_{11} & \pmb 0 \\
-                              \pmb 0 & \pmb 0                   & x_3 I_5}
-                          \bm{\pmb \theta_{ur} \\
-                              k_{s2v} \pmb \theta_{ads, ur} \\
-                              k_{s2v} \pmb \theta_{des} }
+                        %===
+        &= \bm{\pmb \phi_{ur}^T & -\pmb \phi_{\tau, ur}^T }
+           \bm{\pmb \theta_{ur} \\  k_{s2v} \theta_{ads, ur}  \Gamma}
+           + x_3
+           \bm{\pmb \phi_{\tau, ur}^T & - \pmb \phi_{\tau}^T }
+           \bm{k_{s2v} \pmb \theta_{ads, ur} \\  k_{s2v} \theta_{des}}
 \end{align*}
-Where, $I_n$ is identity matrix of size n.
-
+%==
 Writing in linear regression form, let,
 \begin{align*}
-    \pmb \phi_2^T &= \bm{\pmb \phi_{ur}^T & -\pmb \phi_{\tau, ur}^T  & -\pmb \phi_\tau^T}\\
-    \pmb \theta_2 &= \bm{\pmb \theta_{ur} \\
-                        k_{s2v} \pmb \theta_{ads, ur} \\
-                        k_{s2v} \pmb \theta_{des} }       \\
-    \pmb \Psi_2   &= \bm{I_3    & \pmb 0                   & \pmb 0 \\
-                      \pmb 0 & \lr{\Gamma - x_3} I_{11} & \pmb 0 \\
-                      \pmb 0 & \pmb 0                   & x_3 I_5}
+    \pmb \phi_{20}^T &= \bm{\pmb \phi_{ur}^T & -\pmb \phi_{\tau, ur}^T } \qquad
+    \pmb \phi_2^T    = \bm{\pmb \phi_{\tau, ur}^T & - \pmb \phi_{\tau}^T } \\
+    \pmb \theta_{20} &= \bm{\pmb \theta_{ur} \\  k_{s2v} \theta_{ads, ur}  \Gamma} \qquad
+    \pmb \theta_2    = \bm{k_{s2v} \pmb \theta_{ads, ur} \\  k_{s2v} \theta_{des}}
 \end{align*}
+%==
+Thus,
 \begin{align}
-    x_2(k+1) &= \pmb \phi_2 ^T \Psi_2 \pmb \theta_2   \label{eqn::nh3_gas_regression}
+    x_2 (k+1) &= \pmb \phi_{20}^T \pmb \theta_{20} + x_3 \pmb \phi_2^T \pmb \theta_2
+    \label{eqn::nh3_gas_regression}
 \end{align}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Slightly Older Stuff %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%                        &= \bm{\pmb \phi_{ur}^T & -\pmb \phi_{\tau, ur}^T  & -\pmb \phi_\tau^T}
+%                           \bm{I_3    & \pmb 0                   & \pmb 0 \\
+%                               \pmb 0 & \lr{\Gamma - x_3} I_{11} & \pmb 0 \\
+%                               \pmb 0 & \pmb 0                   & x_3 I_5}
+%                           \bm{\pmb \theta_{ur} \\
+%                               k_{s2v} \pmb \theta_{ads, ur} \\
+%                               k_{s2v} \pmb \theta_{des} }
+% \end{align*}
+% Where, $I_n$ is identity matrix of size n.
+%
+% Writing in linear regression form, let,
+% \begin{align*}
+%     \pmb \phi_2^T &= \bm{\pmb \phi_{ur}^T & -\pmb \phi_{\tau, ur}^T  & -\pmb \phi_\tau^T}\\
+%     \pmb \theta_2 &= \bm{\pmb \theta_{ur} \\
+%                         k_{s2v} \pmb \theta_{ads, ur} \\
+%                         k_{s2v} \pmb \theta_{des} }       \\
+%     \pmb \Psi_2   &= \bm{I_3    & \pmb 0                   & \pmb 0 \\
+%                       \pmb 0 & \lr{\Gamma - x_3} I_{11} & \pmb 0 \\
+%                       \pmb 0 & \pmb 0                   & x_3 I_5}
+% \end{align*}
+% \begin{align}
+%     x_2(k+1) &= \pmb \phi_2 ^T \Psi_2 \pmb \theta_2   \label{eqn::nh3_gas_regression}
+% \end{align}
+%
 
 
 

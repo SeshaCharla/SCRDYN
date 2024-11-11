@@ -1,0 +1,9 @@
+ \subsection{Remarks on parameter estimation}
+ Thus, we have the linear parameter form of the model:
+ \begin{align*}
+     x_1(k+1) &= u_1 + \pmb \phi_1^T  \pmb \theta_1 x_3 \\
+     x_2 (k+1) &= \pmb \phi_{20}^T \pmb \theta_{20} + x_3 \pmb \phi_2^T \pmb \theta_2\\
+     x_3(k+1) &= x_3 \pmb \phi_3^T \theta_3 + \pmb \phi_{\tau, ur} \pmb \theta_\Gamma
+ \end{align*}
+
+ Since, we don't have any $x_3$ measurements, the parameters of the above set of equations cannot be measured directly. From above set of equations, it is observed that $x_1, x_2$ models are not recursive in time, i.e., the current value of $x_1$ or $x_2$ doesn't depend on the previous values. The integrating effects only come from the $x_3$ dynamics that are recursive. As, $x_3$ is not measured, this particular state is eliminated in the sequel by introducing recursion in the $x_1$ and $x_2$ dynamics. This would result in the reduced order model that doesn't explicitly have the adsorption state.

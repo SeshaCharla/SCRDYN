@@ -11,29 +11,32 @@ We have,
                                  - n \pmb \phi_{\tau} \pmb \theta_{scr} u_1 x_3
                                  \qquad \lrb{\because \ref{eqn::k_sum}, \ref{eqn::tau_ki}, \ref{eqn::k_tau_urea}} \\
         %===
-        &= x_3 + \bm{\pmb \phi_{\tau, ur} &
-                        -x_3 \pmb \phi_{\tau, ur} &
-                        -x_3 \pmb \phi_\tau  &
-                        -x_3 u_1 \pmb \phi_{\tau}}
-        \bm{n \Gamma \pmb \theta_{ads, ur} \\
-                n \pmb \theta_{ads, ur}    \\
-                n \pmb \theta_{od}         \\
-                n \pmb \theta_{scr}}
+        &= x_3  \bm{1 &
+                   - \pmb \phi_{\tau, ur} &
+                   - \pmb \phi_\tau  &
+                   - u_1 \pmb \phi_{\tau}}
+        \bm{ 1\\
+            n \pmb \theta_{ads, ur}    \\
+            n \pmb \theta_{od}         \\
+            n \pmb \theta_{scr}}
+        + \pmb \phi_{\tau, ur} \lrf{n \Gamma \pmb \theta_{ads, ur} }
 \end{align*}
 Writing in linear regression form, let,
 \begin{align*}
-        \pmb \phi_3 &= \bm{\pmb \phi_{\tau, ur} &
-                        -x_3 \pmb \phi_{\tau, ur} &
-                        -x_3 \pmb \phi_\tau  &
-                        -x_3 u_1 \pmb \phi_{\tau}} \\
-        \pmb \theta_3 &= \bm{n \Gamma \pmb \theta_{ads, ur} \\
+        \pmb \phi_3 &= \bm{1&
+                           - \pmb \phi_{\tau, ur} &
+                           - \pmb \phi_\tau  &
+                           - u_1 \pmb \phi_{\tau}} \\
+        \pmb \theta_3 &= \bm{1 \\
                              n \pmb \theta_{ads, ur}    \\
                              n \pmb \theta_{od}         \\
-                             n \pmb \theta_{scr}}
+                             n \pmb \theta_{scr}} , \qquad
+        \pmb \theta_\Gamma  = n \Gamma \pmb \theta_{ads, ur}
 \end{align*}
 Thus,
 \begin{align}
-        x_3(k+1) &= x_3 + \pmb \phi_3^T \theta_3        \label{eqn::nh3_ads_regression}
+        x_3(k+1) &= x_3 \pmb \phi_3^T \theta_3 + \pmb \phi_{\tau, ur} \pmb \theta_\Gamma
+        \label{eqn::nh3_ads_regression}
 \end{align}
 
 
