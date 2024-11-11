@@ -44,4 +44,31 @@
                 = \lr{\pmb \phi_\tau \kron \pmb \phi_{ur}}^T \lr{\theta_i \kron \theta_u}
         \end{align*}
         Note that the elements in the Kronecker product repeat and so there needs to be further simplification to get the full rank regressor form.
+
+        Calculating the individual Kronecker products:
+        \begin{align*}
+                \lr{\pmb \phi_\tau^T \kron \pmb \phi_{ur}^T} &= \bm{T^2 & TF & -T & F & -1} \kron
+                                                                \bm{u_{inj} & -T & -F}\\
+                        &= \bm{u_{inj} \pmb \phi_\tau^T & | & -T^3 & -T^2 F & T^2 & -TF & T & | &
+                                                          -T^2 F & -TF^2 & TF & -F^2 & F}
+        \end{align*}
+        \begin{align*}
+                \lr{\theta_i \kron \theta_u} &=
+                        \bm{\tau_T m_i & \tau_F m_i & \lr{m_i \tau_0 - \tau_T c_i} & \tau_F c_i & c_i}^T  \kron
+                        \bm{\nu_u & \nu_T & \nu_F}^T\\
+                        &= \mat{[\nu_u \theta_i^T & | &
+                        \nu_T \tau_T m_i & \nu_T \tau_F m_i & \nu_T \lr{m_i \tau_0 - \tau_T c_i} & \nu_T \tau_F c_i &
+                        \nu_T c_i & | \hdots \\
+                        & &
+                        \nu_F \tau_T m_i & \nu_F \tau_F m_i & \nu_F \lr{m_i \tau_0 - \tau_T c_i} & \nu_F \tau_F c_i &
+                        \nu_F c_i]}
+        \end{align*}
+
+        Removing the combining repeated elements from the above, we have the following regressor and parameter vectors:
+        \begin{align}
+                \phi_{\tau,ur}^T &= \bm{u_{inj} \pmb \phi_\tau^T & | & -T^3 & -T^2 F & T^2 & TF & T & -TF^2 & -F^2 & F}\\
+                \theta_{i,ur}^T  &= \bm{\nu_u \theta_i^T & | &
+                                        \nu_T \tau_T m_i & \lr{\nu_T \tau_F + \nu_F \tau_T} m_i &
+                                        \nu_T \lr{m_i \tau_0 - \tau_T c_i} & \nu_T \tau_F c_i & \nu_T c_i & | \hdots }
+        \end{align}
 \end{enumerate}
