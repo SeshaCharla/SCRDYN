@@ -66,9 +66,17 @@
 
         Removing the combining repeated elements from the above, we have the following regressor and parameter vectors:
         \begin{align}
-                \phi_{\tau,ur}^T &= \bm{u_{inj} \pmb \phi_\tau^T & | & -T^3 & -T^2 F & T^2 & TF & T & -TF^2 & -F^2 & F}\\
-                \theta_{i,ur}^T  &= \bm{\nu_u \theta_i^T & | &
+        \pmb\phi_{\tau,ur}^T &= \bm{u_{inj} \pmb \phi_\tau^T & | & -T^3 & -T^2 F & T^2 & TF & T & -TF^2 & -F^2 & F}\\
+        \pmb \theta_{i,ur}^T  &= \mat{[\nu_u \theta_i^T & | &
                                         \nu_T \tau_T m_i & \lr{\nu_T \tau_F + \nu_F \tau_T} m_i &
-                                        \nu_T \lr{m_i \tau_0 - \tau_T c_i} & \nu_T \tau_F c_i & \nu_T c_i & | \hdots }
+                                        \nu_T \lr{m_i \tau_0 - \tau_T c_i} & \hdots \\
+                                        & &
+                                        \nu_F \lr{m_i \tau_0 - \tau_T c_i} -\nu_T \tau_F c_i &
+                                        \nu_T c_i & \nu_F \tau_F m_i & \nu_F \tau_F c_i & \nu_F c_i]}
         \end{align}
 \end{enumerate}
+
+Thus,
+\begin{align}
+        k_i \tau \con{NH_3}^{in} &= \pmb \phi_{\tau, ur}^T \pmb \theta_{i, ur}
+\end{align}
