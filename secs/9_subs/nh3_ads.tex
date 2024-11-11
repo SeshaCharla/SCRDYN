@@ -6,12 +6,62 @@ We have,
         - n \tau \lr{k_{oxi} + k_{des}} \sigma(k)
         - n \tau k_{scr} \con{NO_x}^{in}(k) \sigma(k) \\
         %===
-        \implies x_3(k+1) &= x_3
-                + n\tau k_{ads} \lr{\nu_u u_{inj} - \nu_T T - \nu_F F} \lr{\Gamma - x_3}
-                - n \tau \lr{k_{oxi} + k_{des}} x_3
-                - n \tau k_{scr} u_1 x_3
+        \implies x_3(k+1) &= x_3 + n \pmb \phi_{\tau, ur} \pmb \theta_{ads, ur} \lr{\Gamma - x_3}
+                                 - n \pmb \phi_{\tau} \pmb \theta_{od} x_3
+                                 - n \pmb \phi_{\tau} \pmb \theta_{scr} u_1 x_3
+                                 \qquad \lrb{\because \ref{eqn::k_sum}, \ref{eqn::tau_ki}, \ref{eqn::k_tau_urea}} \\
+        %===
+        &= x_3 + \bm{\pmb \phi_{\tau, ur} &
+                        -x_3 \pmb \phi_{\tau, ur} &
+                        -x_3 \pmb \phi_\tau  &
+                        -x_3 u_1 \pmb \phi_{\tau}}
+        \bm{n \Gamma \pmb \theta_{ads, ur} \\
+                n \pmb \theta_{ads, ur}    \\
+                n \pmb \theta_{od}         \\
+                n \pmb \theta_{scr}}
 \end{align*}
-And, we have the product of residence time and rate constant,
+Writing in linear regression form, let,
+\begin{align*}
+        \pmb \phi_3 &= \bm{\pmb \phi_{\tau, ur} &
+                        -x_3 \pmb \phi_{\tau, ur} &
+                        -x_3 \pmb \phi_\tau  &
+                        -x_3 u_1 \pmb \phi_{\tau}} \\
+        \pmb \theta_3 &= \bm{n \Gamma \pmb \theta_{ads, ur} \\
+                             n \pmb \theta_{ads, ur}    \\
+                             n \pmb \theta_{od}         \\
+                             n \pmb \theta_{scr}}
+\end{align*}
+Thus,
+\begin{align}
+        x_3(k+1) &= x_3 + \pmb \phi_3^T \theta_3        \label{eqn::nh3_ads_regression}
+\end{align}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%
+%% Old Stuff %%%%%%
+%%%%%%%%%%%%%%%%%%%
+
 % \begin{align*}
 %         x_3(k+1) &= x_3
 %                 + n \lr{\frac{V \mu}{FT}} \lr{q_{ads} T^2 + m_{ads} T + c_{ads}} \lr{b_u \lr{\frac{u_2}{u_3^2 u_4^2}}} \lr{\Gamma - x_3} \\
