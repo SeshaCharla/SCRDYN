@@ -1,4 +1,4 @@
-\section{Linear parameter nonlinear recursive model for tailpipe $NO_x$ $\lr{\con{NO_x}^{out}}$ dynamics}
+\section{Nonlinear recursive model with linear parameters for tailpipe $NO_x$ $\lr{\con{NO_x}^{out}}$ dynamics}
 Rewriting equation \ref{eqn::nox_regression} to get the adsorbed ammonia:
 \begin{align*}
         x_3(k) \lrf{\pmb \phi_1^T(k) \pmb \theta_1} &= {x_1(k+1) - u_1(k)}\\
@@ -46,3 +46,15 @@ Writing in one time step ahead form:
                      \lrf{ \lr{\pmb \phi_1^T(k) \pmb \theta_1} \kron \lr{\pmb \phi^T_{\tau, ur}(k-1) \pmb \theta_\Gamma}}
         \label{eqn::r_nox_2}
 \end{align}
+%===
+Defining the following new regressor and parameter vectors:
+\begin{align*}
+        \pmb \phi_{f1}(k) &= \lrf{{x_1(k) - u_1(k-1)}} f_{\phi_1}(k) \pmb \phi_3^T (k-1)\\
+        \pmb \theta_{f1} &= \pmb \theta_3 \\
+        \lrf{\pmb \phi_1^T(k) \pmb \theta_1} \kron \lrf{\pmb \phi^T_{\tau, ur}(k-1) \pmb \theta_\Gamma} &=
+             \lrf{ \pmb \phi_1^T(k) \kron \pmb \phi^T_{\tau, ur}(k-1) }
+             \lrf{\pmb \theta_1 \kron \pmb \theta_\Gamma}\\
+        \pmb \phi_{\Gamma 1} (k) &= \lrf{ \pmb \phi_1^T(k) \kron \pmb \phi^T_{\tau, ur}(k-1) } \\
+        \pmb \theta_{\Gamma 1} &= \lrf{\pmb \theta_1 \kron \pmb \theta_\Gamma}
+\end{align*}
+The regressors coming from  of Kronecker products are will have full rank they involve the product of inputs at different time steps.
