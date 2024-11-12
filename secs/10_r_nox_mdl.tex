@@ -1,0 +1,48 @@
+\section{Linear parameter nonlinear recursive model for tailpipe $NO_x$ $\lr{\con{NO_x}^{out}}$ dynamics}
+Rewriting equation \ref{eqn::nox_regression} to get the adsorbed ammonia:
+\begin{align*}
+        x_3(k) \lrf{\pmb \phi_1^T(k) \pmb \theta_1} &= {x_1(k+1) - u_1(k)}\\
+        \implies x_3(k+1) \lrf{\pmb \phi_1^T(k+1) \pmb \theta_1} &= {x_1(k+2) - u_1(k+1)}
+\end{align*}
+Consider \ref{eqn::nh3_ads_regression}:
+\begin{align*}
+     x_3(k+1) &= x_3 \pmb \phi_3^T \pmb \theta_3 + \pmb \phi_{\tau, ur} \pmb \theta_\Gamma\\
+     \implies \lrf{\pmb \phi_1^T(k) \pmb \theta_1} x_3(k+1) &= \lrf{\pmb \phi_1^T(k) \pmb \theta_1} \lrf{x_3 \pmb \phi_3^T \pmb \theta_3 + \pmb \phi_{\tau, ur} \pmb \theta_\Gamma}\\
+     &= \lrf{\lr{\pmb \phi_1^T(k) \pmb \theta_1}x_3(k)} \lrf{\pmb \phi_3^T \pmb \theta_3}
+     + \lrf{\pmb \phi_1^T(k) \pmb \theta_1} \lrf{\pmb \phi_{\tau, ur} \pmb \theta_\Gamma}\\
+     &= \lrf{{x_1(k+1) - u_1(k)}} \lrf{\pmb \phi_3^T \pmb \theta_3}
+     + \lrf{\pmb \phi_1^T(k) \pmb \theta_1} \lrf{\pmb \phi_{\tau, ur} \pmb \theta_\Gamma}  \qquad \lrb{\because \ref{eqn::nox_regression}}
+\end{align*}
+\begin{align}
+        \lrf{\pmb \phi_1^T(k) \pmb \theta_1} x_3(k+1)
+        &= \lrf{{x_1(k+1) - u_1(k)}} \lrf{\pmb \phi_3^T \pmb \theta_3} + \lrf{\pmb \phi_1^T(k) \pmb \theta_1} \lrf{\pmb \phi_{\tau, ur} \pmb \theta_\Gamma}
+        \label{eqn::r_nox_1}
+\end{align}
+Let,
+\begin{align}
+        f_{\phi_1}(k+1) &= \pmb \phi_1(k+1)^T \lrb{\pmb \phi_1(k) \pmb \phi_1^T(k)}^{-1} \pmb \phi_1(k)
+        \label{eqn::f_phi_1}
+\end{align}
+Thus,
+\begin{align}
+        f_{\phi_1}(k+1) \lrf{\pmb \phi_1^T(k) \pmb \theta_1} &= \pmb \phi_1(k+1)^T \lrb{\pmb \phi_1(k) \pmb \phi_1^T(k)}^{-1} \pmb \phi_1(k) \lrf{\pmb \phi_1^T(k) \pmb \theta_1}
+        = \pmb \phi_1^T(k+1) \pmb \theta_1
+        \label{eqn::f_phi_prop}
+\end{align}
+Note that $f_{\phi_1}$ is a scalar. Multiplying $f_{\phi_1}(k+1)$ on both sides of equation (\ref{eqn::r_nox_1}):
+\begin{align*}
+      &f_{\phi_1}(k+1) \lrf{\pmb \phi_1^T(k) \pmb \theta_1} x_3(k+1)
+                = \lrf{{x_1(k+1) - u_1(k)}} f_{\phi_1}(k+1)\lrf{\pmb \phi_3^T (k) \pmb \theta_3}
+                + f_{\phi_1}(k+1)\lrf{\pmb \phi_1^T(k) \pmb \theta_1} \lrf{\pmb \phi^T_{\tau, ur}(k) \pmb \theta_\Gamma}\\
+      %===
+      &\implies {x_1(k+2) - u_1(k+1)} = \lrf{{x_1(k+1) - u_1(k)}} f_{\phi_1}(k+1)\lrf{\pmb \phi_3^T (k) \pmb \theta_3}
+                + \lrf{ \lr{\pmb \phi_1^T(k+1) \pmb \theta_1} \kron \lr{\pmb \phi^T_{\tau, ur}(k) \pmb \theta_\Gamma}}
+        \quad \lrb{\because \ref{eqn::f_phi_prop}}
+\end{align*}
+Writing in one time step ahead form:
+\begin{align}
+        x_1(k+1) &=  u_1(k)  +
+                     \lrf{{x_1(k) - u_1(k-1)}} f_{\phi_1}(k)\lrf{\pmb \phi_3^T (k-1) \pmb \theta_3}+
+                     \lrf{ \lr{\pmb \phi_1^T(k) \pmb \theta_1} \kron \lr{\pmb \phi^T_{\tau, ur}(k-1) \pmb \theta_\Gamma}}
+        \label{eqn::r_nox_2}
+\end{align}

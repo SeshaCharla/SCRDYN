@@ -1,1 +1,8 @@
 \subsection{Linear parameter nonlinear recursive model for tailpipe ammonia $\lr{\con{NH_3}^{out}}$ dynamics}
+
+We have the gaseous $NH_3$ process dynamics (\ref{eqn::nh3_gas_regression}) and adsorbed ammonia model (\ref{eqn::nh3_ads_regression}):
+
+\begin{align*}
+     x_2 (k+1) &= \pmb \phi_{20}^T \pmb \theta_{20} + x_3 \pmb \phi_2^T \pmb \theta_2\\
+     x_3(k+1) &= x_3 \pmb \phi_3^T \theta_3 + \pmb \phi_{\tau, ur} \pmb \theta_\Gamma
+ \end{align*}
