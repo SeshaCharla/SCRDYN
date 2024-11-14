@@ -8,23 +8,14 @@ We have,
 We have the component parameter vectors that make up the parameter vectors $\pmb \theta_{f1}, \pmb \theta_{\Gamma 1}$:
 
 \begin{align*}
-        \pmb \theta_{scr} &= \bm{\tau_T m_{scr} &
-                                \tau_F m_{scr} &
-                                \lr{m_{scr} \tau_0 - \tau_T c_{scr}} &
-                                \tau_F c_{scr} &
-                                c_{scr}}^T
+        \pmb \theta_{scr} &= \bm{\tau_0 m_{scr} &
+                                \tau_0 c_{scr}}^T
         \\
-        \pmb \theta_{od}  &= \bm{\tau_T m_{od} &
-                                \tau_F m_{od} &
-                                \lr{m_{od} \tau_0 - \tau_T c_{od}} &
-                                \tau_F c_{od} &
-                                c_{od}}^T
+        \pmb \theta_{od}  &= \bm{\tau_0 m_{od} &
+                                \tau_0 c_{od}}^T
         \\
-        \pmb \theta_{ads} &= \bm{\tau_T m_{ads} &
-                                \tau_F m_{ads} &
-                                \lr{m_{ads} \tau_0 - \tau_T c_{ads}} &
-                                \tau_F c_{ads} &
-                                c_{ads}}^T
+        \pmb \theta_{ads} &= \bm{\tau_0 m_{ads} &
+                                \tau_0 c_{ads} }^T
         \\
         \pmb \theta_{ads, ur} &= \mat{[\nu_u \theta_{ads}^T & | &
                                         \nu_T \tau_T m_{ads} & \lr{\nu_T \tau_F + \nu_F \tau_T} m_{ads} &

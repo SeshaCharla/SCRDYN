@@ -73,7 +73,12 @@ Expanding the terms and defining the following new regressor and parameter vecto
         \text{and, } \qquad &\\
         &\pmb \theta_{f1}^T = n \bm{ \pmb \theta_{ads, ur}  & \pmb \theta_{od}  & \pmb \theta_{scr}}\\
 \end{align*}
-The Kronecker product can be rewritten into product of regressor and parameter vectors as:
+We have the following properties of Kronecker product:
+        \begin{align*}
+                \lr{A \kron B}^T &= A^T \kron B^T \\
+                \lr{A \kron B} \lr{C \kron D} &= \lr{AC} \kron \lr{BD}
+        \end{align*}
+Thus, Kronecker product can be rewritten into product of regressor and parameter vectors as:
 \begin{align*}
         \lrf{\pmb \phi_1^T(k) \pmb \theta_1} \kron \lrf{\pmb \phi^T_{\tau, ur}(k-1) \pmb \theta_\Gamma} &=
              \lrf{ \pmb \phi_1^T(k) \kron \pmb \phi^T_{\tau, ur}(k-1) }

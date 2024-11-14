@@ -7,75 +7,64 @@
 
         \item Product of residence time and rate constant:
         \begin{align*}
-        k_i \tau  = \lr{m_i T + c_i} \lr{\tau_0 - \tau_T T - \tau_F F}
-                  &= - \tau_T m_i T^2 - \tau_F m_i TF + \lr{m_i \tau_0 - \tau_T c_i} T - \tau_F c_i F + \tau_0 c_i \\
-                  &= \bm{-T^2 & - TF & T & -F & 1} \bm{\tau_T m_i \\
-                                                       \tau_F m_i \\
-                                                       \lr{m_i \tau_0 - \tau_T c_i} \\
-                                                       \tau_F c_i \\
-                                                       c_i}
+        k_i \tau  = \lr{m_i T + c_i} \frac{\tau_0}{F} = \bm{\frac{T}{F} & \frac{1}{F}} \bm{\tau_0 m_i \\ \tau_0 c_i}
+        % \lr{\tau_0 - \tau_T T - \tau_F F}
+        %           &= - \tau_T m_i T^2 - \tau_F m_i TF + \lr{m_i \tau_0 - \tau_T c_i} T - \tau_F c_i F + \tau_0 c_i \\
+        %           &= \bm{-T^2 & - TF & T & -F & 1} \bm{\tau_T m_i \\
+        %                                                \tau_F m_i \\
+        %                                                \lr{m_i \tau_0 - \tau_T c_i} \\
+        %                                                \tau_F c_i \\
+        %                                                c_i}
         \end{align*}
 
         Let,
         \begin{align}
-                \pmb \phi_\tau &= \bm{T^2 & TF & -T & F & -1}^T  \label{eqn::phi_tau}\\
-                \pmb \theta_i &= \bm{\tau_T m_i &
-                                \tau_F m_i &
-                                \lr{m_i \tau_0 - \tau_T c_i} &
-                                \tau_F c_i &
-                                c_i}^T          \label{eqn::theta_i}\\
-                \therefore \: k_i \tau &= - \pmb \phi_\tau^T \pmb \theta_i   \label{eqn::tau_ki}
+                \pmb \phi_\tau &= \bm{\frac{T}{F} & \frac{1}{F}}^T  \label{eqn::phi_tau}\\
+                \pmb \theta_i &= \bm{\tau_0 m_i &
+                                     \tau_0 c_i}^T          \label{eqn::theta_i}\\
+                \therefore \: k_i \tau &= \pmb \phi_\tau^T \pmb \theta_i   \label{eqn::tau_ki}
         \end{align}
 
 
         \item Product of urea-dosing dynamics with residence time and rate constant:
         \begin{align*}
-        k_{i} \tau \lr{\nu_u u_{inj} - \nu_T T - \nu_F F} &= \lr{\pmb \phi^T_\tau \pmb \theta_i} \lr{\pmb \phi^T_{ur} \pmb \theta_{ur}} = \lr{\pmb \phi^T_\tau \pmb \theta_i} \kron \lr{\pmb \phi^T_{ur} \pmb \theta_{ur}}
-        \qquad [\text{Kronecker Product}]
+        k_{i} \tau \lr{\frac{\nu_u u_{inj}}{F^2}} &= \frac{u_{inj}}{F^2} \pmb \phi_\tau^T \pmb \theta_i \nu_u
         \end{align*}
-        We have the following properties of Kronecker product:
-        \begin{align*}
-                \lr{A \kron B}^T &= A^T \kron B^T \\
-                \lr{A \kron B} \lr{C \kron D} &= \lr{AC} \kron \lr{BD}
-        \end{align*}
-        Thus,
-        \begin{align*}
-                k_{i} \tau \con{NH_3}^{in} &= \lr{\pmb \phi^T_\tau \pmb \theta_i} \kron \lr{\pmb \phi^T_{ur} \pmb \theta_{ur}}
-                = \lr{\pmb \phi_\tau \kron \pmb \phi_{ur}}^T \lr{\theta_i \kron \theta_u}
-        \end{align*}
-        Note that the elements in the Kronecker product repeat and so there needs to be further simplification to get the full rank regressor form.
+        % \lr{\pmb \phi^T_\tau \pmb \theta_i} \lr{\pmb \phi^T_{ur} \pmb \theta_{ur}} = \lr{\pmb \phi^T_\tau \pmb \theta_i} \kron \lr{\pmb \phi^T_{ur} \pmb \theta_{ur}}
+        % \qquad [\text{Kronecker Product}]
+        % \end{align*}
+        % Thus,
+        % \begin{align*}
+        %         k_{i} \tau \con{NH_3}^{in} &= \lr{\pmb \phi^T_\tau \pmb \theta_i} \kron \lr{\pmb \phi^T_{ur} \pmb \theta_{ur}}
+        %         = \lr{\pmb \phi_\tau \kron \pmb \phi_{ur}}^T \lr{\theta_i \kron \theta_u}
+        % \end{align*}
+        % Note that the elements in the Kronecker product repeat and so there needs to be further simplification to get the full rank regressor form.
 
-        Calculating the individual Kronecker products:
-        \begin{align*}
-                \lr{\pmb \phi_\tau^T \kron \pmb \phi_{ur}^T} &= \bm{T^2 & TF & -T & F & -1} \kron
-                                                                \bm{u_{inj} & -T & -F}\\
-                        &= \bm{u_{inj} \pmb \phi_\tau^T & | & -T^3 & -T^2 F & T^2 & -TF & T & | &
-                                                          -T^2 F & -TF^2 & TF & -F^2 & F}
-        \end{align*}
-        \begin{align*}
-                \lr{\theta_i \kron \theta_u} &=
-                        \bm{\tau_T m_i & \tau_F m_i & \lr{m_i \tau_0 - \tau_T c_i} & \tau_F c_i & c_i}^T  \kron
-                        \bm{\nu_u & \nu_T & \nu_F}^T\\
-                        &= \mat{[\nu_u \theta_i^T & | &
-                        \nu_T \tau_T m_i & \nu_T \tau_F m_i & \nu_T \lr{m_i \tau_0 - \tau_T c_i} & \nu_T \tau_F c_i &
-                        \nu_T c_i & | \hdots \\
-                        & &
-                        \nu_F \tau_T m_i & \nu_F \tau_F m_i & \nu_F \lr{m_i \tau_0 - \tau_T c_i} & \nu_F \tau_F c_i &
-                        \nu_F c_i]}
-        \end{align*}
+        % Calculating the individual Kronecker products:
+        % \begin{align*}
+        %         \lr{\pmb \phi_\tau^T \kron \pmb \phi_{ur}^T} &= \bm{T^2 & TF & -T & F & -1} \kron
+        %                                                         \bm{u_{inj} & -T & -F}\\
+        %                 &= \bm{u_{inj} \pmb \phi_\tau^T & | & -T^3 & -T^2 F & T^2 & -TF & T & | &
+        %                                                   -T^2 F & -TF^2 & TF & -F^2 & F}
+        % \end{align*}
+        % \begin{align*}
+        %         \lr{\theta_i \kron \theta_u} &=
+        %                 \bm{\tau_T m_i & \tau_F m_i & \lr{m_i \tau_0 - \tau_T c_i} & \tau_F c_i & c_i}^T  \kron
+        %                 \bm{\nu_u & \nu_T & \nu_F}^T\\
+        %                 &= \mat{[\nu_u \theta_i^T & | &
+        %                 \nu_T \tau_T m_i & \nu_T \tau_F m_i & \nu_T \lr{m_i \tau_0 - \tau_T c_i} & \nu_T \tau_F c_i &
+        %                 \nu_T c_i & | \hdots \\
+        %                 & &
+        %                 \nu_F \tau_T m_i & \nu_F \tau_F m_i & \nu_F \lr{m_i \tau_0 - \tau_T c_i} & \nu_F \tau_F c_i &
+        %                 \nu_F c_i]}
+        % \end{align*}
 
-        Removing the combining repeated elements from the above, we have the following regressor and parameter vectors:
+        % Removing the combining repeated elements from the above, we have the following regressor and parameter vectors:
         \begin{align}
-        \pmb\phi_{\tau,ur}^T &= \bm{u_{inj} \pmb \phi_\tau^T & | & -T^3 & -T^2 F & T^2 & TF & T & -TF^2 & -F^2 & F}\\
-        \pmb \theta_{i,ur}^T  &= \mat{[\nu_u \theta_i^T & | &
-                                        \nu_T \tau_T m_i & \lr{\nu_T \tau_F + \nu_F \tau_T} m_i &
-                                        \nu_T \lr{m_i \tau_0 - \tau_T c_i} & \hdots \\
-                                        & &
-                                        \nu_F \lr{m_i \tau_0 - \tau_T c_i} -\nu_T \tau_F c_i &
-                                        \nu_T c_i & \nu_F \tau_F m_i & \nu_F \tau_F c_i & \nu_F c_i]}
+        \pmb\phi_{\tau,ur}^T &= \frac{u_{inj}}{F^2}  \pmb \phi_\tau \\
+        \pmb \theta_{i,ur}  &= \nu_u \theta_i
         \end{align}
 \end{enumerate}
-
 Thus,
 \begin{align}
         k_i \tau \con{NH_3}^{in} &= \pmb \phi_{\tau, ur}^T \pmb \theta_{i, ur}   \label{eqn::k_tau_urea}

@@ -3,16 +3,12 @@ We have:
 \begin{align*}
     \con{NO_x}^{out} (k + 1) &= \con{NO_x}^{in} (k) \lr{1 - k_{s2v} k_{scr} \sigma(k) \tau}\\
     \implies x_1 (k+1) &= u_1 \lr{1 - k_{s2v} k_{scr} x_3 \tau}\\
-                       &= u_1 \lrf{1 + k_{s2v} x_3 \pmb \phi_\tau^T \pmb \theta_{scr}} \qquad [\because \ref{eqn::tau_ki}]
+                       &= u_1 \lrf{1 - k_{s2v} x_3 \pmb \phi_\tau^T \pmb \theta_{scr}} \qquad [\because \ref{eqn::tau_ki}]
 \end{align*}
 Writing in linear regression form, let
 \begin{align*}
-    \pmb \phi_1^T &= u_1 \pmb \phi_\tau^T = u_1 \bm{T^2 &  T F & - T &  F & -1} \\
-    \pmb \theta_1^T &= k_{s2v} \pmb \theta_{scr}^T = k_{s2v} \bm{m_{scr} \tau_T &
-                                                               m_{scr} \tau_F &
-                                                               \lr{ m_{scr} \tau_0  -  \tau_T c_{scr} } &
-                                                               c_{scr} \tau_F &
-                                                               c_{scr} \tau_0}
+    \pmb \phi_1^T &= -u_1 \pmb \phi_\tau^T  \\
+    \pmb \theta_1^T &= k_{s2v} \pmb \theta_{scr}^T
 \end{align*}
 \begin{align}
     x_1(k+1) &= u_1(k) + \pmb \phi_1^T (k) \pmb \theta_1 x_3  \label{eqn::nox_regression}
