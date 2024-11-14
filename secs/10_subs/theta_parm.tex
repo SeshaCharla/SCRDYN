@@ -17,29 +17,28 @@ We have the component parameter vectors that make up the parameter vectors $\pmb
         \pmb \theta_{ads} &= \bm{\tau_0 m_{ads} &
                                 \tau_0 c_{ads} }^T
         \\
-        \pmb \theta_{ads, ur} &= \mat{[\nu_u \theta_{ads}^T & | &
-                                        \nu_T \tau_T m_{ads} & \lr{\nu_T \tau_F + \nu_F \tau_T} m_{ads} &
-                                        \nu_T \lr{m_{ads} \tau_0 - \tau_T c_{ads}} & \hdots \\
-                                        & &
-                                        \nu_F \lr{m_{ads} \tau_0 - \tau_T c_{ads}} -\nu_T \tau_F c_{ads} &
-                                        \nu_T c_{ads} & \nu_F \tau_F m_{ads} & \hdots \\
-                                        & &
-                                        \nu_F \tau_F c_{ads} & \nu_F c_{ads}]}
+        \pmb \theta_{ads, ur} &= \nu_u \pmb \theta_{ads}^T
         \\
-        \pmb \theta_{\Gamma } &= n \Gamma \theta_{ads, ur}
+        \pmb \theta_{\Gamma } &= n \Gamma \pmb \theta_{ads, ur}
         \\
-        \pmb \theta_1 &= k_{s2v} \theta_{scr}
+        \pmb \theta_1 &= k_{s2v} \pmb \theta_{scr}
 \end{align*}
 
 Thus,
 
 \begin{align*}
-        \pmb \theta_{f1} &= n \bm{\pmb \theta_{ads, ur}^T & \pmb \theta_{od}^T & \pmb \theta_{scr}^T}^T_{(23 \times 1)}\\
+        \pmb \theta_{f1} &= n \bm{\pmb \theta_{ads, ur}^T & \pmb \theta_{od}^T & \pmb \theta_{scr}^T}^T_{(6 \times 1)}\\
         %===
         \pmb \theta_{\Gamma 1} &= \pmb \theta_1 \kron \pmb \theta_\Gamma = n \Gamma k_{s2v} \lrf{ \pmb \theta_{scr} \kron \pmb \theta{ads, ur}}\\
-                        &= n \Gamma k_{s2v} \bm{\tau_T m_{scr} \pmb \theta_{ads, ur} \\
-                                                 \tau_F m_{scr} \pmb \theta_{ads, ur} \\
-                                                 \lr{m_{scr} \tau_0 - \tau_T c_{scr}} \pmb \theta_{ads, ur} \\
-                                                 \tau_F c_{scr} \pmb \theta_{ads, ur} \\
-                                                 c_{scr} \pmb \theta_{ads, ur} }_{(65 \times 1)}
+                        &= n \Gamma k_{s2v} \nu_u \tau_0^2
+                                \bm{m_{scr} m_{ads} \\
+                                    m_{scr} c_{ads} \\
+                                    c_{scr} m_{ads} \\
+                                    c_{scr} c_{ads}}_{(4 \times 1)}
 \end{align*}
+\begin{align}
+        \pmb \theta_{NO_x} &= n \bm{\pmb \theta_{ads, ur}^T & \pmb \theta_{od}^T & \pmb \theta_{scr}^T
+                                    &|& \Gamma k_{s2v} \nu_u \lr{\pmb \theta_{scr}^T \kron \pmb \theta_{ads}^T}}^T_{(10 \times 1)}
+\end{align}
+
+Thus, all the parameters are sensitive to changes in sampling rate. The last 4 parameters explicitly depend on the surface void concentration of the catalyst.
