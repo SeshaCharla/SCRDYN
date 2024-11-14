@@ -1,0 +1,29 @@
+\subsection{Algorithmically calculating the regressor $\pmb \phi_{NO_x}$}
+
+Following equations need to be computed in sequence for getting $\pmb \phi_{NO_x}$:
+
+
+\begin{align*}
+        1)&& \pmb \phi_\tau(k) &= \bm{T^2 & TF & -T & F & -1}^T  = g_{\phi_\tau}(T(k), F(k))\\
+        %===
+        2)&& \pmb \phi_\tau(k-1)&= g_{\phi_\tau}(T(k-1), F(k-1))\\
+        %===
+        3)&& \pmb \phi_{\tau, ur}(k)&= \bm{u_{inj}(k) \times \pmb \phi_\tau^T(k) &|&
+                                          -T^3 & -T^2 F & T^2 & TF & T & -TF^2 & -F^2 & F}^T \\
+                                  &&&= g_{\phi_{\tau, ur}} (u_{inj}(k), \pmb \phi_\tau(k), T(k), F(k))\\
+        %===
+        4)&& \pmb \phi_{\tau, ur}(k-1)&= g_{\phi_{\tau, ur}} (u_inj(k-1), \pmb \phi_\tau(k-1), T(k-1), F(k-1))\\
+        %===
+        5)&& \pmb \phi_1(k) &= u_1(k) \times \pmb \phi_\tau(k)\\
+        %===
+        6)&& \pmb \phi_1(k-1) &= u_1(k-1) \times \pmb \phi_\tau(k-1) \\
+        %===
+        7)&& f_{\phi_1}(k) &= \pmb \phi_1(k) \times \underbrace{\lrb{\pmb \phi_1(k-1) \pmb \phi_1^T(k-1)}^{-1} \times \pmb \phi_1(k-1)}_{\text{psuedo-inverse of } \pmb \phi_1^T(k-1)}\\
+        %===
+        8)&& \pmb \phi_{f1} &= \lrf{x_1(k) - u_1(k-1)} \times f_{\phi_1} \times
+                                \bm{\pmb \phi_{\tau, ur}^T(k-1) & \pmb \phi_\tau^T(k-1) & \pmb \phi_1^T(k-1)}^T\\
+        %===
+        9)&& \pmb \phi_{\Gamma 1} &= \pmb \phi_1 (k) \kron \pmb \phi_{\tau, ur} (k-1) \\
+        %===
+        10)&& \pmb \phi_{NO_x} &= \bm{-\pmb \phi_{f1} \\ \pmb \phi_{\Gamma 1}}
+\end{align*}
