@@ -2,33 +2,28 @@
 The temperature dependent density of the exhaust gas is used to convert the mass
 flow rate of the exhaust gas to the volumetric flow rate of the exhaust gas.
 \begin{align}
-    f_v &= \frac{F}{\rho} = \frac{FT}{\mu}\\
-    \implies \delta f_v &= \frac{1}{\mu} \lr{F_0 \delta T + T_0 \delta F}   \label{eqn::fv_approx}
+    f_v &= \frac{F}{\rho} = \frac{F}{\rho_0}  \label{eqn::fv_approx}
 \end{align}
+The effect of change of $f_v$ due to temperature change's effect on density is neglected as change is mass flow rate will be more significant.
 
-
-\subsection{Linear model for residence time}
-We have the residence time of the exhaust gas in the SCR-ASC system as:
+\subsection{Approximate model for residence time}
+We have the residence time of the exhaust gas in the SCR-ASC system within the operating limits of temperature and flow-rate:
 \begin{align*}
-    \tau &= \frac{V}{f_v} = \frac{V \mu}{FT} \\
-    \implies
-    \delta \tau &= - \frac{V}{\bar{f_v} ^2} \delta f_v
+    \tau &= \frac{V}{f_v} = \frac{V \rho_0}{F} \\
 \end{align*}
-Thus we have the linear approximation of the residence time:
-\begin{align*}
-    \tau &= \tau_0 + \delta \tau
-          = \tau_0 - \frac{V}{\bar{f_v} ^2} \delta f_v\\
-         &= \tau_0 - \frac{V}{\bar{f_v} ^2}  \frac{1}{\mu} \lr{F_0 \delta T + T_0 \delta F}
-          = \tau_0 - \tau_T \delta T - \tau_F \delta F
-\end{align*}
-dropping $\delta$ for notational convenience, we have the linear model for residence time:
-\begin{align}
-    \tau &= \tau_0 - \tau_T T - \tau_F F        \label{eqn::res_time}
-\end{align}
+% Thus we have the linear approximation of the residence time:
+% \begin{align*}
+%     \tau &= \tau_0 + \delta \tau
+%           = \tau_0 - \frac{V}{\bar{f_v} ^2} \delta f_v\\
+%          &= \tau_0 - \frac{V}{\bar{f_v} ^2}  \frac{1}{\mu} \lr{F_0 \delta T + T_0 \delta F}
+%           = \tau_0 - \tau_T \delta T - \tau_F \delta F
+% \end{align*}
+% dropping $\delta$ for notational convenience, we have the linear model for residence time:
+% \begin{align}
+%     \tau &= \tau_0 - \tau_T T - \tau_F F        \label{eqn::res_time}
+% \end{align}
 Where,
 \begin{align*}
-    \tau_T &= \frac{V}{\bar{f_v} ^2}  \frac{T_0}{\mu}\\
-    \tau_F &= \frac{V}{\bar{f_v} ^2}  \frac{F_0}{\mu}\\
     F_{min} &\leq F \leq F_{max}\\
     T_{min} &\leq T \leq T_{max}
 \end{align*}
