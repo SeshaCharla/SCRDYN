@@ -8,10 +8,13 @@
 \author{Sesha Charla}
 \date{\today}
 
+\addbibresource{refs.bib}
 
 \begin{document}
 \maketitle
 \tableofcontents
+
+\input{secs/0_abstract.tex}
 
 % ==============================================================================
 \newpage
@@ -31,9 +34,7 @@
 \input{secs/11_validation_results.tex}
 \input{secs/12_Conclusion.tex}
 %===============================================================================
-\nocite{}
-\bibliographystyle{unsrt}
-\bibliography{refs}
+\printbibliography
 % ==============================================================================
 % \newpage
 % \input{secs/n_appendix.tex}
