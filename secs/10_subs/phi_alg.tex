@@ -6,11 +6,11 @@ Following equations need to be computed in sequence for getting $\pmb \phi_{NO_x
 \begin{align*}
         1)&& \pmb \phi_\tau(k) &= \bm{\frac{T(k)}{F(k)} & \frac{1}{F(k)}}^T \\
         %===
-        2)&& \pmb \phi_\tau(k-1)&= \bm{\frac{T(k)}{F(k-1)} & \frac{1}{F(k-1)}}^T \\
+        2)&& \pmb \phi_\tau(k-1)&= \bm{\frac{T(k-1)}{F(k-1)} & \frac{1}{F(k-1)}}^T \\
         %===
-        3)&& \pmb \phi_{\tau, ur}(k)&= \frac{u_{inj}(k)}{F(k)^2} \times \pmb \phi_\tau^T(k) \\
+        3)&& \pmb \phi_{\tau, ur}(k)&= \frac{u_{inj}(k)}{F(k)^2} \times \pmb \phi_\tau(k) \\
         %===
-        4)&& \pmb \phi_{\tau, ur}(k-1)&= \frac{u_{inj}(k-1)}{F(k-1)^2} \times \pmb \phi_\tau^T(k-1) \\
+        4)&& \pmb \phi_{\tau, ur}(k-1)&= \frac{u_{inj}(k-1)}{F(k-1)^2} \times \pmb \phi_\tau(k-1) \\
         %===
         5)&& \pmb \phi_1(k) &= -u_1(k) \times \pmb \phi_\tau(k)\\
         %===
