@@ -33,46 +33,37 @@ Thus, we have the inlet volumetric concentration of ammonia as:
     \con{NH_3}^{in} (k) &= \frac{\mol{NH_3}^{in} (k)}{V}
                           = \frac{2 r_u}{V} \times \tau^2 \times u_{inj} (k)
 \end{align*}
+Thus the ammonia concentration at the inlet is a function of urea dosing rate and the residence time of the reaction.
 
 Substituting, $\tau = \frac{V \rho_0}{F}$, we get:
 \begin{align}
     \con{NH_3}^{in} (k) &= 2r_u V \rho^2_0 \times \frac{u_{inj}(k)}{F^2}
 \end{align}
 
+The above reciprocal relationship breaks down at zero flow rate which makes sense physically.
+The sensitivity of change in ammonia to the change residence time (due to change in flow-rate) or change in urea dosing rate can be calculated as follows:
+\begin{align*}
+    \frac{\partial \con{NH_3}^{in} }{\partial F} &= -2 \times 2r_u V \rho^2_0 \times \frac{u_{inj}}{F^3} \\
+    \implies \frac{\delta \con{NH_3}^{in}}{\con{NH_3}^{in}} &= \frac{-2 \delta F}{F}
+    \qquad \text{at constant } u_{inj}
+\end{align*}
+Similarly,
+\begin{align*}
+    \frac{\partial \con{NH_3}^{in} }{\partial u_{inj}} &= \frac{2 r_u}{V} \times \tau^2 \\
+    \implies \frac{\delta \con{NH_3}^{in}}{\con{NH_3}^{in}} &= \frac{ \delta u_{inj}}{u_{inj}} \qquad \text{at constant } \tau
+\end{align*}
 
-The above reciprocal relationship breaks down at zero flow rate which makes sense physically. Within the operating conditions we have:
-
-% \begin{align*}
-%     \delta  \con{NH_3}^{in} (k) &= -4r_u V \times \frac{\bar u_{inj}}{\bar{f}_v^3} \delta f_v
-%                                    + 2r_u V \times \frac{\delta u_{inj}}{\bar f_v^2}\\
-% \end{align*}
-%
-% The linearized approximation model would be:
-%
-% \begin{align*}
-%     \con{NH_3}^{in}(k) &= \con{NH_3}^{in}_0 + \delta \con{NH_3}^{in} (k)\\
-%                        &= 2r_u V \times \frac{\bar u_{inj}}{ \bar f_v^2}
-%                          + 2r_u V \times \frac{\delta u_{inj}}{\bar f_v^2}
-%                          -4r_u V \times \frac{\bar u_{inj}}{\bar{f}_v^3} \delta f_v\\
-%                        &= 2r_u V \times \frac{u_{inj}(k)}{ \bar f_v^2}
-%                          -4r_u V \times \frac{\bar u_{inj}}{\bar{f}_v^3} \delta f_v(k)
-%                          \qquad \lrb{\because \bar u_{inj} + \delta u_{inj} = u_{inj}}
-% \end{align*}
-% Introducing the $\delta f_v$ as function of $F$ and $T$ from equation \ref{eqn::fv_approx},
-% \begin{align*}
-%     \con{NH_3}^{in}(k) &= \lr{\frac{2r_u V}{\bar f_v^2}} u_{inj}(k)
-%                           -\lr{\frac{ 4r_u V \bar u_{inj}}{\bar{f}_v^3}}\lr{\frac{1}{\mu} \lr{F_0 \delta T + T_0 \delta F} } \\
-%                        &= \lr{\frac{2r_u V}{\bar f_v^2}} u_{inj}(k)
-%                           -\lr{\frac{ 4r_u V \bar u_{inj} F_0 }{\mu \bar{f}_v^3}} \delta T
-%                           -\lr{\frac{ 4r_u V \bar u_{inj} T_0 }{\mu \bar{f}_v^3}} \delta F
-% \end{align*}
-% Dropping the $\delta$ for notational convenience,
+From practical ranges changes in data for $F$ and $u_{inj}$,
+\begin{align*}
+    \frac{ \delta u_{inj}}{u_{inj}} \approx \frac{-2 \delta F}{F}
+\end{align*}
+Thus, the effect of change in the urea dosing is as prominent on inlet ammonia concentration as the changes in residence time due to flow rate changes. Thus, the effects of changes in residence time on ammonia generation can be neglected for the approximate model, resulting in:
 \begin{align}
     \con{NH_3}^{in}(k) &= \nu_u \frac{u_{inj}}{F^2}    \label{eqn::urea_inj}
 \end{align}
 where,
 \begin{align*}
-    \nu_u &= 2r_u V \rho^2_0\\
+    \nu_u &= \frac{2 r_u}{V} \times \tau_0^2 \\
     T_{min} &\leq T \leq T_{max}\\
     F_{min} &\leq F \leq F_{max}
 \end{align*}
