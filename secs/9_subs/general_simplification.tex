@@ -21,8 +21,14 @@
                 \therefore \: k_i \tau &= \pmb \phi_\tau^T \lr{\tau_0 \pmb \theta_i}   \label{eqn::tau_ki}
         \end{align}
 
+        \item Product of gaseous ammonia input and rate constant:
+        \begin{align}
+                k_{i} \con{NH_3}^{in} &= \lr{\frac{\nu_u u_{inj}}{F}} \pmb \phi^T \pmb \theta_i
+                                       = \pmb \phi_{ur}^T \lr{\nu_u \pmb \theta_i}              \label{eqn::k_nh3}\\
+                \text{where, } \qquad \pmb \phi_{ur}^T &= \frac{u_{inj}}{F} \pmb \phi^T         \label{eqn::phi_ur}
+        \end{align}
 
-        \item Product of urea-dosing dynamics with residence time and rate constant:
+        \item Product of gaseous ammonia input with residence time and rate constant:
         \begin{align*}
         k_{i} \tau \lr{\frac{\nu_u u_{inj}}{F}} &= \frac{u_{inj}}{F} \pmb \phi_\tau^T \pmb \theta_i \nu_u \tau_0
         \end{align*}
