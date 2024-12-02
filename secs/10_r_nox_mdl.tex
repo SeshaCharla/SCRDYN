@@ -7,24 +7,24 @@ Rewriting equation \ref{eqn::nox_regression} to get the adsorbed ammonia:
 \end{align*}
 Consider \ref{eqn::nh3_ads_regression}:
 \begin{align*}
-     x_3(k+1) &= x_3 \pmb \phi_3^T \pmb \theta_3 + \pmb \phi_{\tau, ur} \pmb \theta_\Gamma\\
-     \implies \lrf{\pmb \phi_1^T(k) \pmb \theta_1} x_3(k+1) &= \lrf{\pmb \phi_1^T(k) \pmb \theta_1} \lrf{x_3 \pmb \phi_3^T \pmb \theta_3 + \pmb \phi_{\tau, ur} \pmb \theta_\Gamma}\\
+     x_3(k+1) &= x_3 \pmb \phi_3^T \pmb \theta_3 + \pmb \phi_{ur} \pmb \theta_\Gamma\\
+     \implies \lrf{\pmb \phi_1^T(k) \pmb \theta_1} x_3(k+1) &= \lrf{\pmb \phi_1^T(k) \pmb \theta_1} \lrf{x_3 \pmb \phi_3^T \pmb \theta_3 + \pmb \phi_{ur} \pmb \theta_\Gamma}\\
      &= \lrf{\lr{\pmb \phi_1^T(k) \pmb \theta_1}x_3(k)} \lrf{\pmb \phi_3^T \pmb \theta_3}
-     + \lrf{\pmb \phi_1^T(k) \pmb \theta_1} \lrf{\pmb \phi_{\tau, ur} \pmb \theta_\Gamma}\\
+     + \lrf{\pmb \phi_1^T(k) \pmb \theta_1} \lrf{\pmb \phi_{ur} \pmb \theta_\Gamma}\\
      &= \lrf{{x_1(k+1) - u_1(k)}} \lrf{\pmb \phi_3^T \pmb \theta_3}
-     + \lrf{\pmb \phi_1^T(k) \pmb \theta_1} \lrf{\pmb \phi_{\tau, ur} \pmb \theta_\Gamma}  \qquad \lrb{\because \ref{eqn::nox_regression}}
+     + \lrf{\pmb \phi_1^T(k) \pmb \theta_1} \lrf{\pmb \phi_{ur} \pmb \theta_\Gamma}  \qquad \lrb{\because \ref{eqn::nox_regression}}
 \end{align*}
 \begin{align}
         \lrf{\pmb \phi_1^T(k) \pmb \theta_1} x_3(k+1)
-        &= \lrf{{x_1(k+1) - u_1(k)}} \lrf{\pmb \phi_3^T \pmb \theta_3} + \lrf{\pmb \phi_1^T(k) \pmb \theta_1} \lrf{\pmb \phi_{\tau, ur} \pmb \theta_\Gamma}
+        &= \lrf{{x_1(k+1) - u_1(k)}} \lrf{\pmb \phi_3^T \pmb \theta_3} + \lrf{\pmb \phi_1^T(k) \pmb \theta_1} \lrf{\pmb \phi_{ur} \pmb \theta_\Gamma}
         \label{eqn::r_nox_1}
 \end{align}
 Let,
 \begin{align}
-        f_{\phi_1}(k+1) &= \pmb \phi_1(k+1)^T \lrb{\pmb \phi_1(k) \pmb \phi_1^T(k)}^{-1} \pmb \phi_1(k)
+        f_{\phi_1}(k+1) &= \pmb \phi_1(k+1)^T \pmb \phi_1^{T+}(k)
         \label{eqn::f_phi_1}
 \end{align}
-Thus,
+Where, $\pmb \phi_1^{T+}$ is the Moore-Penrose pseudo inverse of $\pmb \phi_1^T(k)$. Thus,
 \begin{align}
         f_{\phi_1}(k+1) \lrf{\pmb \phi_1^T(k) \pmb \theta_1} &= \pmb \phi_1(k+1)^T \lrb{\pmb \phi_1(k) \pmb \phi_1^T(k)}^{-1} \pmb \phi_1(k) \lrf{\pmb \phi_1^T(k) \pmb \theta_1}
         = \pmb \phi_1^T(k+1) \pmb \theta_1
@@ -34,45 +34,47 @@ Note that $f_{\phi_1}$ is a scalar. Multiplying $f_{\phi_1}(k+1)$ on both sides 
 \begin{align*}
       &f_{\phi_1}(k+1) \lrf{\pmb \phi_1^T(k) \pmb \theta_1} x_3(k+1)
                 = \lrf{{x_1(k+1) - u_1(k)}} f_{\phi_1}(k+1)\lrf{\pmb \phi_3^T (k) \pmb \theta_3}
-                + f_{\phi_1}(k+1)\lrf{\pmb \phi_1^T(k) \pmb \theta_1} \lrf{\pmb \phi^T_{\tau, ur}(k) \pmb \theta_\Gamma}\\
+                + f_{\phi_1}(k+1)\lrf{\pmb \phi_1^T(k) \pmb \theta_1} \lrf{\pmb \phi^T_{ur}(k) \pmb \theta_\Gamma}\\
       %===
       &\implies {x_1(k+2) - u_1(k+1)} = \lrf{{x_1(k+1) - u_1(k)}} f_{\phi_1}(k+1)\lrf{\pmb \phi_3^T (k) \pmb \theta_3}
-                + \lrf{ \lr{\pmb \phi_1^T(k+1) \pmb \theta_1} \kron \lr{\pmb \phi^T_{\tau, ur}(k) \pmb \theta_\Gamma}}
+                + \lrf{ \lr{\pmb \phi_1^T(k+1) \pmb \theta_1} \kron \lr{\pmb \phi^T_{ur}(k) \pmb \theta_\Gamma}}
         \quad \lrb{\because \ref{eqn::f_phi_prop}}
 \end{align*}
 Writing in one time step ahead form:
 \begin{align}
         x_1(k+1) &=  u_1(k)  +
                      \lrf{{x_1(k) - u_1(k-1)}} f_{\phi_1}(k)\lrf{\pmb \phi_3^T (k-1) \pmb \theta_3}+
-                     \lrf{ \lr{\pmb \phi_1^T(k) \pmb \theta_1} \kron \lr{\pmb \phi^T_{\tau, ur}(k-1) \pmb \theta_\Gamma}}
+                     \lrf{ \lr{\pmb \phi_1^T(k) \pmb \theta_1} \kron \lr{\pmb \phi^T_{ur}(k-1) \pmb \theta_\Gamma}}
         \label{eqn::r_nox_2}
 \end{align}
 %===
 Expanding the terms and defining the following new regressor and parameter vectors,
 \begin{align*}
         \text{Let, } \qquad &\\
-        &\pmb \theta_3 = \bm{1 &
-                             n \pmb \theta_{ads, ur}    &
-                             n \pmb \theta_{od}         &
-                             n \pmb \theta_{scr}}^T
+        \pmb \theta_3 &= \bm{ 1 &
+                                t_s \nu_u \pmb \theta_{ads}^T &
+                                t_s \pmb \theta_{od}^T        &
+                                t_s \pmb \theta_{scr}^T} ^T
                         = \bm{1 & \pmb \theta_{f1}}^T\\
         %==
         \text{and, } \qquad &\\
-        &\because \pmb \phi_3^T(k-1) = \bm{1&
-                                                  - \pmb \phi_{\tau, ur} (k-1)&
-                                                  - \pmb \phi_\tau (k-1) &
-                                                  - u_1(k-1) \pmb \phi_{\tau}(k-1) }\\
+        \pmb \phi_3^T &= \bm{1 &
+                   - \pmb \phi_{ur}^T &
+                   - \pmb \phi^T  &
+                   - u_1 \pmb \phi^T}   \\
         %===
-        &\lrf{{x_1(k) - u_1(k-1)}} f_{\phi_1}(k) \pmb \phi_3^T (k-1)  = \lrf{{x_1(k) - u_1(k-1)}} f_{\phi_1}(k) - \pmb \phi_{f1}\\
+        \implies &\lrf{{x_1(k) - u_1(k-1)}} f_{\phi_1}(k) \pmb \phi_3^T (k-1)  = \lrf{{x_1(k) - u_1(k-1)}} f_{\phi_1}(k) + \pmb \phi_{f1}(k)\\
         %===
-        \text{Where, } \qquad &\\
-        &\pmb \phi_{f1}(k)
-                = \lrf{{x_1(k) - u_1(k-1)}} f_{\phi_1}(k)
-                \bm{\pmb \phi_{\tau, ur} (k-1)&
-                    \pmb \phi_\tau (k-1) &
-                    u_1(k-1) \pmb \phi_{\tau}(k-1) }\\
+        \text{where, } \qquad &\\
+        \pmb \phi_{f1}(k)
+                &= \lrf{{x_1(k) - u_1(k-1)}} f_{\phi_1}(k)
+                \bm{ \pmb \phi_{ur}^T(k-1) &
+                    \pmb \phi^T(k-1)  &
+                    u_1 (k-1) \pmb \phi^T(k-1)}   \\
         \text{and, } \qquad &\\
-        &\pmb \theta_{f1}^T = n \bm{ \pmb \theta_{ads, ur}  & \pmb \theta_{od}  & \pmb \theta_{scr}}\\
+        \pmb \theta_{f1}^T &= \bm{ t_s \nu_u \pmb \theta_{ads}^T &
+                                t_s \pmb \theta_{od}^T        &
+                                t_s \pmb \theta_{scr}^T} ^T
 \end{align*}
 We have the following properties of Kronecker product:
         \begin{align*}
@@ -81,24 +83,24 @@ We have the following properties of Kronecker product:
         \end{align*}
 Thus, Kronecker product can be rewritten into product of regressor and parameter vectors as:
 \begin{align*}
-        \lrf{\pmb \phi_1^T(k) \pmb \theta_1} \kron \lrf{\pmb \phi^T_{\tau, ur}(k-1) \pmb \theta_\Gamma} &=
-             \lrf{ \pmb \phi_1^T(k) \kron \pmb \phi^T_{\tau, ur}(k-1) }
+        \lrf{\pmb \phi_1^T(k) \pmb \theta_1} \kron \lrf{\pmb \phi^T_{ur}(k-1) \pmb \theta_\Gamma} &=
+             \lrf{ \pmb \phi_1^T(k) \kron \pmb \phi^T_{ur}(k-1) }
              \lrf{\pmb \theta_1 \kron \pmb \theta_\Gamma}\\
-        \pmb \phi_{\Gamma 1} (k) &= \lrf{ \pmb \phi_1^T(k) \kron \pmb \phi^T_{\tau, ur}(k-1) } \\
+        \pmb \phi_{\Gamma 1} (k) &= \lrf{ \pmb \phi_1^T(k) \kron \pmb \phi^T_{ur}(k-1) } \\
         \pmb \theta_{\Gamma 1} &= \lrf{\pmb \theta_1 \kron \pmb \theta_\Gamma}
 \end{align*}
 The regressors coming from  of Kronecker products are will have full rank they involve the product of inputs at different time steps. Thus, they can be algorithmically computed and need not be simplified to a vector expression.
 
 Substituting the above definitions into equation (\ref{eqn::r_nox_2}):
 \begin{align}
-         x_1(k+1) &=  u_1(k)  + \lrf{{x_1(k) - u_1(k-1)}} f_{\phi_1}(k) -
+         x_1(k+1) &=  u_1(k)  + \lrf{{x_1(k) - u_1(k-1)}} f_{\phi_1}(k) +
                      \pmb \phi_{f1}^T(k) \pmb \theta_{f1} +
                      \pmb \phi_{\Gamma 1}^T(k) \pmb \theta_{\Gamma 1}
         \label{eqn::r_nox_3}
 \end{align}
 Let,
 \begin{align}
-        \pmb \phi_{NO_x} &= \bm{-\pmb \phi_{f1} & \pmb \phi_{\Gamma 1}}\\
+        \pmb \phi_{NO_x} &= \bm{\pmb \phi_{f1} & \pmb \phi_{\Gamma 1}}\\
         \pmb \theta_{NO_x} &= \bm{\pmb \theta_{f1} & \pmb \theta_{\Gamma 1}}
 \end{align}
 \begin{align}
@@ -109,5 +111,5 @@ Let,
 
 %%===
 \input{secs/10_subs/f_phi_remarks.tex}
-\input{secs/10_subs/theta_parm.tex}
 \input{secs/10_subs/phi_alg.tex}
+\input{secs/10_subs/theta_parm.tex}

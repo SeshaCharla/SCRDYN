@@ -1,1 +1,48 @@
 \subsection{Calculating $f_{\phi_1}$}
+
+We have,
+\begin{align*}
+        f_{\phi_1}(k) &= \pmb \phi_1^T(k) \pmb \phi_1^{T+}(k-1)
+\end{align*}
+Calculating the Moore-Penrose pseudo inverse of $\pmb \phi_1^T$ using Tikhonov's regularization \cite{barata2012moore}.
+\begin{align*}
+        \pmb \phi_1^{T+} &= \lim_{\varepsilon \rightarrow 0}
+                                 \lrf{\pmb \phi_1  \pmb \phi^T + \varepsilon I_2}^{-1} \pmb \phi_1 \\
+        %===
+        \pmb \phi_1^T &= \frac{u_1}{F} \bm{T & 1}\\
+        %===
+        \implies \lrf{\pmb \phi_1  \pmb \phi^T + \varepsilon I_2} &=  \frac{u_1^2}{F^2} \bm{T^2 + \varepsilon & T \\
+                                                                                   T                 & 1 + \varepsilon}\\
+        %===
+        \implies \lrf{\pmb \phi_1  \pmb \phi^T + \varepsilon I_2}^{-1} &= \frac{F^2}{u_1^2}
+                                                        \lr{\frac{1}{\varepsilon^2 + \varepsilon T^2 + \varepsilon}}
+                                                                \bm{1+\varepsilon & -T \\
+                                                                        -T      & T^2 + \varepsilon}\\
+        %===
+        \implies \lrf{\pmb \phi_1  \pmb \phi^T + \varepsilon I_2}^{-1} \pmb \phi_1 &=
+                                \frac{F}{u_1} \lr{\frac{1}{\varepsilon^2 + \varepsilon T^2 + \varepsilon}}
+                                \bm{1+\varepsilon & -T \\
+                                     -T      & T^2 + \varepsilon}
+                                \bm{T \\ 1}
+        %===
+        &= \frac{F}{u_1} \lr{\frac{1}{\varepsilon^2 + \varepsilon T^2 + \varepsilon}}
+        \bm{T \varepsilon \\ \varepsilon}\\
+        %===
+        &= \frac{F}{u_1} \lr{\frac{1}{\varepsilon + T^2 + 1}}
+        \bm{T \\ 1}\\
+        %===
+        \implies  \pmb \phi_1^{T+} &= \lim_{\varepsilon \rightarrow 0}
+                                 \lrf{\pmb \phi_1  \pmb \phi^T + \varepsilon I_2}^{-1} \pmb \phi_1
+        = \frac{F}{u_1} \lr{\frac{1}{T^2 + 1}}
+        \bm{T \\ 1}
+\end{align*}
+Thus,
+\begin{align*}
+        f_{\phi_1}(k) &= \pmb\phi_1^T(k) \pmb \phi_1^{T+}(k-1)
+                      = \frac{u_1(k)}{F(k)} \bm{T(k) & 1} \frac{F(k-1)}{u_1(k-1)}
+                      \lr{\frac{1}{T(k-1)^2 + 1}} \bm{T(k-1) \\ 1}\\
+\end{align*}
+Hence,
+\begin{align}
+        f_{\phi_1}(k) &= \lr{\frac{u_1(k)}{u_1(k-1)}} \lr{\frac{F(k-1)}{F(k)}} \lr{\frac{T(k)T(k-1) + 1}{T(k-1)^2 + 1}}
+\end{align}

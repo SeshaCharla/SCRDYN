@@ -6,39 +6,18 @@ We have,
 \end{align*}
 
 We have the component parameter vectors that make up the parameter vectors $\pmb \theta_{f1}, \pmb \theta_{\Gamma 1}$:
-
 \begin{align*}
-        \pmb \theta_{scr} &= \bm{\tau_0 m_{scr} &
-                                \tau_0 c_{scr}}^T
-        \\
-        \pmb \theta_{od}  &= \bm{\tau_0 m_{od} &
-                                \tau_0 c_{od}}^T
-        \\
-        \pmb \theta_{ads} &= \bm{\tau_0 m_{ads} &
-                                \tau_0 c_{ads} }^T
-        \\
-        \pmb \theta_{ads, ur} &= \nu_u \pmb \theta_{ads}^T
-        \\
-        \pmb \theta_{\Gamma } &= n \Gamma \pmb \theta_{ads, ur}
-        \\
-        \pmb \theta_1 &= k_{s2v} \pmb \theta_{scr}
+        \pmb \theta_{f1}^T &= \bm{ t_s \nu_u \pmb \theta_{ads}^T &
+                                t_s \pmb \theta_{od}^T        &
+                                t_s \pmb \theta_{scr}^T} ^T
+\end{align*}
+\begin{align*}
+        \pmb \theta_{\Gamma 1} &= \lrf{\pmb \theta_1 \kron \pmb \theta_\Gamma}
+                                = \lr{k_{s2v} \tau_0 \pmb \theta_{scr}} \kron \lr{t_s \nu_u \Gamma \pmb \theta_{ads}} \\
+                               &= \Gamma \lr{k_{s2v} \tau_0 t_s \nu_u} \lr{\pmb \theta_{scr} \kron \theta_{ads}}
 \end{align*}
 
-Thus,
-
-\begin{align*}
-        \pmb \theta_{f1} &= n \bm{\pmb \theta_{ads, ur}^T & \pmb \theta_{od}^T & \pmb \theta_{scr}^T}^T_{(6 \times 1)}\\
-        %===
-        \pmb \theta_{\Gamma 1} &= \pmb \theta_1 \kron \pmb \theta_\Gamma = n \Gamma k_{s2v} \lrf{ \pmb \theta_{scr} \kron \pmb \theta{ads, ur}}\\
-                        &= n \Gamma k_{s2v} \nu_u \tau_0^2
-                                \bm{m_{scr} m_{ads} \\
-                                    m_{scr} c_{ads} \\
-                                    c_{scr} m_{ads} \\
-                                    c_{scr} c_{ads}}_{(4 \times 1)}
-\end{align*}
-\begin{align}
-        \pmb \theta_{NO_x} &= n \bm{\pmb \theta_{ads, ur}^T & \pmb \theta_{od}^T & \pmb \theta_{scr}^T
-                                    &|& \Gamma k_{s2v} \nu_u \lr{\pmb \theta_{scr}^T \kron \pmb \theta_{ads}^T}}^T_{(10 \times 1)}
-\end{align}
 
 Thus, all the parameters are sensitive to changes in sampling rate. The last 4 parameters explicitly depend on the surface void concentration of the catalyst.
+
+Thus, the linear parameter model has 10 parameters among which $6$ ($\pmb \theta_{f1})$ depend only on the reaction rates, sampling time. The rest $4$ ($\pmb \theta_{\Gamma 1}$) explicitly depend on the maximum void concentration which depends on the aging of the catalyst.
