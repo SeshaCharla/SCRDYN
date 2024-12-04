@@ -63,7 +63,7 @@ Expanding the terms and defining the following new regressor and parameter vecto
                    - \pmb \phi^T  &
                    - u_1 \pmb \phi^T}   \\
         %===
-        \implies &\lrf{{x_1(k) - u_1(k-1)}} f_{\phi_1}(k) \pmb \phi_3^T (k-1)  = \lrf{{x_1(k) - u_1(k-1)}} f_{\phi_1}(k) + \pmb \phi_{f1}(k)\\
+        \implies &\lrf{{x_1(k) - u_1(k-1)}} f_{\phi_1}(k) \pmb \phi_3^T (k-1)  = \lrf{{x_1(k) - u_1(k-1)}} f_{\phi_1}(k) - \pmb \phi_{f1}(k)\\
         %===
         \text{where, } \qquad &\\
         \pmb \phi_{f1}(k)
@@ -93,14 +93,14 @@ The regressors coming from  of Kronecker products are will have full rank they i
 
 Substituting the above definitions into equation (\ref{eqn::r_nox_2}):
 \begin{align}
-         x_1(k+1) &=  u_1(k)  + \lrf{{x_1(k) - u_1(k-1)}} f_{\phi_1}(k) +
+         x_1(k+1) &=  u_1(k)  + \lrf{{x_1(k) - u_1(k-1)}} f_{\phi_1}(k) -
                      \pmb \phi_{f1}^T(k) \pmb \theta_{f1} +
                      \pmb \phi_{\Gamma 1}^T(k) \pmb \theta_{\Gamma 1}
         \label{eqn::r_nox_3}
 \end{align}
 Let,
 \begin{align}
-        \pmb \phi_{NO_x} &= \bm{\pmb \phi_{f1} & \pmb \phi_{\Gamma 1}}\\
+        \pmb \phi_{NO_x} &= \bm{-\pmb \phi_{f1} & \pmb \phi_{\Gamma 1}}\\
         \pmb \theta_{NO_x} &= \bm{\pmb \theta_{f1} & \pmb \theta_{\Gamma 1}}
 \end{align}
 \begin{align}
