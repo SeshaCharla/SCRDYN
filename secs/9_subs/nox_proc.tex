@@ -7,9 +7,9 @@ We have:
 \end{align*}
 Writing in linear regression form, let
 \begin{align*}
-    \pmb \phi_1^T &= -u_1 \pmb \phi_\tau^T  \\
+    \pmb \phi_1^T &= u_1 \pmb \phi_\tau^T  \\
     \pmb \theta_1^T &= k_{s2v} \tau_0 \pmb \theta_{scr}^T
 \end{align*}
 \begin{align}
-    x_1(k+1) &= u_1(k) + \pmb \phi_1^T (k) \pmb \theta_1 x_3  \label{eqn::nox_regression}
+    x_1(k+1) &= u_1(k) - \pmb \phi_1^T (k) \pmb \theta_1 x_3  \label{eqn::nox_regression}
 \end{align}

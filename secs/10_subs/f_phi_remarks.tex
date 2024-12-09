@@ -7,19 +7,19 @@ We have,
 Calculating the Moore-Penrose pseudo inverse of $\pmb \phi_1^T$ using Tikhonov's regularization \cite{barata2012moore}.
 \begin{align*}
         \pmb \phi_1^{T+} &= \lim_{\varepsilon \rightarrow 0}
-                                 \lrf{\pmb \phi_1  \pmb \phi^T + \varepsilon I_2}^{-1} \pmb \phi_1 \\
+                                 \lrf{\pmb \phi_1  \pmb \phi_1^T + \varepsilon I_2}^{-1} \pmb \phi_1 \\
         %===
         \pmb \phi_1^T &= \frac{u_1}{F} \bm{T & 1}\\
         %===
-        \implies \lrf{\pmb \phi_1  \pmb \phi^T + \varepsilon I_2} &=  \frac{u_1^2}{F^2} \bm{T^2 + \varepsilon & T \\
+        \implies \lrf{\pmb \phi_1  \pmb \phi_1^T + \varepsilon I_2} &=  \frac{u_1^2}{F^2} \bm{T^2 + \varepsilon & T \\
                                                                                    T                 & 1 + \varepsilon}\\
         %===
-        \implies \lrf{\pmb \phi_1  \pmb \phi^T + \varepsilon I_2}^{-1} &= \frac{F^2}{u_1^2}
+        \implies \lrf{\pmb \phi_1  \pmb \phi_1^T + \varepsilon I_2}^{-1} &= \frac{F^2}{u_1^2}
                                                         \lr{\frac{1}{\varepsilon^2 + \varepsilon T^2 + \varepsilon}}
                                                                 \bm{1+\varepsilon & -T \\
                                                                         -T      & T^2 + \varepsilon}\\
         %===
-        \implies \lrf{\pmb \phi_1  \pmb \phi^T + \varepsilon I_2}^{-1} \pmb \phi_1 &=
+        \implies \lrf{\pmb \phi_1  \pmb \phi_1^T + \varepsilon I_2}^{-1} \pmb \phi_1 &=
                                 \frac{F}{u_1} \lr{\frac{1}{\varepsilon^2 + \varepsilon T^2 + \varepsilon}}
                                 \bm{1+\varepsilon & -T \\
                                      -T      & T^2 + \varepsilon}
@@ -32,7 +32,7 @@ Calculating the Moore-Penrose pseudo inverse of $\pmb \phi_1^T$ using Tikhonov's
         \bm{T \\ 1}\\
         %===
         \implies  \pmb \phi_1^{T+} &= \lim_{\varepsilon \rightarrow 0}
-                                 \lrf{\pmb \phi_1  \pmb \phi^T + \varepsilon I_2}^{-1} \pmb \phi_1
+                                 \lrf{\pmb \phi_1  \pmb \phi_1^T + \varepsilon I_2}^{-1} \pmb \phi_1
         = \frac{F}{u_1} \lr{\frac{1}{T^2 + 1}}
         \bm{T \\ 1}
 \end{align*}
