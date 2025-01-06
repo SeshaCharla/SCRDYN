@@ -1,0 +1,53 @@
+\subsection{Approximating $\pmb \phi_{f1}$}
+
+We have,
+\begin{align}
+        \pmb \phi_{f1}(k) &= \eta(k) f_{\phi_1} (k)
+                                \bm{ \lr{\frac{u_{inj}(k-1)}{F(k-1)}}\pmb \phi^T(k-1) & \pmb \phi^T(k-1)  & u_1 (k-1) \pmb \phi^T(k-1)}
+        \label{eqn::phi_f1_def}
+\end{align}
+%
+Consider,
+\begin{align*}
+        f_{\phi_1} (k) \pmb \phi (k-1) &=
+                \lr{\frac{u_1(k)}{u_1(k-1)}} \lr{\frac{F(k-1)}{F(k)}}
+                \underbrace{ \lr{\frac{T(k)T(k-1) + 1}{T(k-1)^2 + 1}} \bm{T(k-1) \\ 1} }
+                _{\approx \bm{T(k) \\ 1}}\\
+\end{align*}
+%
+By definition, the purpose of $f_{\phi_1}(k)$ was to approximately convert $\phi_1(k-1)$ to $\phi_1(k)$, i.e.,
+\begin{align*}
+        \pmb \phi_1 (k) &\approx f_{\phi_1}(k) \pmb \phi_1 (k-1)\\
+        \implies \lr{\frac{u_1(k)}{F(k)}} \pmb \phi(k) &\approx \lr{\frac{u_1(k-1)}{F(k-1)}} f_{\phi_1}(k) \pmb \phi(k-1)\\
+        \implies f_{\phi_1}(k) \pmb \phi(k-1) &\approx \lr{\frac{F(k-1)}{u_1(k-1)}} \lr{\frac{u_1(k)}{F(k)}} \pmb \phi(k)
+\end{align*}
+%
+Let,
+\begin{align}
+        F_{u_1}(k) &= \frac{F(k)}{u_1(k)}
+\end{align}
+Thus,
+\begin{align}
+        \implies f_{\phi_1}(k) \pmb \phi(k-1) &\approx \lr{\frac{F_{u_1}(k-1)}{F_{u_1}(k)}}\pmb \phi(k)
+        \label{eqn::f_phi1_approx}
+\end{align}
+Substituting equation \ref{eqn::f_phi1_approx} in equation \ref{eqn::phi_f1_def}:
+\begin{align*}
+        \pmb \phi_{f1}(k) &= \eta(k) \lr{\frac{F_{u_1}(k-1)}{F_{u_1}(k)}}
+                                \bm{ \lr{\frac{u_{inj}(k-1)}{F(k-1)}}\pmb \phi^T(k) & \pmb \phi^T(k)  & u_1 (k-1) \pmb \phi^T(k)} \\
+        % ===
+        &= \lr{\frac{\eta(k)}{F_{u_1}(k)}}
+                \bm{ \lr{\frac{u_{inj}(k-1)}{u_1(k-1)}} \pmb \phi^T(k)
+                        & \lr{\frac{F (k-1)}{u_1(k-1)}} \pmb \phi^T(k)
+                        & F (k-1) \pmb \phi^T(k)}
+\end{align*}
+%
+Thus we have the approximate model for $\pmb \phi_{f1}$:
+\begin{align}
+        \pmb \phi_{f1}(k) &= \eta(k) \lr{\frac{F(k)}{u_1(k)}}
+                        \bm{ \lr{\frac{u_{inj}(k-1)}{u_1(k-1)}} \pmb \phi^T(k)
+                              & \lr{\frac{F (k-1)}{u_1(k-1)}} \pmb \phi^T(k)
+                              & F (k-1) \pmb \phi^T(k)}
+        \label{eqn::phi_f1_approx}
+\end{align}
+The above approximation avoids the amplification of noise due repeated multiplication and division of similar signals.
