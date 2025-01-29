@@ -46,7 +46,7 @@ Thus, we have the recursive equation for change in concentration due to reductio
                                 \times \lr{\frac{k_{scr}(k)}{k_{scr}(k-1)}}
                                 \times \gamma_{proc}(k-1)
                                 \\
-                        + t_s k_{s2v} \times \lrf{\Gamma(k-1) \tau(k) u_1(k)} \times \lr{k_{scr}(k) k_{ads}(k-1)}
+                        + t_s k_{s2v} \times \lrf{\con{NH_3}^{in} \Gamma(k-1) \tau(k) u_1(k)} \times \lr{k_{scr}(k) k_{ads}(k-1)}
 \end{multline}
 Explicitly writing the individual terms:
 \begin{align*}
@@ -68,7 +68,7 @@ Explicitly writing the individual terms:
                                 \lrb{\frac{k_{scr}(k)}{k_{scr}(k-1)}}
                 t_s k_{od}(k-1)
                 \\
-                &+ t_s k_{s2v} \times \lrf{\Gamma(k-1) \tau(k) u_1(k)} \times \lr{k_{scr}(k) k_{ads}(k-1)}
+                &+ t_s k_{s2v} \times \lrf{\Gamma(k-1) \tau(k) u_1(k) \con{NH_3}^{in}} \times \lr{k_{scr}(k) k_{ads}(k-1)}
 \end{align*}
 The above equation can be simplified using the following two assumptions:
 \begin{itemize}
@@ -97,7 +97,7 @@ Incorporating the above assumptions we have the dynamic model for change in conc
                 &-\eta(k) \lrb{\frac{\tau(k)}{\tau(k-1)}}
                 t_s k_{scr}(k) u_1(k)
                 \\
-                &+ t_s k_{s2v} \times \lrf{\Gamma(k-1) \tau(k) u_1(k)} \times k_{scr/ads}(k-1)
+                &+ t_s k_{s2v} \times \lrf{\Gamma(k-1) \tau(k) u_1(k)\con{NH_3}{in}} \times k_{scr/ads}(k-1)
 \end{align*}
 \begin{equation}
        \label{eqn::nox_govern}
