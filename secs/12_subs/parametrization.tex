@@ -33,6 +33,45 @@ The individual terms, are parametrized based on following relevant set of assump
 
 Using the above assumptions, we have the parametrization of individual terms
 \begin{enumerate}
-%====
-\item \input{secs/12_subs/g0.tex}
+\item \input{\froot/secs/12_subs/g0.tex}
+\item \input{\froot/secs/12_subs/g1.tex}
+\item \input{\froot/secs/12_subs/g2.tex}
+\item \input{\froot/secs/12_subs/g3.tex}
+\item \input{\froot/secs/12_subs/g4.tex}
 \end{enumerate}
+
+Thus, we have the parametric form of the $NO_x$ reduction dynamics:
+
+\begin{align*}
+        \eta(k+1) &= \eta(k) \lrb{\frac{F(k-1)}{F(k)}} \lrb{\frac{u_1(k)}{u_1(k-1)}}
+                    - \pmb \phi^T_{\eta}(k) \pmb \theta_{\eta}  + \pmb \phi_{\Gamma}^T(k) \pmb \theta_{\Gamma}
+\end{align*}
+where,
+
+\begin{minipage}{0.49\textwidth}
+        \begin{align}
+                \pmb \phi_{\eta}(k) &= \eta(k)
+                                \bm{\lrb{\frac{u_2(k-1)}{F(k)}}\lrb{\frac{u_1(k)}{u_1(k-1)}} \pmb \phi^T(k-1) \\
+                                        \lrb{\frac{F(k-1)}{F(k)}} \lrb{\frac{u_1(k)}{u_1(k-1)}} \pmb \phi^T(k-1)     \\
+                                                \lrb{\frac{F(k-1)}{F(k)}} u_1(k) \pmb \phi^T(k)
+                                                }
+        \end{align}
+\end{minipage}
+\begin{minipage}{0.49\textwidth}
+        \begin{align}
+        \pmb \theta_{\eta} &= \bm{\nu_u t_s \pmb \theta_{ads}\\
+                                        t_s \pmb \theta_{od} \\
+                                        t_s \pmb \theta_{scr}}
+        \end{align}
+\end{minipage}
+
+\begin{minipage}{0.49\textwidth}
+        \begin{align}
+                \pmb \phi_{\Gamma} (k) &= \bm{\frac{u_1(k)}{F(k)} \pmb \phi(k-1) }
+        \end{align}
+\end{minipage}
+\begin{minipage}{0.49\textwidth}
+        \begin{align}
+                \pmb \theta_{\Gamma} (k) &= \bm{ t_s k_{s2v} \Gamma \tau_0 \pmb \theta_{scr/ads} }
+        \end{align}
+\end{minipage}
