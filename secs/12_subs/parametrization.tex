@@ -1,0 +1,38 @@
+\subsection{Parametrizing the $\eta$ dynamics}
+The equation (\ref{eqn::nox_govern}) can be written in the following structure, with $g_i$'s denoting the corresponding expressions in each of the terms.
+\begin{align}
+        \eta(k+1) &= \eta(k) \lrf{ g1 - g2 -g3 -g4} + g0
+\end{align}
+The individual terms, are parametrized based on following relevant set of assumptions:
+\begin{itemize}
+        \item[$A3.$] The rate constant is linear for a given operating range of temperature.
+        \begin{align}
+                k_i &= m_i T + c_i = \underbrace{\bm{T & 1}}_{\pmb \phi^T} \underbrace{\bm{m_i \\ c_i}}_{\pmb \theta_i}
+                        = \pmb \phi^{T} \pmb \theta_i
+                \qquad \forall \quad T \in \lrb{T_0, T_0 + \Delta T}
+                \label{eqn::k_mdl}
+        \end{align}
+        %===
+        \item[$A4.$] $\Gamma$ is a constant for a given operating range of temperature and only changes with aging.
+        \begin{align}
+                \Gamma - \text{constant} \quad \forall T \in \lrb{T_0, T_0 + \Delta T}
+                \label{eqn::gamma_mdl}
+        \end{align}
+        %===
+        \item[$A5.$] The model for $\con{NH_3}^{in}$ based on urea injection is given by equation (\ref{eqn::urea_parm}), i.e., $\con{NH_3}^{in}$ depends only on the flow-rate and urea injection but not the temperature (as the urea is preheated).
+        \begin{align}
+                \con{NH_3}^{in}(k) &= \nu_u \times \frac{u_2(k)}{F(k)}
+                \label{eqn::urea_mdl}
+        \end{align}
+        \item[$A6.$] The model for residence time is given by equation (\ref{eqn::res_time}), i.e., the residence time depends only on the flow-rate and effect of change in density (due to change in temperature) is negligable.
+        \begin{align}
+                \tau(k) &= \frac{V \rho_0}{F(k)} = \frac{\tau_0}{F(k)}
+                \label{eqn::residence_time_mdl}
+        \end{align}
+\end{itemize}
+
+Using the above assumptions, we have the parametrization of individual terms
+\begin{enumerate}
+%====
+\item \input{secs/12_subs/g0.tex}
+\end{enumerate}

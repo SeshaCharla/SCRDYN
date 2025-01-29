@@ -71,17 +71,17 @@ Explicitly writing the individual terms:
                 &+ t_s k_{s2v} \times \lrf{\Gamma(k-1) \tau(k) u_1(k)} \times \lr{k_{scr}(k) k_{ads}(k-1)}
 \end{align*}
 The above equation can be simplified using the following two assumptions:
-\begin{enumerate}
-        \item The temperature doesn't change significantly across contiguous samples, i.e., $T(k-1) \approx T(k)$.
+\begin{itemize}
+        \item[$A1.$] The temperature doesn't change significantly across contiguous samples, i.e., $T(k-1) \approx T(k)$.
         \begin{align}
                 \implies \frac{k_{scr}(k)}{k_{scr}(k-1)} \approx 1
         \end{align}
-        \item The product of rate constants results in a combined rate-constant,
+        \item[$A2.$] The product of rate constants results in a combined rate-constant,
         \begin{align}
                 k_{scr}(k) k_{ads}(k-1) &\approx k_{scr}(k-1) k_{ads}(k-1)  = A_{scr}A_{ads} \exp\lrf{\frac{E_{scr}+E_{ads}}{R T(k-1)}} = k_{scr/ads}(k-1)
         \end{align}
-\end{enumerate}
-Incorporating the above assumptions,
+\end{itemize}
+Incorporating the above assumptions we have the dynamic model for change in concentration due $NO_x$ reduction:
 \begin{align*}
          \eta(k+1) =& \eta(k) \lrb{\frac{\tau(k)}{\tau(k-1)}}
                                 \lrb{\frac{u_1(k)}{u_1(k-1)}}
@@ -99,6 +99,6 @@ Incorporating the above assumptions,
                 \\
                 &+ t_s k_{s2v} \times \lrf{\Gamma(k-1) \tau(k) u_1(k)} \times k_{scr/ads}(k-1)
 \end{align*}
-\begin{align}
-        \eta(k+1) &= \eta(k) \lrf{ g1 - g2 -g3 -g4} + g5
-\end{align}
+\begin{equation}
+       \label{eqn::nox_govern}
+\end{equation}
