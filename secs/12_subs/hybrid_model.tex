@@ -1,0 +1,25 @@
+\subsection{Hybrid model for wider temperature ranges}
+
+The only restrictive assumption in the derivation of the above model are related to the temperature range of operation.
+The linear temperature dependence of rate constants and independence of density (thereby residence time) and void
+fraction of the catalyst are valid for a narrow range of temperatures. The other nonlinear effects due to flow-rate and
+urea injection are captured in the model. Introducing more complex temperature models for the physical quantities would
+lead to parametric models that are not linear (in parameters) and identifiable. Thus, a hybrid model is proposed where
+the model structure remains the same while the parameters switch depending on the temperature.
+
+\begin{multline}
+        x(k+1) = u_1(k) - \eta(k) \lrb{\frac{u_1(k)}{F(k)}} \lrb{\frac{F(k-1)}{u_1(k-1)}}
+                        + \lrb{\frac{u_1(k)}{F(k)}} \pmb \phi^{T}_{NO_x}(k) \pmb \theta^i_{NO_x}
+        \\
+        T(k), T(k-1) \in \lrb{T_i-\Delta T, T_i + \Delta T}
+\end{multline}
+
+Thus, the system switches between models when the current temperature is beyond the $\pm \Delta T$ range of the model.
+Experience form the linearized model identification suggest that, $\Delta T \approx 50 \, ^0C$ would account for
+the changes in systems parameters due to drastic changes in temperatures.
+
+As the model doesn't have explicit dependence on the unmeasured initial conditions, the parameters for the switched system can be identified by partitioning the data based on the temperature.
+
+\begin{align}
+        e.g., \quad T \in \lrf{100, 200, 300, 400} \; ^0C
+\end{align}

@@ -81,10 +81,11 @@ where,
 
 Hence, we have the $NO_x$ dynamics:
 \begin{align}
-        x(k+1) &= u(k) - \eta(k) \lrb{\frac{u_1(k)}{F(k)}} \lrb{\frac{F(k-1)}{u_1(k-1)}}
-                        + \pmb \phi^T_{\eta}(k) \pmb \theta_{\eta}  - \pmb \phi_{\Gamma}^T(k) \pmb \theta_{\Gamma}\\
+        x(k+1) &= u_1(k) - \eta(k) \lrb{\frac{u_1(k)}{F(k)}} \lrb{\frac{F(k-1)}{u_1(k-1)}}
+                        + \pmb \phi^T_{\eta}(k) \pmb \theta_{\eta}  - \pmb \phi_{\Gamma}^T(k) \pmb \theta_{\Gamma}
+        \label{eqn::nox_sim_mdl}\\
 %===
-        x(k+1) &= u(k) - \lrf{1 - \frac{x_1(k)}{u_1(k-1)}} \lrb{\frac{u_1(k)}{F(k)}} F(k-1)
+        x(k+1) &= u_1(k) - \lrf{1 - \frac{x_1(k)}{u_1(k-1)}} \lrb{\frac{u_1(k)}{F(k)}} F(k-1)
                         + \pmb \phi^T_{\eta}(k) \pmb \theta_{\eta}  - \pmb \phi_{\Gamma}^T(k) \pmb \theta_{\Gamma}
 \end{align}
 
