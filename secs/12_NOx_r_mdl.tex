@@ -53,16 +53,31 @@ The discrete nonlinear recursive model that is linear in parameters can be deriv
                 \begin{align}
                         \text{Let, }\quad \eta(k) = u_1(k-1) - x_1(k)
                 \end{align}
-                \begin{multline}
-                        \eta(k + 1) = \eta(k) \lrb{\frac{\tau(k)}{\tau(k-1)}} \lrb{\frac{u_1(k)}{u_1(k-1)}} \\
-                                        - t_s \eta(k) \lrb{\frac{\tau(k)}{\tau(k-1)}}
-                                        \left\{ \lrb{\frac{u_1(k)}{u_1(k-1)}} k_{ads}(k-1) \con{NH_3}^{in}(k-1)
-                                           \right.
-                                        \\ \left. + \lrb{\frac{u_1(k)}{u_1(k-1)}} k_{od}(k-1)
-                                                  + k_{scr}(k) u_1 (k)\right\}
-                                        \\ + t_s k_{s2v} \Gamma \tau(k) \lrf{k_{scr}(k) k_{ads}(k-1)} u_1(k) \con{NH_3}^{in} (k-1)
+\begin{align*}
+        \eta(k+1) =& \eta(k) \lrb{\frac{\tau(k)}{\tau(k-1)}}
+                                \lrb{\frac{u_1(k)}{u_1(k-1)}}
+                                \lrb{\frac{k_{scr}(k)}{k_{scr}(k-1)}} \\
+                &-\eta(k) \lrb{\frac{\tau(k)}{\tau(k-1)}}
+                                \lrb{\frac{u_1(k)}{u_1(k-1)}}
+                                \lrb{\frac{k_{scr}(k)}{k_{scr}(k-1)}}
+                t_s k_{ads}(k-1) \con{NH_3}^{in}(t-1)
+                \\
+                &-\eta(k) \lrb{\frac{\tau(k)}{\tau(k-1)}}
+                                \lrb{\frac{u_1(k)}{u_1(k-1)}}
+                                \lrb{\frac{k_{scr}(k)}{k_{scr}(k-1)}}
+                t_s k_{scr}(k-1) u_1(k-1)
+                \\
+                &-\eta(k) \lrb{\frac{\tau(k)}{\tau(k-1)}}
+                                \lrb{\frac{u_1(k)}{u_1(k-1)}}
+                                \lrb{\frac{k_{scr}(k)}{k_{scr}(k-1)}}
+                t_s k_{od}(k-1)
+                \\
+                &+ t_s k_{s2v} \times \lrf{\Gamma(k-1) \tau(k) u_1(k) \con{NH_3}^{in}} \times \lr{k_{scr}(k) k_{ads}(k-1)}
+\end{align*}
+\begin{equation}
                 \label{eqn::disc_NOx}
-                \end{multline}
+\end{equation}
+
 \end{enumerate}
 
 The above equation (\ref{eqn::disc_NOx}) is parametrized using the models for the physical properties and
@@ -73,3 +88,6 @@ Steps, 1, 2 and 3 are discussed in detail in the previous sections. The step-4 d
 
 \input{\froot/secs/12_subs/change_in_nox_model.tex}
 \input{\froot/secs/12_subs/parametrization.tex}
+\input{\froot/secs/12_subs/ident_form.tex}
+\input{\froot/secs/12_subs/physical_interp.tex}
+\input{\froot/secs/12_subs/hybrid_model.tex}

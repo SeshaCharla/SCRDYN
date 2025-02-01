@@ -1,7 +1,7 @@
 \subsection{Parametrizing the $\eta$ dynamics}
 The equation (\ref{eqn::nox_govern}) can be written in the following structure, with $g_i$'s denoting the corresponding expressions in each of the terms.
 \begin{align}
-        \eta(k+1) &= \eta(k) \lrf{ g1 - g2 -g3 -g4} + g0
+        \eta(k+1) &= \eta(k) \lrf{ g_{\eta} - g_{ads} - g_{od} - g_{scr}} + g0
 \end{align}
 The individual terms, are parametrized based on following relevant set of assumptions:
 \begin{itemize}
@@ -42,10 +42,11 @@ Using the above assumptions, we have the parametrization of individual terms
 
 Thus, we have the parametric form of the $NO_x$ reduction dynamics:
 
-\begin{align*}
+\begin{align}
         \eta(k+1) &= \eta(k) \lrb{\frac{u_1(k)}{F(k)}} \lrb{\frac{F(k-1)}{u_1(k-1)}}
                     - \pmb \phi^T_{\eta}(k) \pmb \theta_{\eta}  + \pmb \phi_{\Gamma}^T(k) \pmb \theta_{\Gamma}
-\end{align*}
+        \label{eqn::eta_parm}
+\end{align}
 where,
 
 \begin{minipage}{0.49\textwidth}
@@ -81,5 +82,21 @@ where,
 Hence, we have the $NO_x$ dynamics:
 \begin{align}
         x(k+1) &= u(k) - \eta(k) \lrb{\frac{u_1(k)}{F(k)}} \lrb{\frac{F(k-1)}{u_1(k-1)}}
+                        + \pmb \phi^T_{\eta}(k) \pmb \theta_{\eta}  - \pmb \phi_{\Gamma}^T(k) \pmb \theta_{\Gamma}\\
+%===
+        x(k+1) &= u(k) - \lrf{1 - \frac{x_1(k)}{u_1(k-1)}} \lrb{\frac{u_1(k)}{F(k)}} F(k-1)
                         + \pmb \phi^T_{\eta}(k) \pmb \theta_{\eta}  - \pmb \phi_{\Gamma}^T(k) \pmb \theta_{\Gamma}
+\end{align}
+
+%==============
+
+$\pmb \phi_\eta$ can be further simplified to avoid the multiplication and division of the same signals that results in noise amplification as follows:
+
+\begin{align}
+     \pmb \phi_{\eta}(k)
+                        &= \lrb{\frac{u_1(k)}{F(k)}}
+                                \bm{\lrb{1 - \frac{x_1(k)}{u_1(k-1)}} u_2(k-1) \pmb \phi^T(k-1) \\
+                                     \lrb{1 - \frac{x_1(k)}{u_1(k-1)}}   F(k-1) \pmb \phi^T(k-1)     \\
+                                        \eta(k) F(k-1) \pmb \phi^T(k)
+                                                }
 \end{align}
