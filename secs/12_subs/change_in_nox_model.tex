@@ -32,6 +32,7 @@ Let,
         \gamma_{proc}(k-1) &= \lrf{1 -  t_s k_{ads}(k-1) \con{NH_3}^{in}(t-1)
                         -  t_s k_{scr}(k-1) u_1(k-1)
                         -  t_s k_{od}(k-1)}
+        \label{eqn::gamma_proc}
 \end{align}
 Using equation (\ref{eqn::sigma_elim}),
 \begin{multline*}
@@ -100,7 +101,7 @@ Incorporating the above assumptions we have the dynamic model for change in conc
                 &-\eta(k) \lrb{\frac{\tau(k)}{\tau(k-1)}}
                 t_s k_{scr}(k) u_1(k)
                 \\
-                &+ t_s k_{s2v} \times \lrf{\Gamma(k-1) \tau(k) u_1(k)\con{NH_3}{in}} \times k_{scr/ads}(k-1)
+                &+ t_s k_{s2v} \times \lrf{\Gamma(k-1) \tau(k) u_1(k)\con{NH_3}^{in}(k-1)} \times k_{scr/ads}(k-1)
 \end{align*}
 \begin{equation}
        \label{eqn::nox_govern}

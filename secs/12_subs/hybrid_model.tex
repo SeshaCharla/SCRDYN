@@ -15,11 +15,22 @@ the model structure remains the same while the parameters switch depending on th
 \end{multline}
 
 Thus, the system switches between models when the current temperature is beyond the $\pm \Delta T$ range of the model.
-Experience form the linearized model identification suggest that, $\Delta T \approx 50 \, ^0C$ would account for
+Experience form the linearized model identification suggest that, $\Delta T \approx 25 \, ^0C$ would account for
 the changes in systems parameters due to drastic changes in temperatures.
 
 As the model doesn't have explicit dependence on the unmeasured initial conditions, the parameters for the switched system can be identified by partitioning the data based on the temperature.
 
 \begin{align}
-        e.g., \quad T \in \lrf{100, 200, 300, 400} \; ^0C
+        e.g., \quad T \in \lrf{50, 100, 150, 200, 150, 300, 350, 400} \; ^0C
 \end{align}
+
+The above partitions work if we have enough data for satisfying PE condition in each of the partitions. From the actual temperature ranges of the test-cell data we get the following partitioning to maximize the length of data available in each of the partitions:
+
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width = 0.7\textwidth]{\froot/figs/12_figs/hybrid_ssd_T.png}
+        \caption{Temperature partitioning for the hybrid model in test-cell case}
+\end{figure}
+
+The partitions can be further narrowed if the prediction error is not with-in the satisfactory range.
