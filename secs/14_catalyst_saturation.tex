@@ -107,14 +107,15 @@ Thus, the tailpipe $NO_x$ dynamics are bounded by:
 %====
 Or, the $NO_x$ reduction dynamics are bounded by:
 \begin{align}
-        0 \leq \eta(k+1) \leq f(\Gamma)(k)
+        0 \leq \eta(k+1) \leq f_\Gamma(k)
 \end{align}
 % ====
-This relationship can be used to find the optimal values of the parameter $\pmb \theta_{\Gamma scr}$ by solving the following constrained optimization problem:
+This relationship can be used to find the optimal values of the parameter $\pmb \theta_{\Gamma scr}$ by solving the following constrained linear programming problem:
 \begin{align*}
-        \text{Minimize:}& \qquad  \norm{\pmb \theta_{\Gamma scr}} \\
-        \text{Subject to:}& \qquad \eta(k+1) \leq f_\Gamma(k) \qquad \forall \: k \\
-        \text{where, } & \qquad f_{\Gamma}(k) = \lrb{\frac{u_1(k)}{F(k)}} \pmb \phi^T(k)  \pmb \theta_{\Gamma scr}
+        \text{Minimize:}& \qquad    \pmb \phi^T(k) \pmb \theta_{\Gamma scr}\\
+        \text{Subject to:}& \qquad  \lrb{\frac{u_1(k)}{F(k)}} \pmb \phi^T(k) \pmb \theta_{\Gamma scr} \geq \eta(k+1)
+        \\
+        & \forall \quad k \in \lrf{0, 1, ..., N}
 \end{align*}
 \begin{align}
         \label{eqn::optimization_prob}

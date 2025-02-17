@@ -5,12 +5,18 @@ The equation (\ref{eqn::nox_govern}) can be written in the following structure, 
 \end{align}
 The individual terms, are parametrized based on following relevant set of assumptions:
 \begin{itemize}
-        \item[$A3.$] The rate constant is linear for a given operating range of temperature.
+        \item[$A3.$] The rate constant is linear or (quadratic) for a given operating range of temperature.
         \begin{align}
                 k_i &= m_i T + c_i = \underbrace{\bm{T & 1}}_{\pmb \phi^T} \underbrace{\bm{m_i \\ c_i}}_{\pmb \theta_i}
                         = \pmb \phi^{T} \pmb \theta_i
                 \qquad \forall \quad T \in \lrb{T_0, T_0 + \Delta T}
                 \label{eqn::k_mdl}
+        \end{align}
+        (or)
+        \begin{align}
+                k_i &= q_iT^2 + m_i T + c_i = \underbrace{\bm{T^2 & T & 1}}_{\pmb \phi^T} \underbrace{\bm{q_i \\ m_i \\ c_i}}_{\pmb \theta_i}
+                        = \pmb \phi^{T} \pmb \theta_i
+                \qquad \forall \quad T \in \lrb{T_0, T_0 + \Delta T}
         \end{align}
         %===
         \item[$A4.$] $\Gamma$ is a constant for a given operating range of temperature and only changes with aging.
