@@ -112,11 +112,24 @@ Or, the $NO_x$ reduction dynamics are bounded by:
 % ====
 This relationship can be used to find the optimal values of the parameter $\pmb \theta_{\Gamma scr}$ by solving the following constrained linear programming problem:
 \begin{align*}
-        \text{Minimize:}& \qquad    \pmb \phi^T(k) \pmb \theta_{\Gamma scr}\\
-        \text{Subject to:}& \qquad  \lrb{\frac{u_1(k)}{F(k)}} \pmb \phi^T(k) \pmb \theta_{\Gamma scr} \geq \eta(k+1)
-        \\
-        & \forall \quad k \in \lrf{0, 1, ..., N}
+        \text{Minimize:}& \qquad    \lrb{ \sum_{k = 0}^{N-2} \lrb{\frac{u_1(k)}{F(k)}} \pmb \phi^T(k) } \theta_{\Gamma scr}\\
+        \text{Subject to:}& \qquad
+                \bm{\lrb{\frac{u_1(0)}{F(0)}} \pmb \phi^T(0) \\
+                    \lrb{\frac{u_1(1)}{F(1)}} \pmb \phi^T(1) \\
+                    \vdots \\
+                    \lrb{\frac{u_1(N-2)}{F(N-2)}} \pmb \phi^T(N-2) \\
+                }
+                \pmb \theta_{\Gamma scr}
+                \geq
+                \bm{\eta(1) \\
+                    \eta(2)\\
+                    \vdots \\
+                    \eta(N-1)}
 \end{align*}
 \begin{align}
         \label{eqn::optimization_prob}
 \end{align}
+
+Effectively we are minimizing the area under the curve of the parametrized saturated system dynamics under the
+constraints of the actual system dynamics. This results in the tightly upper bound curve that describes the dynamics of
+the system is always saturated.
