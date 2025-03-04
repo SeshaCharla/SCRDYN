@@ -1,0 +1,33 @@
+\subsection{Saturated Catalyst Model Parameter Estimation}
+
+The linear programming problem is solved using a quadratic polynomial approximation for $\pmb \phi \pmb \theta_{\Gamma scr}$. Both, $k_{scr/asc}$ and $\Gamma$ are assumed to be monotonic functions of temperature but in opposing directions. Thus, just a linear model for the product will not capture the change in monotonic of the product that happens at a particular temperature. After a systematic analysis of various polynomial orders and temperature partitions, a quadratic model with two partitions was found to be the best approximation with minimum prediction error. The parameter estimates of the saturated model are tabulated below.
+
+\begin{table}[H]
+        \centering
+        \begin{tabular}{l l c c c c}
+                \hline \hline
+                Age & Test & Temp. Zone &
+                $\pmb \theta_{\Gamma scr}[2]$ &
+                $\pmb \theta_{\Gamma scr}[1]$ &
+                $\pmb \theta_{\Gamma scr}[0]$ \\ \hline \hline
+                % ============================================
+                Degreened & RMC & high & & & \\
+                % =============================================
+                Aged & RMC & high & & & \\
+                % =============================================
+                Degreened & hot-FTP & high & & & \\
+                % =============================================
+                Aged & hot-FTP & high & & & \\
+                % =============================================
+                Degreened & cold-FTP & high & & & \\
+                % =============================================
+                Aged & cold-FTP & high & & & \\
+                % =============================================
+                Degreened & cold-FTP & low & & & \\
+                % =============================================
+                Aged & cold-FTP & low & & & \\
+                % =============================================
+                \hline \hline
+                % =============================================
+        \end{tabular}
+\end{table}
