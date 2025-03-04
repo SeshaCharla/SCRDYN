@@ -4,6 +4,7 @@ The linear programming problem is solved using a quadratic polynomial approximat
 
 \begin{table}[H]
         \centering
+        \caption{Parameter estimates of the Saturated Catalyst Model of SCR-ASC system}
         \begin{tabular}{l l c c c c}
                 \hline \hline
                 Age & Test & Temp. Zone &
@@ -11,23 +12,72 @@ The linear programming problem is solved using a quadratic polynomial approximat
                 $\pmb \theta_{\Gamma scr}[1]$ &
                 $\pmb \theta_{\Gamma scr}[0]$ \\ \hline \hline
                 % ============================================
-                Degreened & RMC & high & & & \\
+                Degreened & RMC & high & -0.06 & 1.43 & 31.19 \\
                 % =============================================
-                Aged & RMC & high & & & \\
+                Aged & RMC & high & -0.07 & 1.77 & 27.82\\
                 % =============================================
-                Degreened & hot-FTP & high & & & \\
+                Degreened & hot-FTP & high & -0.49 & 2.94 & 40.94 \\
                 % =============================================
-                Aged & hot-FTP & high & & & \\
+                Aged & hot-FTP & high & -0.54 & 3.40 & 39.59 \\
                 % =============================================
-                Degreened & cold-FTP & high & & & \\
+                Degreened & cold-FTP & high & -0.19 & 0.97 & 40.69 \\
                 % =============================================
-                Aged & cold-FTP & high & & & \\
+                Aged & cold-FTP & high & -0.28 & 1.82 & 38.97\\
                 % =============================================
-                Degreened & cold-FTP & low & & & \\
+                Degreened & cold-FTP & low & 0.26 &  5.97 & 45.00 \\
                 % =============================================
-                Aged & cold-FTP & low & & & \\
+                Aged & cold-FTP & low & 0.39 & 8.25 & 50.63 \\
                 % =============================================
                 \hline \hline
                 % =============================================
         \end{tabular}
+
+        $\pmb \theta_{\Gamma scr} [i]$ is the coefficient of $T^i$ in the polynomial.
 \end{table}
+
+We have the plots of the response of the saturated system to the inputs from the data as follows.
+
+\begin{figure}[H]
+        \begin{minipage}{0.49\textwidth}
+                \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=\textwidth]{./figs/14_figs/bounded_eta_plots/eta_bounds_dg_cftp.png}
+                \end{figure}
+        \end{minipage}
+        \begin{minipage}{0.49\textwidth}
+                \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=\textwidth]{./figs/14_figs/bounded_eta_plots/eta_bounds_aged_cftp.png}
+                \end{figure}
+        \end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+        \begin{minipage}{0.49\textwidth}
+                \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=\textwidth]{./figs/14_figs/bounded_eta_plots/eta_bounds_dg_hftp.png}
+                \end{figure}
+        \end{minipage}
+        \begin{minipage}{0.49\textwidth}
+                \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=\textwidth]{./figs/14_figs/bounded_eta_plots/eta_bounds_aged_hftp.png}
+                \end{figure}
+        \end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+        \begin{minipage}{0.49\textwidth}
+                \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=\textwidth]{./figs/14_figs/bounded_eta_plots/eta_bounds_dg_rmc.png}
+                \end{figure}
+        \end{minipage}
+        \begin{minipage}{0.49\textwidth}
+                \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=\textwidth]{./figs/14_figs/bounded_eta_plots/eta_bounds_aged_rmc.png}
+                \end{figure}
+        \end{minipage}
+\end{figure}
