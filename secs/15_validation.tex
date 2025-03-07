@@ -5,9 +5,36 @@ The full nonlinear hybrid model is simulated with the initial conditions alone a
 
 \begin{figure}[H]
         \centering
+        \includegraphics[width=0.9\textwidth]{\froot/figs/15_figs/hybrid_model.png}
         \caption{Hybrid automata describing the SCR-ASC system}
         \label{fig::hybrid_automata}
 \end{figure}
 
+We have the equations describing the hybrid model equation:
+\begin{itemize}
+\item De-saturated Catalyst Model:
+\begin{align*}
+        \text{Flow Condition (Dynamics):} &\\
+                \eta(k+1) &= \eta(k) \lrb{\frac{u_1(k)}{F(k)}} \lrb{\frac{F(k-1)}{u_1(k-1)}}
+                    - \pmb \phi^T_{\eta}(k) \pmb \theta_{\eta}  + \pmb \phi_{\Gamma}^T(k) \pmb \theta_{\Gamma}
+                    \\
+        \text{Invariance Conditions:} & \\
+                0 &\leq \eta (k+1) \leq u_1(k)\\
+                T &\in \lrb{T_{min}, T_{max}}\\
+                F &\geq F_{min}\\
+                u_1 &\geq u_{1_{min}}
+\end{align*}
+\item Saturated Catalyst Model:
+\begin{align*}
+        \text{Flow Condition (Dynamics):} & \\
+                \eta_{sat}(k+1) &= \lrb{\frac{u_1(k)}{F(k)}} \pmb \phi^T(k) \pmb \theta_{\Gamma scr}\\
+        \text{Invariance Conditions:} & \\
+                0 &\leq \eta_{sat} (k+1) \leq u_1(k)\\
+                T &\in \lrb{T_{min}, T_{max}}\\
+                F &\geq F_{min}\\
+                u_1 &\geq u_{1_{min}}
+\end{align*}
 
+\item The guard conditions for switching are still a work in progress.
+\end{itemize}
 \input{\froot/secs/15_subs/results.tex}
