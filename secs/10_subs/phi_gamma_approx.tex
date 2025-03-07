@@ -1,0 +1,41 @@
+\subsection{Approximating $\pmb \phi_{\Gamma 1}$}
+
+We have,
+\begin{align}
+        \pmb \phi_{\Gamma 1} \pmb \theta_{\Gamma 1} &= \lrf{\pmb \phi_1 (k) \pmb \theta_1} \times \lrf{\pmb \phi_{ur}(k-1) \theta_{\Gamma}}\\
+        %===
+        \pmb \phi_1 (k)  \pmb \theta_{1}&= u_1(k) k_{s2v} k_{scr}(k) \tau (k) \qquad \lrb{\because \ref{eqn::nox_regression}}\\
+        %===
+        \pmb \phi_{ur}(k-1) \pmb \theta_{\Gamma} &= \Gamma \times t_s k_{ads}(k-1) \times \nu_0 \lr{\frac{u_{inj}(k-1)}{F(k-1)}}
+        \qquad \lrb{\because \ref{eqn::nh3_ads_regression}}
+        %===
+\end{align}
+\begin{multline}
+        \implies  \pmb \phi_{\Gamma 1} \pmb \theta_{\Gamma 1} =
+                \lrf{k_{s2v} \tau_0 \times \lr{\frac{u_1(k)}{F(k)}} \times k_{scr}(k)} \times
+                \lrf{\Gamma t_s \nu_0 \times \lr{\frac{u_{inj}(k-1)}{F(k-1)}} \times k_{ads}(k-1)} \\
+        = \Gamma t_s \nu_0 k_{s2v} \tau_0 \times \lr{\frac{u_1(k)}{F(k)}} \lr{\frac{u_2(k-1)}{F(k-1)}} \times  k_{scr}(k) k_{ads}(k-1)
+\end{multline}
+
+Consider the product of rate constants:
+\begin{align*}
+        k_{scr}(k) k_{ads}(k-1) &= A_{scr} e^{\frac{-E_{scr}}{R T(k)}} \times A_{ads} e^{\frac{-E_{ads}}{R T(k-1)}} \qquad \lrb{\because \text{Arrhenius Equation}}\\
+        %===
+        &= A_{scr}A_{ads} \times \exp \lrf{\frac{-E_{scr}}{R T(k)} - \frac{E_{ads}}{R T(k-1)}}
+\end{align*}
+Assuming the temperature doesn't change significantly within one time step, i.e., $T(k) \approx T(k-1)$:
+\begin{align}
+        k_{scr}(k) k_{ads}(k-1) &= A_{scr}A_{ads} \exp{\frac{-\lr{E_{scr}+E_{ads}}}{R T(k)}}\\
+                                &= \pmb \phi^T(k) \pmb \theta_{scr/ads} \qquad \lrb{\because \ref{eqn::temp_k}}
+\end{align}
+%===
+Thus,
+\begin{align}
+        \pmb \phi_{\Gamma 1}^T \pmb \theta_{\Gamma 1} &=
+        \underbrace{ \lr{\frac{u_1(k)}{F(k)}} \lr{\frac{u_2(k-1)}{F(k-1)}} \times \pmb \phi^T(k)}
+        _{\pmb \phi_{\Gamma 1}^T(k)}  \times
+        \underbrace{ \Gamma t_s \nu_0 k_{s2v} \tau_0 \times \pmb \theta_{scr/ads}}
+        _{\pmb \theta_{\Gamma 1}}
+\end{align}
+
+This approximation not only reduces  the total number of paremeters but also keeps $\pmb \phi_{\Gamma 1}$'s elements independent when the temperature is slowly varying or a constant.

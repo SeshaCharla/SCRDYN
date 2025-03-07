@@ -1,65 +1,15 @@
-\subsection{NOx Reduction Dynamics}
+\subsection{$NO_x$ Reduction Dynamics}
 We have:
 \begin{align*}
     \con{NO_x}^{out} (k + 1) &= \con{NO_x}^{in} (k) \lr{1 - k_{s2v} k_{scr} \sigma(k) \tau}\\
     \implies x_1 (k+1) &= u_1 \lr{1 - k_{s2v} k_{scr} x_3 \tau}\\
-                       &= u_1 \lrf{1 + k_{s2v} x_3 \pmb \phi_\tau^T \pmb \theta_{scr}} \qquad [\because \ref{eqn::tau_ki}]
+                       &= u_1 \lrf{1 - k_{s2v} \tau_0 x_3 \pmb \phi_\tau^T \pmb \theta_{scr}} \qquad [\because \ref{eqn::tau_ki}]
 \end{align*}
 Writing in linear regression form, let
 \begin{align*}
-    \pmb \phi_1^T &= u_1 \pmb \phi_\tau^T = u_1 \bm{T^2 &  T F & - T &  F & -1} \\
-    \pmb \theta_1^T &= k_{s2v} \pmb \theta_{scr}^T = k_{s2v} \bm{m_{scr} \tau_T &
-                                                               m_{scr} \tau_F &
-                                                               \lr{ m_{scr} \tau_0  -  \tau_T c_{scr} } &
-                                                               c_{scr} \tau_F &
-                                                               c_{scr} \tau_0}
+    \pmb \phi_1^T &= u_1 \pmb \phi_\tau^T  \\
+    \pmb \theta_1^T &= k_{s2v} \tau_0 \pmb \theta_{scr}^T
 \end{align*}
 \begin{align}
-    x_1(k+1) &= u_1(k) + \pmb \phi_1^T (k) \pmb \theta_1 x_3  \label{eqn::nox_regression}
+    x_1(k+1) &= u_1(k) - \pmb \phi_1^T (k) \pmb \theta_1 x_3  \label{eqn::nox_regression}
 \end{align}
-
-
-
-% ======================================================================================================================
-
-
-
-
-
-
-
-
-
-
-
-
-%% Old Stuff
-%                     &= u_1 \lr{1 - k_{s2v}\lr{q_{scr} T^2 + m_{scr}T + c_{scr}} x_3 \lr{\frac{V}{f_v}}}\\
-%                     %===
-%                     &= u_1 \lr{1 - A_{scr}\lr{ q_{scr} T^2 + m_{scr}T + c_{scr}} \lr{\frac{x_3}{f_v}}}\\
-%                     &= u_1 \lr{1 - A_{scr}\mu \lr{ q_{scr} T^2 + m_{scr}T + c_{scr}} \lr{\frac{x_3}{F T}}}\\
-%                     &= u_1 - \underbrace{\lr{A_{scr} \mu q_{scr}}}_{\theta_{11}} \lr{ \frac{x_3 T u_1}{F}}
-%                                  - \underbrace{A_{scr} \mu m_{scr}}_{\theta_{12}} \lr{ \frac{x_3 u_1}{F}}
-%                                  - \underbrace{A_{scr} \mu c_{scr}}_{\theta_{13}} \lr{ \frac{x_3 u_1}{FT}}
-% \end{align*}
-% \begin{align}
-%     x_1(k+1)  &= u_1 - \theta_{11} \lr{\frac{u_1 u_3 x_3}{u_4}}
-%                                      - \theta_{12} \lr{\frac{u_1 x_3}{u_4}}
-%                                      - \theta_{13} \lr{\frac{u_1 x_3}{u_3 u_4}}\\
-%     %===
-%     \implies x_1(k + 1) &= u_1 - \pmb \phi_1^T \lr{x_3 \pmb \theta_1} \label{eq::nox_proc}
-% \end{align}
-% where:
-% \begin{align*}
-%     \pmb \phi_1 &= \bm{\frac{u_1 u_3}{u_4} & \frac{u_1}{u_4} & \frac{u_1}{u_3 u_4}}^T\\
-%     \pmb \theta_1 &= \bm{\theta_{11} & \theta_{12} & \theta_{13}}^T
-% \end{align*}
-% %===
-% Let,
-% \begin{align}
-%     \pmb \phi_0 &= \bm{\frac{u_3}{u_4} & \frac{1}{u_4} & \frac{1}{u_3 u_4}}^T
-% \end{align}
-% \begin{align*}
-%     \implies \pmb \phi_1 &= u_1 \pmb \phi_0
-% \end{align*}
-%

@@ -5,7 +5,7 @@ From previous derivations, we have the complete process dynamics of SCR-ASC dyna
 \begin{enumerate}
     \item Urea dosing dynamics:
     \begin{align*}
-    \con{NH_3}^{in} (k) &= 2r_u V \times \frac{u_{inj}(k)}{f_v^2}
+    \con{NH_3}^{in} (k) &= 2r_u t_s \rho_0 \times \frac{u_{inj}(k)}{F}
     \end{align*}
 
     \item $NO_x$ reduction dynamics:
@@ -21,9 +21,9 @@ From previous derivations, we have the complete process dynamics of SCR-ASC dyna
     \item Ammonia adsorption/desorption dynamics:
  \begin{align*}
         \sigma(k + 1) &= \sigma(k)
-        + n\tau k_{ads} \con{NH_3}^{in} \lr{\Gamma - \sigma(k)}
-        - n \tau \lr{k_{oxi} + k_{des}} \sigma(k)
-        - n \tau k_{scr} \con{NO_x}^{in}(k) \sigma(k)
+        + t_s  k_{ads} \con{NH_3}^{in}(k) \lr{\Gamma - \sigma(k)}
+        - t_s \lr{k_{oxi} + k_{des}} \sigma(k)
+        - t_s k_{scr} \con{NO_x}^{in}(k) \sigma(k)
     \end{align*}
 \end{enumerate}
 
@@ -33,7 +33,7 @@ rewritten in a parametric form with standard state-space representation. For con
 from the variables.
 
 
-Further, the models that have reciprocals and expoenetials of inputs are linearized about the operating points. These include:
+Further, the models that have exponential of inputs are linearized about the operating points. These include:
 \begin{enumerate}
     \item Rate constants
         \begin{align}
@@ -41,7 +41,7 @@ Further, the models that have reciprocals and expoenetials of inputs are lineari
         \end{align}
     \item Residence time (\ref{eqn::res_time})
         \begin{align}
-            \tau &= \tau_0 - \tau_T T - \tau_F F
+            \tau &= \frac{V \rho_0}{F} = \frac{\tau_0}{F}
         \end{align}
 \end{enumerate}
 
@@ -56,12 +56,12 @@ The following states and inputs are defined for the system:
 
 Thus, linear-parameter representation of each of the processes are as follows:
 %%======================================================================================================================
-\input{secs/9_subs/urea_dosing.tex}
-\input{secs/9_subs/general_simplification.tex}
-\input{secs/9_subs/nox_proc.tex}
-\input{secs/9_subs/nh3_gas.tex}
-\input{secs/9_subs/nh3_ads.tex}
-\input{secs/9_subs/remarks.tex}
+\input{\froot/secs/9_subs/urea_dosing.tex}
+\input{\froot/secs/9_subs/general_simplification.tex}
+\input{\froot/secs/9_subs/nox_proc.tex}
+\input{\froot/secs/9_subs/nh3_gas.tex}
+\input{\froot/secs/9_subs/nh3_ads.tex}
+\input{\froot/secs/9_subs/remarks.tex}
 %%======================================================================================================================
 
 

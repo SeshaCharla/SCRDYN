@@ -1,15 +1,30 @@
 \subsection{Parts-per-million to mol/m$^3$}
 
-The ppm measurements of concentration is, by convention, assumed to be the
-weight of the solute in grams per million grams of solution (water). This can be
-converted to the concentration of the solute in mol/ml using the molecular
-weight of the solute and the density of the solution $(1 g/ml)$. We have,
+The ppm measurements of concentration used by the commercial and FTIR sensors. The ppm is interms of the molfraction. Thus,
 
+\begin{align}
+    1 \, ppm^{\lr{mol}} &= \frac{1 \, mol \text{ of gas}}{10^6 \, mol \text{ of air }}
+\end{align}
+
+Thus, this measurement when converted into $mol/m^3$, the temperature of the gas will be essential to get the right value as the volume of 1 mole of air changes with temperature. Assuming ideal gas behaviour,
 \begin{align*}
-    1 \, ppm &= \frac{1 \, g}{10^6 \, ml} = 1 \, mg/L = \frac{10^{-3} \, g}{10^{-3} \, m^3} = 1 \, g/m^3\\
+    V_{air} &= n_{air} T_{air} \times \frac{V_0}{T_0}
+\end{align*}
+Where, $V_0, T_0$ are the volume and temperature of one mole of air under STP conditions. From literature,
+$V_0 = 22.4 L = 22.4 \times 10^{-3} m^3$ and $T_0 = 273.15 K$.
+\begin{align*}
+    T_{air} &= 273.15 + T\\
+    n_{air} &= 10^6
+\end{align*}
+Thus, volume of $10^6$ moles of air at temperature T,
+\begin{align*}
+    V_{air} &= 10^6 \times \frac{273.15 + T}{273.15} \times 22.4 \times 10^{-3} m^3\\
+            &= 22.4 \times 10^{3} \times \frac{273.15 + T}{273.15}
 \end{align*}
 
-Let M be the molecular weight of the solute in g/mol. Then,
+Thus, we have the convention between ppm and $mol/m^3$:
 \begin{align}
-    1 \, ppm &= \frac{1}{M} \, mol/m^3
+    x \text{ in } mol/m^3 &= \frac{x \text{ in } ppm }{\text{Volume of } 10^6 \text{ moles of air}}
+                            = \frac{x \text{ in } ppm}{22.4 \times \lr{\frac{273.15 + T}{273.15}}}
+                                \times 10^{-3} \, mol/m^3
 \end{align}

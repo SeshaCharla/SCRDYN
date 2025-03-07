@@ -2,7 +2,7 @@
 \section{Ammonia Adsorption/Desorption Process Dynamics}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{./figs/scr_sys/plug_flow_discrete.png}
+    \includegraphics[width=0.5\textwidth]{\froot/figs/scr_sys/plug_flow_discrete.png}
     \caption{Discrete plug-flow reactor model}
     \label{fig:plug_flow_discrete}
 \end{figure}
@@ -22,7 +22,7 @@ of gaseous ammonia.
 Thus, the rate of ammonia adsorption on the catalyst surface can be modeled as:
 \begin{align*}
     \frac{d \con{NH_3}^{ads}}{dt} &= r_{ads} - r_{des} - r_{scr} - r_{oxi}\\
-    r_{ads} &= k_{ads} \con{NH_3}^{in} \lr{\Gamma - \con{NH_3}^{ads}} \qquad \lrb{\Gamma = \frac{\Theta_{free} - \Theta_{occupied}}{A_{scr}}}\\
+    r_{ads} &= k_{ads} \con{NH_3}^{in} \lr{\Gamma - \con{NH_3}^{ads}} \qquad \lrb{\Gamma = \frac{\Theta_{free} + \Theta_{occupied}}{A_{scr}}}\\
     r_{des} &= k_{des} \con{NH_3}^{ads}\\
     r_{scr} &= k_{scr} \con{NH_3}^{ads} \con{NO_x}^{in}\\
     r_{oxi} &= k_{oxi} \con{NH_3}^{ads}\\
@@ -34,13 +34,13 @@ consistent.
 
 The units of all the rates and rate constants are tabulated below:
 \begin{align*}
-    r_{ads} &= \frac{moles}{cm^2 \cdot s} &
-    k_{ads} &= \frac{cm^3}{moles \cdot s} \\
-    r_{des} &= \frac{moles}{cm^2 \cdot s} &
+    r_{ads} &= \frac{moles}{m^2 \cdot s} &
+    k_{ads} &= \frac{m^3}{moles \cdot s} \\
+    r_{des} &= \frac{moles}{m^2 \cdot s} &
     k_{des} &= s^{-1} \\
-    r_{scr} &= \frac{moles}{cm^2 \cdot s} &
-    k_{scr} &= \frac{cm^3}{moles \cdot s} \\
-    r_{oxi} &= \frac{moles}{cm^2 \cdot s} &
+    r_{scr} &= \frac{moles}{m^2 \cdot s} &
+    k_{scr} &= \frac{m^3}{moles \cdot s} \\
+    r_{oxi} &= \frac{moles}{m^2 \cdot s} &
     k_{oxi} &= s^{-1}
 \end{align*}
 %===
@@ -50,16 +50,22 @@ using the conversion factor $A_{scr}/V$ where $A_{scr}$ is the area of the SCR c
 catalyst chamber. This assumes that there is instantaneous mixing of the close-to-surface moles with the gaseous moles.
 Thus,
 \begin{align}
-    k^{vol} = \underbrace{\lr{\frac{A_{scr}}{V}}}_{k_{s2v} \, (cm^{-1})} k^{surf}
+    k^{vol} = \underbrace{\lr{\frac{A_{scr}}{V}}}_{k_{s2v} \, (m^{-1})} k^{surf}
 \end{align}
 % ==============================================================================
 \subsection{Molar conservation at the scale of residence time}
 
 The molar storage on the catalyst surface changes at the end of every residence time and a "fresh" set of gaseous
-reactants enters the catalyst chamber. And, within the sample time, the volumetric concentrations of the gaseous
+reactants enters the catalyst chamber. And, within the sample time $t_s$, the volumetric concentrations of the gaseous
 reactants can be considered constant. \itbf{Let there be $n$ residence times within one sample time.} It is implicitly
 assumed that there are integer number of residence times within one sample time. When that is not the case, the
-resulting is error is attributed to model structure error. Noting that $\lrf{\bullet}$ denotes moles and $\lrb{\bullet}$ denotes the concentration of the species, the molar conservation for the adsorption/desorption process can be written as:
+resulting is error is attributed to model structure error.
+\begin{align}
+    t_s &= n \tau
+    \label{eqn::ts_2_tau}
+\end{align}
+
+Noting that $\lrf{\bullet}$ denotes moles and $\lrb{\bullet}$ denotes the concentration of the species, the molar conservation for the adsorption/desorption process can be written as:
 
 \begin{align*}
     \mol{NH_3}^{ads} (k + \tau) &= \mol{NH_3}^{ads} (k) + A_{scr} \int_{0}^{\tau} \dot{\con{NH_3}}^{ads} (k) dt\\
@@ -130,4 +136,4 @@ $\con{NH_3}^{ads}(k + 1)$:
     &= \con{NH_3}^{ads}(k) + n \tau \Gamma k_{ads} \con{NH_3}^{in}(k) - n \tau \sigma(k) \lr{k_{ads} \con{NH_3}^{in}(k) + k_{des} + k_{scr} \con{NO_x}^{in}(k) + k_{oxi}}
 \end{align*}
 
-\input{secs/4_subs/sig_approx.tex}
+\input{\froot/secs/4_subs/sig_approx.tex}

@@ -1,41 +1,41 @@
-\subsection{$NH_3$ adsorption/desorption process dynamics}
+\subsection{$NH_3$ adsorption/desorption $\lr{\sigma}$ process dynamics}
 We have,
 \begin{align*}
         \sigma(k + 1) &= \sigma(k)
-        + n\tau k_{ads} \con{NH_3}^{in} \lr{\Gamma - \sigma(k)}
-        - n \tau \lr{k_{oxi} + k_{des}} \sigma(k)
-        - n \tau k_{scr} \con{NO_x}^{in}(k) \sigma(k) \\
+                        + t_s k_{ads} \con{NH_3}^{in} \lr{\Gamma - \sigma(k)}
+                        - t_s \lr{k_{oxi} + k_{des}} \sigma(k)
+                        - t_s k_{scr} \con{NO_x}^{in}(k) \sigma(k) \\
         %===
-        \implies x_3(k+1) &= x_3 + n \pmb \phi_{\tau, ur} \pmb \theta_{ads, ur} \lr{\Gamma - x_3}
-                                 - n \pmb \phi_{\tau} \pmb \theta_{od} x_3
-                                 - n \pmb \phi_{\tau} \pmb \theta_{scr} u_1 x_3
-                                 \qquad \lrb{\because \ref{eqn::k_sum}, \ref{eqn::tau_ki}, \ref{eqn::k_tau_urea}} \\
+        \implies x_3(k+1) &= x_3 + t_s \nu_u \pmb \phi_{ur}^T \pmb \theta_{ads} \lr{\Gamma - x_3}
+                                 - t_s \pmb \phi^T \pmb \theta_{od} x_3
+                                 - t_s \pmb \phi^T \pmb \theta_{scr} u_1 x_3
+                                 \qquad \lrb{\because \ref{eqn::k_sum}, \ref{eqn::tau_ki}, \ref{eqn::k_nh3}} \\
         %===
         &= x_3  \bm{1 &
-                   - \pmb \phi_{\tau, ur} &
-                   - \pmb \phi_\tau  &
-                   - u_1 \pmb \phi_{\tau}}
+                   - \pmb \phi_{ur}^T &
+                   - \pmb \phi^T  &
+                   - u_1 \pmb \phi^T}
         \bm{ 1\\
-            n \pmb \theta_{ads, ur}    \\
-            n \pmb \theta_{od}         \\
-            n \pmb \theta_{scr}}
-        + \pmb \phi_{\tau, ur} \lrf{n \Gamma \pmb \theta_{ads, ur} }
+            t_s \nu_u \pmb \theta_{ads}    \\
+            t_s \pmb \theta_{od}         \\
+            t_s \pmb \theta_{scr}}
+        + \pmb \phi_{ur} \lrf{t_s \nu_u \Gamma \pmb \theta_{ads} }
 \end{align*}
 Writing in linear regression form, let,
-\begin{align*}
-        \pmb \phi_3 &= \bm{1&
-                           - \pmb \phi_{\tau, ur} &
-                           - \pmb \phi_\tau  &
-                           - u_1 \pmb \phi_{\tau}} \\
-        \pmb \theta_3 &= \bm{1 \\
-                             n \pmb \theta_{ads, ur}    \\
-                             n \pmb \theta_{od}         \\
-                             n \pmb \theta_{scr}} , \qquad
-        \pmb \theta_\Gamma  = n \Gamma \pmb \theta_{ads, ur}
-\end{align*}
+\begin{align}
+        \pmb \phi_3^T &= \bm{1 &
+                   - \pmb \phi_{ur}^T &
+                   - \pmb \phi^T  &
+                   - u_1 \pmb \phi^T}   \\
+        \pmb \theta_3^T &= \bm{ 1 &
+                                t_s \nu_u \pmb \theta_{ads}^T &
+                                t_s \pmb \theta_{od}^T        &
+                                t_s \pmb \theta_{scr}^T} \\
+        \pmb \theta_\Gamma  &= t_s \nu_u \Gamma \pmb \theta_{ads}
+\end{align}
 Thus,
 \begin{align}
-        x_3(k+1) &= x_3 \pmb \phi_3^T \theta_3 + \pmb \phi_{\tau, ur} \pmb \theta_\Gamma
+        x_3(k+1) &= x_3 \pmb \phi_3^T \pmb \theta_3 + \pmb \phi_{ur}^T \pmb \theta_\Gamma
         \label{eqn::nh3_ads_regression}
 \end{align}
 

@@ -1,13 +1,12 @@
 \subsection{Urea Dosing Dynamics}
-We have,
-\begin{align*}
-        \con{NH_3}^{in}(k) &= \nu_u \underbrace{u_{inj}(k)}_{u_2} - \nu_T T - \nu_F F
-\end{align*}
+We have, from \ref{eqn::urea_inj}
 \begin{align}
-        \implies \con{NH_3}^{in}(k)  &= \pmb \phi_{ur}(k) ^T \pmb \theta_{ur}  \label{eqn::urea_parm}
+    \con{NH_3}^{in}(k) &= \nu_u \frac{u_{inj}}{F}
+    \label{eqn::urea_parm}
 \end{align}
-Where,
+where,
 \begin{align*}
-        \pmb \phi_{ur} &= \bm{u_{inj} & -T & -F}\\
-        \pmb \theta_{ur} &= \bm{\nu_u & \nu_T & \nu_F}
+    \nu_u &= 2 r_u t_s \rho_0\\
+    T_{min} &\leq T \leq T_{max}\\
+    F_{min} &\leq F \leq F_{max}
 \end{align*}

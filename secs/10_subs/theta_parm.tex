@@ -6,49 +6,17 @@ We have,
 \end{align*}
 
 We have the component parameter vectors that make up the parameter vectors $\pmb \theta_{f1}, \pmb \theta_{\Gamma 1}$:
-
 \begin{align*}
-        \pmb \theta_{scr} &= \bm{\tau_T m_{scr} &
-                                \tau_F m_{scr} &
-                                \lr{m_{scr} \tau_0 - \tau_T c_{scr}} &
-                                \tau_F c_{scr} &
-                                c_{scr}}^T
-        \\
-        \pmb \theta_{od}  &= \bm{\tau_T m_{od} &
-                                \tau_F m_{od} &
-                                \lr{m_{od} \tau_0 - \tau_T c_{od}} &
-                                \tau_F c_{od} &
-                                c_{od}}^T
-        \\
-        \pmb \theta_{ads} &= \bm{\tau_T m_{ads} &
-                                \tau_F m_{ads} &
-                                \lr{m_{ads} \tau_0 - \tau_T c_{ads}} &
-                                \tau_F c_{ads} &
-                                c_{ads}}^T
-        \\
-        \pmb \theta_{ads, ur} &= \mat{[\nu_u \theta_{ads}^T & | &
-                                        \nu_T \tau_T m_{ads} & \lr{\nu_T \tau_F + \nu_F \tau_T} m_{ads} &
-                                        \nu_T \lr{m_{ads} \tau_0 - \tau_T c_{ads}} & \hdots \\
-                                        & &
-                                        \nu_F \lr{m_{ads} \tau_0 - \tau_T c_{ads}} -\nu_T \tau_F c_{ads} &
-                                        \nu_T c_{ads} & \nu_F \tau_F m_{ads} & \hdots \\
-                                        & &
-                                        \nu_F \tau_F c_{ads} & \nu_F c_{ads}]}
-        \\
-        \pmb \theta_{\Gamma } &= n \Gamma \theta_{ads, ur}
-        \\
-        \pmb \theta_1 &= k_{s2v} \theta_{scr}
+        \pmb \theta_{f1}^T &= \bm{ t_s \nu_u \pmb \theta_{ads}^T &
+                                t_s \pmb \theta_{od}^T        &
+                                t_s \pmb \theta_{scr}^T} ^T
+\end{align*}
+\begin{align*}
+        \pmb \theta_{\Gamma 1} &= \Gamma t_s \nu_0 k_{s2v} \tau_0 \times \pmb \theta_{scr/ads}
+                                = \Gamma t_s \nu_0 k_{s2v} \tau_0 \times \bm{m_{scr/ads} & c_{scr/ads}}^T
 \end{align*}
 
-Thus,
 
-\begin{align*}
-        \pmb \theta_{f1} &= n \bm{\pmb \theta_{ads, ur}^T & \pmb \theta_{od}^T & \pmb \theta_{scr}^T}^T_{(23 \times 1)}\\
-        %===
-        \pmb \theta_{\Gamma 1} &= \pmb \theta_1 \kron \pmb \theta_\Gamma = n \Gamma k_{s2v} \lrf{ \pmb \theta_{scr} \kron \pmb \theta{ads, ur}}\\
-                        &= n \Gamma k_{s2v} \bm{\tau_T m_{scr} \pmb \theta_{ads, ur} \\
-                                                 \tau_F m_{scr} \pmb \theta_{ads, ur} \\
-                                                 \lr{m_{scr} \tau_0 - \tau_T c_{scr}} \pmb \theta_{ads, ur} \\
-                                                 \tau_F c_{scr} \pmb \theta_{ads, ur} \\
-                                                 c_{scr} \pmb \theta_{ads, ur} }_{(65 \times 1)}
-\end{align*}
+Thus, all the parameters are sensitive to changes in sampling rate. The parameters corresponding to the vector $\pmb \theta_{\Gamma 1}$ explicitly depend on the total available surface void concentration of the catalyst which changes with aging.
+
+Thus, this version of the linear parameter model has 8 parameters among which $6$ ($\pmb \theta_{f1})$ depend only on the reaction rates, sampling time. The rest $2$ ($\pmb \theta_{\Gamma 1}$) explicitly depend on the maximum void concentration which depends on the aging of the catalyst. The fidelity of the model can be improved by relaxing the approximations of the models of the physical properties such as residence time (make it a function of temperature as well) or the temperature model for rate constant (make it a quadratic temperature model instead of linear).

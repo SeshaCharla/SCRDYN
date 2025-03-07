@@ -6,24 +6,24 @@ We have:
     %===
     \implies x_2 (k+1) &= \con{NH_3}^{in} \lrf{1 - \tau k_{s2v}k_{ads} \lr{\Gamma - x_3}} + \tau k_{s2v} k_des x_3\\
                        &= \con{NH_3}^{in} - \con{NH_3}^{in} \tau k_{s2v}k_{ads} \lr{\Gamma - x_3} + \tau k_{s2v} k_{des} x_3\\
-                       &= \pmb \phi_{ur}^T \pmb \theta_{ur}
-                            - k_{s2v} \pmb \phi_{\tau, ur}^T \pmb \theta_{ads, ur} \lr{\Gamma - x_3}
-                            - k_{s2v} \pmb \phi_{\tau}^T \pmb \theta_{des} x_3
+                       &= \nu_u \frac{u_{inj}}{F}
+                            - k_{s2v} \pmb \phi_{\tau, ur}^T \lr{\tau_0 \nu_u \pmb \theta_{ads}} \lr{\Gamma - x_3}
+                            + k_{s2v} \pmb \phi_{\tau}^T \lr{\tau_0 \pmb \theta_{des}} x_3
                         \qquad \lrb{\because \ref{eqn::urea_parm}, \ref{eqn::k_tau_urea}, \ref{eqn::tau_ki}}\\
                         %===
-        &= \bm{\pmb \phi_{ur}^T & -\pmb \phi_{\tau, ur}^T }
-           \bm{\pmb \theta_{ur} \\  k_{s2v} \theta_{ads, ur}  \Gamma}
+        &= \bm{ \frac{u_{inj}}{F} & -\pmb \phi_{\tau, ur}^T }
+           \bm{ \nu_u  \\  \Gamma k_{s2v} \tau_0 \nu_u \pmb \theta_{ads}  }
            + x_3
-           \bm{\pmb \phi_{\tau, ur}^T & - \pmb \phi_{\tau}^T }
-           \bm{k_{s2v} \pmb \theta_{ads, ur} \\  k_{s2v} \theta_{des}}
+           \bm{\pmb \phi_{\tau, ur}^T & + \pmb \phi_{\tau}^T }
+           \bm{k_{s2v} \tau_0 \nu_u \pmb \theta_{ads} \\  k_{s2v} \tau_0 \pmb \theta_{des}}
 \end{align*}
 %==
 Writing in linear regression form, let,
 \begin{align*}
-    \pmb \phi_{20}^T &= \bm{\pmb \phi_{ur}^T & -\pmb \phi_{\tau, ur}^T } \qquad
-    \pmb \phi_2^T    = \bm{\pmb \phi_{\tau, ur}^T & - \pmb \phi_{\tau}^T } \\
-    \pmb \theta_{20} &= \bm{\pmb \theta_{ur} \\  k_{s2v} \theta_{ads, ur}  \Gamma} \qquad
-    \pmb \theta_2    = \bm{k_{s2v} \pmb \theta_{ads, ur} \\  k_{s2v} \theta_{des}}
+    \pmb \phi_{20}^T &= \bm{\frac{u_{inj}}{F} & -\pmb \phi_{\tau, ur}^T } \qquad
+    \pmb \phi_2^T    = \bm{\pmb \phi_{\tau, ur}^T & + \pmb \phi_{\tau}^T } \\
+    \pmb \theta_{20} &= \bm{\nu_u \\  \Gamma k_{s2v} \tau_0 \nu_u \pmb \theta_{ads}} \qquad
+    \pmb \theta_2    = \bm{k_{s2v} \tau_0 \nu_u \pmb \theta_{ads} \\  k_{s2v} \tau_0 \pmb \theta_{des}}
 \end{align*}
 %==
 Thus,

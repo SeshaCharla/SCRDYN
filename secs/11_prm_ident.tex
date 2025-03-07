@@ -1,0 +1,33 @@
+\newpage
+\section{Parameter Identification and Validation}
+
+Thus, the process model for $NO_x$ input and output dynamics is put into the regression form in equation
+\ref{eqn::final_simplified_regression}. Least-squares cannot be directly applied to the above regression model as the
+condition number of the resulting matrix is very high (order of $10^{18}$). This is due to the fact that individual
+elements of the $\pmb phi_r$ vector are of significantly different order of magnitudes. This numerical issue can be
+resolved by scaling the equation appropriately. It has also been verified that all the available data sets satisfy the weekly persistent excitation condition. Consider,
+\begin{align*}
+        y_r &= \pmb \phi_r^T \pmb \theta_{NO_x} + \varepsilon\\
+        \text{Let, } \qquad W &= diag \bm{w_1, w_2, \hdots, w_8}\\
+        \text{then, } \quad y_r &= \underbrace{\pmb \phi_r^T  W}_{\pmb \phi_rw}
+                        \underbrace{ W^{-1} \pmb \theta_{NO_x}}_{\pmb \theta_{wNO_x}} + \varepsilon\\
+        \implies y_r &= \pmb \phi_{rw} \pmb \theta_{w NO_x} + \varepsilon
+\end{align*}
+Thus, scaling the regressor in above fashion doesn't effect the model structure errors. The actual parameter vector $\pmb \theta_{NO_x}$ can be obtained by multiplying the scaling matrix to the estimate again.
+\begin{align*}
+        \hat{\pmb \theta}_{NO_x} &= W \hat{\pmb \theta}_{wNO_x}
+\end{align*}
+The elements of W are chosen such that the order of magnitude of each of the elements of $\pmb \phi_r$ are same as that of $\pmb y_r$.
+
+From the available test data, we have the elements of scaling matrix:
+\begin{table}[H]
+        \centering
+        \begin{tabular}{c c c c c c c c c c}
+                $w_0$ & $w_1$  & $w_2$     & $w_3$     & $w_4$     & $w_5$     & $w_6$  & $w_7$ \\
+                $1$   & $10^2$ & $10^{-3}$ & $10^{-1}$ & $10^{-4}$ & $10^{-2}$ & $10^2$ & $10^{4}$
+        \end{tabular}
+\end{table}
+
+These weights are used for both parameter estimation using the least-squares and the recursive least-squares. The one-step ahead prediction error for RLS and the clustering of parameter vectors in 2-D space based on aging level are presented in the next section.
+
+\input{\froot/secs/11_validation_results.tex}

@@ -4,15 +4,18 @@
 \input{ltx_core/ltx_pkgs.tex}
 \input{ltx_core/new_cmds.tex}
 
-\title{Nonlinear ARMAX model development for Urea SCR-ASC dynamics}
+\title{Discrete Nonlinear model development for Urea SCR-ASC dynamics}
 \author{Sesha Charla}
 \date{\today}
 
+\addbibresource{\froot/refs.bib}
 
 \begin{document}
 \maketitle
 \tableofcontents
 
+\newpage
+\input{secs/0_abstract.tex}
 % ==============================================================================
 \newpage
 \input{secs/0-symb_list.tex}
@@ -20,19 +23,19 @@
 \newpage
 \input{secs/1_intro.tex}
 \input{secs/2_reactions.tex}
+\input{secs/8_data_interp.tex}
 \input{secs/3_res_time.tex}
 \input{secs/4_NH3ads_proc_dyn.tex}
 \input{secs/5_NOx_proc_dyn.tex}
 \input{secs/6_NH3_proc_dyn.tex}
 \input{secs/7_urea_dosing_proc_dyn.tex}
-\input{secs/8_data_interp.tex}
-\input{secs/9_proc_dyn_mdl.tex}
-\input{secs/10_r_nox_mdl.tex}
+\input{secs/12_NOx_r_mdl.tex}
+\input{secs/14_catalyst_saturation.tex}
+\input{secs/15_validation.tex}
+\input{secs/n-1_Conclusion.tex}
 %===============================================================================
 \newpage
-\nocite{}
-\bibliographystyle{unsrt}
-\bibliography{refs}
+\printbibliography
 % ==============================================================================
 % \newpage
 % \input{secs/n_appendix.tex}
