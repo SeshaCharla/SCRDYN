@@ -1,0 +1,18 @@
+\subsubsection{Physical Interpretation of the Model Parameters}
+We have the parameter vector can be written in the portioned form as follows:
+\begin{align*}
+\bm{ t_s \nu_u \pmb \theta_{ads} \\
+     t_s \pmb \theta_{od}        \\
+     t_s \pmb \theta_{scr}      \\
+     \Gamma t_s \nu_u k_{s2v} \tau_0 \pmb \theta_{scr/ads}
+} \qquad \text{Where, } \qquad
+\mat{
+        ads & - & \text{Ammonia Adsorption} \\
+        od  & - & \text{Ammonia oxidation and desorption} \\
+        scr & - & \text{SCR reaction} \\
+        scr/ads & - & \text{Ammonia storage change} \\
+}
+\end{align*}
+Each of the partitions correspond to the rate constant of a particular reaction $i = ads, od, scr$ and $scr/ads$. The two components of the vector $\pmb \theta_i$ are the temperature dependent ($m$) and the temperature independent ($c$).
+
+Intuition dictates that these vector should 'cluster' based on the aging level of the catalyst especially the ammonia adsorption and the ammonia storage change. Degreened catalyst will have a larger 'capacity' to adsorb gaseous ammonia thus the magnitude of the $t_s \nu_u \pmb \theta_{ads}$ vector should be higher than the aged catalyst. Similarly, the aged catalyst has a lower magnitude of $\Gamma$, the surface concentration of available voids, thus have a lower magnitude of $\Gamma t_s \nu_u k_{s2v} \tau_0 \pmb \theta_{scr/ads}$ than a degreened catalyst.
