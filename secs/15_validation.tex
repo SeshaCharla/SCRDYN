@@ -1,7 +1,7 @@
 \newpage
 \section{Model Validation: Simulation Results}
 
-The full nonlinear hybrid model is simulated with the initial conditions alone and the inputs ($u_1, u_2, F$ and $T$). The switching condition is not currently clear but assuming the goal of controller is to maximize the performance of the catalyst, the guard condition for switching to the saturated model is chosen to be the maximum $NO_x$ reduction among the saturated and desaturated model. The hybrid automata for the system presented in the figure~\ref{fig::hybrid_automata}.
+The full nonlinear hybrid model is simulated with the initial conditions alone and the inputs ($u_1, u_2, F$ and $T$). The switching condition is not currently clear but assuming the goal of controller is to maximize the performance of the catalyst, the guard condition for switching to the saturated model is chosen to be the maximum $NO_x$ reduction among the saturated and desaturated models that is closed to the inlet $NO_x$. The hybrid automata for the system presented in the figure~\ref{fig::hybrid_automata}.
 
 \begin{figure}[H]
         \centering
@@ -35,7 +35,12 @@ We have the equations describing the hybrid model equation:
                 u_1 &\geq u_{1_{min}}
 \end{align*}
 
-\item The guard conditions for switching are still a work in progress.
+\item The guard conditions for switching are still a work in progress. For the present work, the conditions is based on the objective of the closed-loop urea-dosing control system, i.e., maximizing $NO_x$ reduction at every time-step.
+\begin{align*}
+        \text{Saturated, if:} & \abs{u_1(k-1) - \eta_{sat}(k)} \leq \abs{u_1(k-1) - \eta(k)}
+        \text{Desaturated, if:} & \abs{u_1(k-1) - \eta(k)} \leq \abs{u_1(k-1) - \eta_{sat}(k)}
+\end{align*}
 \end{itemize}
+
 
 \input{\froot/secs/15_subs/results.tex}
