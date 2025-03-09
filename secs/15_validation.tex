@@ -5,7 +5,7 @@ The full nonlinear hybrid model is simulated with the initial conditions alone a
 
 \begin{figure}[H]
         \centering
-        \includegraphics[width=0.9\textwidth]{\froot/figs/15_figs/hybrid_model.png}
+        \includegraphics[width=0.75\textwidth]{\froot/figs/15_figs/hybrid_model.png}
         \caption{Hybrid automata describing the SCR-ASC system}
         \label{fig::hybrid_automata}
 \end{figure}
@@ -37,7 +37,7 @@ We have the equations describing the hybrid model equation:
 
 \item The guard conditions for switching are still a work in progress. For the present work, the conditions is based on the objective of the closed-loop urea-dosing control system, i.e., maximizing $NO_x$ reduction at every time-step.
 \begin{align*}
-        \text{Saturated, if:} & \abs{u_1(k-1) - \eta_{sat}(k)} \leq \abs{u_1(k-1) - \eta(k)}
+        \text{Saturated, if:} & \abs{u_1(k-1) - \eta_{sat}(k)} \leq \abs{u_1(k-1) - \eta(k)} \\
         \text{Desaturated, if:} & \abs{u_1(k-1) - \eta(k)} \leq \abs{u_1(k-1) - \eta_{sat}(k)}
 \end{align*}
 \end{itemize}
