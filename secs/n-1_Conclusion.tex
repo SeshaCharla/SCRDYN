@@ -5,7 +5,7 @@ first principles. Rather than relying on spatial discretization with multiple CS
 
 \begin{enumerate}
         \item Interplay between residence time and sampling time, ensuring the model captures dynamic effects within observable time scales.
-        \item Higher-order polynomial and reciprocal models for physical properties, including residence time and temperature-dependent rate constants, improving model accuracy. These include the detailed sensitivity analysis w.r.t the relative changes in the quantities.
+        \item Higher-order polynomial and reciprocal models for physical properties, including residence time and temperature-dependent rate constants, improving model accuracy. A detailed sensitivity analysis w.r.t the relative changes in the quantities validating the assumptions is also presented where-ever possible.
         \item Catalyst saturation and desaturation dynamics, by explicitly modeling $NO_x$ reduction dynamics under each condition, and implementing a switching mechanism between these states.
 \end{enumerate}
 
@@ -13,7 +13,7 @@ The parameters of the developed hybrid model are uniquely identifiable from data
 Specifically, the parameters of the saturated model are estimated by solving a linear programming problem that minimizes
 the area under the "$NO_x$ reduction per time step under saturation" curve, with a lower bound set by actual $NO_x$
 reduction observed in the data. The identified saturated model is then used to detect catalyst desaturation segments,
-which inform the parameter estimation of the desaturated model.
+which are then used for parameter estimation of the desaturated model.
 
 Finally, validation against test data demonstrates a significant improvement in capturing system dynamics compared to
 traditional linear CSTR models from the literature. The enhanced model accuracy confirms the effectiveness of the
@@ -39,9 +39,9 @@ consistent representation of SCR-ASC dynamics.
 
 Another issue involved the parameter estimation. The nonlinear CSTR model not only involved a large number of parameters
 but also resulted in a non-convex estimation problem. In contrast, the linearized CSTR model simplified the problem by
-producing convex lumped parameters, but it introduced the issues discussed earlier. The discrete model developed in this
-work, however, uses polynomial approximations for exponential terms, making the system linear in parameters and ensuring
-a more parsimonious and identifiable model.
+producing convex lumped parameters, but its validity was limited to lower frequency region. The discrete model developed
+in this work, however, uses polynomial approximations for exponential terms, making the system linear in parameters and
+ensuring a more parsimonious and identifiable model.
 
 The initial parametrization approach of the model included states that were not directly measurable, particularly the
 surface concentration of adsorbed ammonia. The first approach to address this was through a multi-rate estimation

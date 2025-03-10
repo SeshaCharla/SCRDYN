@@ -1,11 +1,11 @@
 \subsection{Modelling using average concentration change of $NO_x$ in a sample}
-$\eta$ denote the change in concentration from the inlet to outlet in the $NO_x$ in one sample. This is the change in concentration in the exhaust due to the $NO_x$ reduction.
+\itbf{Let, $\eta$ denote the change in concentration from the inlet to outlet $NO_x$ in one sample}. This is the change in concentration in the exhaust due to the $NO_x$ reduction.
 %
 \begin{align}
         \eta(k) &= \con{NO_x}^{in}(k-1) - \con{NO_x}^{out}(k) = u_1(k-1) - x_1(k)
 \end{align}
 %
-Thus, rewriting the $NO_x$ process dynamics (\ref{eqn::nox_avg}) interms of $\eta$, we have,
+Thus, rewriting the $NO_x$ process dynamics (\ref{eqn::nox_avg}) in terms of $\eta$, we have,
 \begin{align}
         \eta(k+1) &= \tau(k) k_{s2v} k_{scr}(k) u_1(k) \sigma(k)\\
         %===
@@ -18,7 +18,7 @@ The above equation (\ref{eqn::sigma_elim}) can be used to eliminate the unknown 
         \sigma(k+1) = \sigma(k) - \sigma(k) t_s k_{ads}(k) \con{NH_3}^{in}(t)
                         - \sigma(k) t_s k_{scr}(k) u_1(k)
                         - \sigma(k) t_s k_{od}(k)
-                        \\ + \Gamma(k) t_s k_ads(k) \con{NH_3}^{in}(k)
+                        \\ + \Gamma(k) t_s k_{ads}(k) \con{NH_3}^{in}(k)
 \end{multline}
 writing the above equation for $\sigma(k)$:
 \begin{multline*}
@@ -33,8 +33,11 @@ Let,
                         -  t_s k_{scr}(k-1) u_1(k-1)
                         -  t_s k_{od}(k-1)}
         \label{eqn::gamma_proc}
+        \\
+        \implies \sigma(k) &= \sigma(k-1) \gamma_{proc}(k-1) + \Gamma(k-1) t_s k_{ads}(k-1) \con{NH_3}^{in}(k-1)
+        \label{eqn::sig_gamma_proc}
 \end{align}
-Using equation (\ref{eqn::sigma_elim}),
+Eliminating $\sigma(k)$ and $\sigma(k-1)$ form the above equation (\ref{eqn::sig_gamma_proc}) using equation (\ref{eqn::sigma_elim}):
 \begin{multline*}
         \frac{\eta(k+1)}{\tau(k) k_{s2v} k_{scr}(k) u_1(k)}
         = \frac{\eta(k)}{\tau(k-1) k_{s2v} k_{scr}(k-1) u_1(k-1)} \times \gamma_{proc}(k-1)\\
@@ -57,7 +60,7 @@ Explicitly writing the individual terms:
                 &-\eta(k) \lrb{\frac{\tau(k)}{\tau(k-1)}}
                                 \lrb{\frac{u_1(k)}{u_1(k-1)}}
                                 \lrb{\frac{k_{scr}(k)}{k_{scr}(k-1)}}
-                t_s k_{ads}(k-1) \con{NH_3}^{in}(t-1)
+                t_s k_{ads}(k-1) \con{NH_3}^{in}(k-1)
                 \\
                 &-\eta(k) \lrb{\frac{\tau(k)}{\tau(k-1)}}
                                 \lrb{\frac{u_1(k)}{u_1(k-1)}}
@@ -69,7 +72,7 @@ Explicitly writing the individual terms:
                                 \lrb{\frac{k_{scr}(k)}{k_{scr}(k-1)}}
                 t_s k_{od}(k-1)
                 \\
-                &+ t_s k_{s2v} \times \lrf{\Gamma(k-1) \tau(k) u_1(k) \con{NH_3}^{in}} \times \lr{k_{scr}(k) k_{ads}(k-1)}
+                &+ t_s k_{s2v} \times \lrf{\Gamma(k-1) \tau(k) u_1(k) \con{NH_3}^{in}(k-1)} \times \lr{k_{scr}(k) k_{ads}(k-1)}
 \end{align*}
 \begin{equation}
        \label{eqn::nox_reduction_govern}
@@ -85,7 +88,7 @@ The above equation can be simplified using the following two assumptions:
                 k_{scr}(k) k_{ads}(k-1) &\approx k_{scr}(k-1) k_{ads}(k-1)  = A_{scr}A_{ads} \exp\lrf{\frac{E_{scr}+E_{ads}}{R T(k-1)}} = k_{scr/ads}(k-1)
         \end{align}
 \end{itemize}
-Incorporating the above assumptions we have the dynamic model for change in concentration due $NO_x$ reduction:
+Incorporating the above assumptions we have the dynamic model for change in concentration due to $NO_x$ reduction:
 \begin{align*}
          \eta(k+1) =& \eta(k) \lrb{\frac{\tau(k)}{\tau(k-1)}}
                                 \lrb{\frac{u_1(k)}{u_1(k-1)}}

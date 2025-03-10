@@ -35,12 +35,12 @@ The discrete nonlinear recursive model that is linear in parameters can be deriv
                 \end{multline}
         \item By summing the equations from (\ref{eqn::nox_bal}) for  $i = 0$ to $n-1$, where $n$ is the total number of residence times within one sampling period $(= t_s/\tau)$, we get the relation between the total moles of $NO_x$ that entered, reduced and left the SCR-ASC chamber. Finally, writing the equation in-terms of the inlet and outlet concentrations we get the equation relating inlet and outlet concentrations at the end of sampling period as:
                 \begin{multline}
-                        \underbrace{\con{NO_x}^{in}}_{x_1}(t + t_s) =
+                        \underbrace{\con{NO_x}^{out}}_{x_1}(t + t_s) =
                                 \underbrace{\con{NO_x}^{in}}_{u_1}(t) + \tau(t) k_{s2v} k_{scr}(t) \con{NO_x}^{in}(t) \underbrace{\lrf{\frac{1}{n} \sum_{i = 0}^{n-1} \con{NH_3}^{ads}(t + i \tau)}}_{\sigma}
                         \label{eqn::nox_avg}
                 \end{multline}
 
-        \item The dynamics of $\sigma$, the average surface concentration of adsorbed ammonia on the catalyst for the given sampling period, can be obtained by summing the equations from (\ref{eqn::ads_bal}) for $i = 0$ to $n-1$ which is the sampling period. This results in a telescopic cancellation of the terms resulting in an equation relating the moles in the current sample to the moles in the next sample. We have,
+        \item The dynamics of $\sigma$, the average surface concentration of adsorbed ammonia on the catalyst for the given sampling period, can be obtained by summing the equations from (\ref{eqn::ads_bal}) for $i = 0$ to $n-1$ which is the sampling period. This results in a telescopic cancellation of the terms resulting in an equation relating the moles in the current sample to the moles in the next sample (section-\ref{sec::sigma_deriv}). We have,
                 \begin{multline}
                         \sigma(t + t_s) = \sigma(t) - \sigma(t) t_s \lrf{k_{ads}(t) \con{NH_3}^{in}(t)
                                                                                 + k_{scr}(t) \con{NO_x}^{in}(t)
@@ -72,7 +72,7 @@ The discrete nonlinear recursive model that is linear in parameters can be deriv
                                 \lrb{\frac{k_{scr}(k)}{k_{scr}(k-1)}}
                 t_s k_{od}(k-1)
                 \\
-                &+ t_s k_{s2v} \times \lrf{\Gamma(k-1) \tau(k) u_1(k) \con{NH_3}^{in}} \times \lr{k_{scr}(k) k_{ads}(k-1)}
+                &+ t_s k_{s2v} \times \lrf{\Gamma(k-1) \tau(k) u_1(k) \con{NH_3}^{in}(k-1)} \times \lr{k_{scr}(k) k_{ads}(k-1)}
 \end{align*}
 \begin{equation}
                 \label{eqn::disc_NOx}
