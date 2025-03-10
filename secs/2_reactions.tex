@@ -33,11 +33,13 @@ The following lists all the reactions that take place inside the SCR-ASC chamber
                         & &[\text{NO oxidation}]
 \end{align*}
 
-The Eley-Rideal reaction mechanism \cite{yuan2015diesel}, \cite{hsieh2011development}, \cite{nova2014urea} is considered
-for interpreting the SCR reactions, where one reactant $(NO_x)$ is gaseous, and the other is adsorbed on the catalyst
-surface $(NH_3)$.
+Note that ammonia oxidation (AMOX) happens both on the surfaces of the SCR catalyst and the ASC catalyst in the
+mechanism that is similar, but SCR catalyst favors $NO_x$ reduction while ASC is specifically designed for ammonia
+oxidation. The Eley-Rideal reaction mechanism \cite{yuan2015diesel}, \cite{hsieh2011development}, \cite{nova2014urea} is
+considered for interpreting the SCR reactions, where one reactant $(NO_x)$ is gaseous, and the other is adsorbed on the
+catalyst surface $(NH_3)$.
 
-Further, in order to keep the model order reasonably low, only the following three reactions are considered:
+Further, in order to keep the model order reasonably low, only the following three prominent reactions are considered:
 \begin{enumerate}
     \item Standard SCR reaction:
     \begin{align}
@@ -86,7 +88,7 @@ Using second-order Taylor series approximation, the expression for rate constant
     k(T) &\approx k(T_0) + k'(T_0) (T - T_0) + \frac{1}{2} k''(T_0) (T - T_0)^2\\
     \text{Let,} \qquad
     &m + 2qT_0 = k'(T_0) = \lr{\frac{AE}{RT_0^2}} e^{-\frac{E}{RT_0}} \\
-    &q = k''(T_0) = \lr{\frac{A E^2}{R^2 T_0^4} - \frac{A E}{2 R T_0^3}} e^{-\frac{E}{RT_0}} \\
+    &2 q = k''(T_0) = \lr{\frac{A E^2}{R^2 T_0^4} - \frac{A E}{2 R T_0^3}} e^{-\frac{E}{RT_0}} \\
     \implies k(T) &\approx k(T_0) + \lr{m + 2qT_0} (T - T_0) + q (T - T_0)^2
                    = q T^2 + m T + \underbrace{\lr{ -  q T_0^2 - mT_0  + k(T_0)}}_c
 \end{align*}
@@ -107,11 +109,11 @@ Thus, we can have a quadratic approximation model for the rate constant:
 
 The ammonia oxidation (AMOX) reactions are similar on SCR and ASC catalysts. First, the gaseous ammonia adsorbs onto the
 catalyst system. Then, the adsorbed ammonia oxidizes into $N_2$ or $NO_x$ based on the temperature and other conditions.
-As the AMOX reactions on both the catalysts are similar, it is not possible to distinguish the origin of the products
+As the AMOX reactions on both catalysts are similar, it is not possible to distinguish the origin of the products
 from the outlet measurements alone unless measurements between SCR and ASC sections are available.
 
-Thus, oxidation of adsorbed ammonia on both SCR and ASC catalysts can be  combined into a single reaction, lumping the
-rates constants and concentrations of the products into parameters and states of a single oxidation reaction. Further
+Thus, oxidation of adsorbed ammonia on both SCR and ASC catalysts can be combined into a single reaction, lumping the
+rate constants and concentrations of the products into parameters and states of a single oxidation reaction. Further
 the nitrogen selectivity of that single AMOX reaction is assumed to be $100\%$. This is valid for temperatures greater
 than $225 \lx{^o}{C}$ \cite{jain2023diagnostics}, i.e., the temperature range of interest for most of the test and road
 conditions.
