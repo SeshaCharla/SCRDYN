@@ -6,7 +6,7 @@ defined as the ratio of the volume of the reactor to the volumetric flow rate of
 \begin{align}
     \tau = \frac{V}{f_v}
 \end{align}
-
+%===
 The actual residence time of the fluid inside the reactor follows a distribution based on the type of the reacting flow
 (PFR, CSTR, etc) with mean as the mean residence time $(\tau)$.
 
@@ -27,19 +27,16 @@ Thus, we have the mean residence time as:
 \begin{align}
     \tau &= \frac{V}{f_v} = \frac{\rho V}{F} = \frac{6.75 \times 10^{-4} \times 25013.543}{196} = 0.086 \, s
 \end{align}
-
 % ==============================================================================
-
-The above calculations show that the mean residence time is around $0.1 \, s$ which is half that of the sampling time of
-the test-cell data (0.2 s) and one-tenth of the sampling time ($\Delta t$) of the truck data (1 s). This implies that
-the measurement signal of the gas concentrations don't capture the reaction transients that generally occur at the time
+The above calculations show that the mean residence time is around $0.1 \, s$, which is half that of the sampling time
+of the test-cell data (0.2 s) and one-tenth of the sampling time ($\Delta t$) of the truck data (1 s). This implies that
+the measurement signals of the gas concentrations don't capture the reaction transients that generally occur at the time
 scales  that are less than the mean residence time. This also prompts us to develop an "averaged" nonlinear ARMAX model
 for the system that captures the dynamics of the system at the time scales of the sampling time while capturing the
 integrating (and/or memory) effects of the catalyst storage at the end of each residence time within the sample.
-
 % ==============================================================================
 \begin{table}[H]
-\caption{Mean residence time of individual data sets}
+\caption{Mean residence times of individual data sets}
 \begin{minipage}{0.49\textwidth}
 \begin{table}[H]
     \centering
