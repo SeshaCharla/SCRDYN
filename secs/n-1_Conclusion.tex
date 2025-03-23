@@ -1,6 +1,6 @@
 \newpage
 \section{Concluding Remarks}
-This work developed a uniquely identifiable parametric hybrid nonlinear model structure for SCR-ASC dynamics based on
+This work developed a uniquely identifiable parametric switched nonlinear model structure for SCR-ASC dynamics based on
 first principles. Rather than relying on spatial discretization with multiple CSTR cells, the approach focused on modeling the temporal evolution of key species concentrations using molar conservation principles. The model explicitly accounts for:
 
 \begin{enumerate}
@@ -9,11 +9,11 @@ first principles. Rather than relying on spatial discretization with multiple CS
         \item Catalyst saturation and desaturation dynamics, by explicitly modeling $NO_x$ reduction dynamics under each condition, and implementing a switching mechanism between these states.
 \end{enumerate}
 
-The parameters of the developed hybrid model are uniquely identifiable from data using convex optimization techniques.
-Specifically, the parameters of the saturated model are estimated by solving a linear programming problem that minimizes
-the area under the "$NO_x$ reduction per time step under saturation" curve, with a lower bound set by actual $NO_x$
-reduction observed in the data. The identified saturated model is then used to detect catalyst desaturation segments,
-which are then used for parameter estimation of the desaturated model.
+The parameters of the developed nonlinear model are uniquely identifiable from data using convex optimization
+techniques. Specifically, the parameters of the saturated model are estimated by solving a linear programming problem
+that minimizes the area under the "$NO_x$ reduction per time step under saturation" curve, with a lower bound set by
+actual $NO_x$ reduction observed in the data. The identified saturated model is then used to detect catalyst
+desaturation segments, which are then used for parameter estimation of the desaturated model.
 
 Finally, validation against test data demonstrates a significant improvement in capturing system dynamics compared to
 traditional linear CSTR models from the literature. The enhanced model accuracy confirms the effectiveness of the
@@ -47,8 +47,8 @@ The initial parametrization approach of the model included states that were not 
 surface concentration of adsorbed ammonia. The first approach to address this was through a multi-rate estimation
 method. However, it was later discovered that the surface concentration state could be algebraically eliminated by
 introducing recursion into the model. This led to the definition of a new state, $\eta(k) = u_1(k-1) - x_1(k)$, which
-represents the change in $NO_x$ concentration due to reduction over a given time step. This recursive dynamic model’s
+represents the change in $NO_x$ concentration due to reduction over a given time step. This recursive dynamic model's
 parameters were identifiable using the available measurements.
 
 Finally, catalyst saturation was explicitly introduced, and its model parameters were identified using a linear
-programming approach, resulting in a hybrid nonlinear model that switches between saturation and desaturation.
+programming approach, resulting in a switched nonlinear model that switches between saturation and desaturation.
