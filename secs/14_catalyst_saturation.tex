@@ -117,14 +117,14 @@ Effectively we are minimizing the area under the curve of the parametrized satur
 constraints of the actual system dynamics. This results in the tightly upper bound curve that describes the dynamics of
 the system which is always saturated.
 
-It has to be noted that the upper bound of the actual change in concentration due to $NO_x$ reduction $(\eta(k))$ is the inlet concentration of $NO_x$ $(u_1(k-1))$.
+The upper bound of the actual change in concentration due to $NO_x$ reduction $(\eta(k))$ is the inlet concentration of $NO_x$ $(u_1(k-1))$.
 
 %===
 Writing the equation (\ref{eqn::eta_max_min}) in terms of the tail-pipe $NO_x$ concentration,
 \begin{align}
         x_1(k+1) &= \max \lrf{0, u_1(k) - \max \lrf{ 0, \min \lrf{f_{\sigma}(k), f_{\Gamma}(k)}}}
 \end{align}
-The above equation also accounts for the case where more $NO_x$ reduction is possible but the inlet $NO_x$ is lower.
+The above equation also accounts for the case when more $NO_x$ reduction is possible but the inlet $NO_x$ is lower.
 %===
 Thus, the tailpipe $NO_x$ dynamics are bounded by:
 \begin{align}
