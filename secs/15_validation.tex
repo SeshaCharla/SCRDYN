@@ -34,13 +34,22 @@ We have the equations describing the switched nonlinear dynamics:
                 u_1 &\geq u_{1_{min}}
 \end{align*}
 
-\item The guard conditions for switching are still a work in progress. For the present work, the conditions is based on the objective of the closed-loop urea-dosing control system, i.e., maximizing $NO_x$ reduction at every time step.
+\item The guard conditions for switching are still a work in progress. For the present work, the conditions are based on the objective of the closed-loop urea-dosing control system, i.e., maximizing $NO_x$ reduction at every time step.
 \begin{align*}
         \text{Saturated, if:} & \underbrace{\abs{\eta_{sat}(k) - u_1(k-1)}}_{\abs{{x_{1_{sat}}(k)}}} \leq \delta_w
                                 \leq \underbrace{\abs{\eta(k) - u_1(k-1)}}_{\abs{x_1(k)}} \\
-        \text{Desaturated, if:} & \underbrace{\lr{ \eta(k) - u_1(k-1)}}_{x_{1_{sat}}(k)} > \underbrace{\lr{\eta_{sat}(k) - u_1(k-1)}}_{x_1(k)}
+        \text{Desaturated, if:} & \underbrace{\lr{ \eta_{sat}(k) - u_1(k-1)}}_{x_{1_{sat}}(k)} > \underbrace{\lr{\eta(k) - u_1(k-1)}}_{x_1(k)}
 \end{align*}
 \end{itemize}
 
+The control law maximizes the $NO_x$ reduction in a given time-step $(\eta(k))$. At any given time-step the maximum
+possible $NO_x$ reduction is bounded by $\eta_{sat}(k)$ and $u(k-1)$. $\eta_{sat}(k)$ because the saturated catalyst
+reduces maximum $NO_x$. And, $u_1(k-1)$ because we cannot have more $NO_x$ reduction in a given time-step than the
+amount of $NO_x$ that has entered.
+
+Under the above stated conditions, it is logical to assume that the catalyst is in the state (saturated/desaturated)
+which produces the closest $NO_x$ reduction ($\eta(k)$) to the inlet $NO_x$ concentration $(u_1(k-1))$. This condition,
+stated in the above equations while considering the uncertainties inherent to $\eta_{sat}$ estimation, can be used for
+switching between saturated and desaturated catalyst states.
 
 \input{\froot/secs/15_subs/results.tex}
