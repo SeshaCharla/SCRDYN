@@ -20,7 +20,7 @@ traditional linear CSTR models from the literature. The enhanced model accuracy 
 proposed approach in representing SCR-ASC dynamics and provides a strong foundation for improved diagnostics in diesel
 after-treatment systems.
 
-
+% ======================================================================================================================
 \subsection{A review of the problems identified and solved}
 
 \begin{figure}[H]
@@ -52,3 +52,27 @@ parameters were identifiable using the available measurements.
 
 Finally, catalyst saturation was explicitly introduced, and its model parameters were identified using a linear
 programming approach, resulting in a switched nonlinear model that switches between saturation and desaturation.
+
+
+% ======================================================================================================================
+\subsection{Current work in the context of OBD tool development}
+
+To the author's knowledge, the signal processing development process generally progresses through three stages:
+\begin{enumerate}
+        \item \textbf{Modeling and Algorithm Development}: This stage involves foundational research to establish a
+                feasible approach for the proposed work. It includes mathematical modeling, validation through
+                simulation and experimental data, and the development of algorithms necessary to achieve the desired
+                objectives.
+
+        \item \textbf{Initial System Design}: The goal of this stage is to produce a detailed algorithmic description of
+                the process. It also involves a reverse analysis—determining what level of functionality is achievable
+                given the constraints of the hardware and measurement system. Insights gained at this stage often inform
+                refinements to the modeling and algorithm development step, making this an iterative process.
+
+        \item \textbf{Final System Design}: This stage focuses on the implementation of the developed algorithm on the
+                target hardware platform.
+\end{enumerate}
+The current work is an attempt on iterative refinement across the first two stages of this development process.
+Limitations imposed by the hardware and measurement systems—particularly the relationship between residence time and
+sampling interval—have influenced the model development strategy. The final model was validated using data collected
+from a test cell. The final objective of the present work is to progress through all three stages of this development process to realize a fully functional OBD tool.
